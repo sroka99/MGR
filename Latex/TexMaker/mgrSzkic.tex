@@ -1,0 +1,1117 @@
+\documentclass[a4paper,twoside,11pt,reqno]{mwrep}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[table]{xcolor}%dodane
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pakiety matematyczne
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ustawienia wymiarów strony
+\usepackage{geometry}
+ \geometry{
+    paper=a4paper,
+    inner=30mm,         % Inner margin
+    outer=20mm,         % Outer margin
+    %bindingoffset=10mm, % Binding offset
+    nohead,
+    top=20mm,           % Top margin
+    bottom=25mm,        % Bottom margin
+    }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% komenda dodająca pustą stronę
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% wprowadzenie środowisk dla twierdzeń, lematów, definicji i wnisoków
+% Uwaga: można zastosować własne nazwy w miejsce thm, lem, defn i rem
+\theoremstyle{plain} \newtheorem{twr}{Twierdzenie}
+\theoremstyle{plain} \newtheorem{lem}{Lemat}
+\theoremstyle{definition} \newtheorem{defi}{Definicja}
+\theoremstyle{remark} \newtheorem*{wni}{Wniosek}
+\theoremstyle{definition} \newtheorem{uwaga}{Uwaga}
+\theoremstyle{definition}\newtheorem{prz}{Przykład}
+\newenvironment{dowod}{\par\vspace{0.1cm}\par{\sc Dowód.}}{\hfill $\blacksquare$\par\vspace{0.4cm}\par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Informacje na stronę tytułową
+\newcommand{\autor}{\fontfamily{qhv}\fontshape{sf}\selectfont\LARGE\bfseries
+Szymon Sroka} % Wpisz swoje imię i nazwisko
+%
+\newcommand{\album}{\fontfamily{qhv}\fontshape{sf}\selectfont
+130471}% Wpisz swój numer albumu
+%
+\newcommand{\pltitle}{\fontfamily{qhv}\fontshape{sf}\selectfont\LARGE\bfseries
+Kwaterniony, obroty i animacje komputerowe} % Wpisz tytuł swojej pracy po polsku
+%
+\newcommand{\engtitle}{\fontfamily{qhv}\fontshape{sf}\selectfont\LARGE\bfseries
+Selected theorems on linear capacity of matrix sets} %  Wpisz tytuł swojej pracy po angielsku
+%
+\newcommand{\level}{\fontfamily{qhv}\fontshape{sf}\selectfont\large
+magisterska} % Wybierz odpowiednie określenie
+%
+\newcommand{\promotor}{\fontfamily{qhv}\fontshape{sf}\selectfont\large\bfseries
+dra Marcina Skrzyńskiego} % Wpisz odpowiednie dane. Pamiętaj o, że nazwiska w jezyku polskim odmieniają się przez przypadki. Użyj
+% dopełniacza.
+%
+\newcommand{\recenzent}{\fontfamily{qhv}\fontshape{sf}\selectfont\large\bfseries
+dr hab. Ihor Mykytyuk, prof. PK} % Wybierz odpowiednie dane
+%
+\newcommand{\rok}{\fontfamily{qhv}\fontshape{sf}\selectfont
+2023} % Wpisz rok złożenia pracy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Strona tytułowa
+ \begin{titlepage}
+ \thispagestyle{empty}
+ \vspace*{3ex}
+\fontfamily{qhv}\fontshape{sf}\selectfont
+\hspace{-1.3em}\parbox{0.15\textwidth}{\includegraphics[height=0.15\textwidth]{logoPK.png}}
+\parbox[c]{0.7\textwidth}
+{\centering
+\LARGE
+{\bfseries Politechnika Krakowska}\\
+{\bfseries im. Tadeusza Kościuszki}\\
+
+\smallskip
+
+\LARGE Wydział Informatyki i Telekomunikacji}\hspace{0.3em}
+ \parbox{0.2\textwidth}{\includegraphics[width=0.15\textwidth]{logoIT.png}}%\hspace{0.12em}
+\parbox[c]{0.15\textwidth}
+
+\vspace{2ex}
+
+ \vspace{0.13\textheight}
+
+ \center{\autor}
+ \smallskip
+ \center{\large numer albumu: \album}
+
+\vspace*{3ex}
+
+ \center{\pltitle}
+ 
+ \smallskip
+
+ \center{\engtitle}
+
+ \bigskip
+
+ \center{\large praca \level \\
+ na kierunku Matematyka} 
+
+\vspace{0.18\textheight}
+
+
+\hspace{0.4\textwidth} \parbox{0.5\textwidth}{Praca przygotowana pod
+kierunkiem
+\\
+%
+\bfseries \promotor}
+
+
+\vspace{0.03\textheight}
+
+\hspace{0.4\textwidth} \parbox{0.5\textwidth}{Recenzent pracy: 
+\\
+% 
+\recenzent }
+
+%\vspace{0.03\textheight}
+\vspace{0.1\textheight}
+ % wpisać rok
+ \center{Kraków \rok}
+ \end{titlepage}
+\newpage
+\blankpage
+
+
+% Spis treści
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+% Poniższą komendę należy usunąć, jeżeli spis treści zajmuje parzyście wiele
+% stron
+\blankpage
+
+% Początek pracy
+\pagenumbering{arabic}
+\chapter*{Wstęp}
+•
+\chapter*{Podstawowe informacje}
+\begin{defi}{Algebra nad ciałem}\label{defAlgebry}
+Niech $X$ będzie przestrzenią liniową nad ciałem $\mathbb{F}$. Jeśli dane jest działanie dwuargumentowe 
+$X\times X \rightarrow X$ mnożenia wektorów, które dla dowolnych $x,y,z\in X$ oraz $a\in\mathbb{F}$ spełnia poniższe warunki:
+\begin{enumerate}
+\item Lewostronna rozdzielności względem dodawania wektorów, tzn.
+$$(x+y)z=xz+yz,$$
+\item Prawostronna rozdzielności względem dodawania wektorów, tzn.
+$$x(y+z)=xy+xz.$$
+\item Zgodności z działaniem mnożenia przez skalary, tzn.
+$$a(xy)=(ax)y=x(ay),$$
+\end{enumerate}
+to $X$ z tak wprowadzonym działaniem algebraicznym nazywamy algebrą nad ciałem $\mathbb{F}$.
+\end{defi} 
+
+\begin{defi}
+Odwzorowanie
+$\|\cdot \|$ nazywamy normą na przestrzeni $X$
+\end{defi}
+
+\chapter{Algebra czterowymiarowa kwaternionów}
+Weźmy przestrzeń wektorową czterowymiarową nad dowolnym ciałem $\mathbb{F}$.
+Niech $\left\{ e,i,j,k \right\}$ będzie pewną konkretną bazą tej przestrzeni.
+Zdefiniujmy mnożenie dla wektorów bazowych tej przestrzeni oraz przedstawmy je w formie tabeli.\\
+
+\begin{table}[h]
+    \centering
+      \caption{\label{table}Tabela mnożenia elementów bazowych.}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \rowcolor{gray}$\times$ & $e$&$i$& $j$& $k$\\\hline 
+         \cellcolor{gray}$e$&\cellcolor{gray!25}$e$&\cellcolor{gray!25}$i$
+         &\cellcolor{gray!25}$j$&\cellcolor{gray!25}$k$\\ \hline
+         \cellcolor{gray}$i$&\cellcolor{gray!25}$i$&\cellcolor{gray!25}$-e$&
+         \cellcolor{gray!25}$k$&\cellcolor{gray!25}$-j$\\ \hline
+         \cellcolor{gray}$j$&\cellcolor{gray!25}$j$&\cellcolor{gray!25}$-k$&\cellcolor{gray!25}$-e$&\cellcolor{gray!25}$i$\\ \hline
+         \cellcolor{gray}$k$&\cellcolor{gray!25}$k$&\cellcolor{gray!25}$j$&
+         \cellcolor{gray!25}$-i$&\cellcolor{gray!25}$-e$\\ \hline
+    \end{tabular}
+
+\end{table}
+
+
+\noindent
+Dowolny element należący do rozważanej przestrzeni możemy przedstawić w postaci
+$$ae+bi+cj+dk,\textup{ gdzie }a,b,c,d\in\mathbb{F}.$$ 
+Przedłużmy teraz mnożenie wektorów bazowych na całą przestrzeń. Weźmy dwa dowolne wektory 
+$q_1=a_1e +b_1 i +c_1j +d_1 k$, $q_2=a_2e +b_2 i +c_2j +d_2 k$ i przy użyciu powyższej tabeli wykonajmy mnożenie wektorów $q_1$, $q_2$. 
+$$q_1q_2 = (a_1e +b_1 i +c_1j +d_1 k)(a_2e +b_2 i +c_2j +d_2 k)=$$
+$$=a_1a_2 e^2 +a_1b_2ei +a_1c_2ej+a_1d_2ek+b_1a_2 ie +b_1b_2i^2 +b_1c_2ij+b_1d_2ik +$$
+$$+c_1a_2je +c_1b_2ji +c_1c_2j^2+c_1d_2jk+d_1a_2 ke +d_1b_2ki +d_1c_2kj+d_1d_2k^2=$$
+$$=a_1a_2 e +a_1b_2i +a_1c_2j+a_1d_2k+b_1a_2 i -b_1b_2e +b_1c_2k-b_1d_2j +$$
+$$+c_1a_2j -c_1b_2k -c_1c_2e+c_1d_2i+d_1a_2 k +d_1b_2j -d_1c_2i-d_1d_2e=$$
+$$= (a_1 a_2-b_1b_2-c_1c_2-d_1d_2)e+(a_1b_2+b_1a_2+c_1d_2-d_1c_2)i+$$
+$$+(a_1c_2-b_1d_2+c_1a_2+d_1b_2)j+(a_1d_2+b_1c_2-c_1b_2+d_1a_2)k.$$
+
+Zauważmy, że mamy spełnione warunki z definicji \ref{defAlgebry}. Zatem rozważana przestrzeń jest algebrą nad
+ciałem $\mathbb{F}$. W dalszej części będziemy ją oznaczać przez symbol $\mathcal{H}\left(  \mathbb{F}\right)$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Własności działania mnożenia w algebrze kwaternionów}
+\subsection{Element neutralny}
+Spróbujmy teraz znaleźć element neutralny względem mnożenia wektorów dla $\mathcal{H}$, przyjrzyjmy się tabeli \ref{table}. Patrząc na nią dobrym kandydatem do sprawdzenia jest element bazy przestrzeni $e$. Niech $q = a e +b i +cj +d k$ będzie dowolnym elementem przestrzeni, wtedy:
+$$e q =e( a e +b i +cj +d k) =  a e^2 +b ei +cej +d ek = a e +b ei +cej +d k=q,$$
+$$ qe =( a e +b i +cj +d k)e =  a e^2 +b ie +cje +d ke = a e +b ei +cej +d k=q,$$
+$$eq=q=qe.$$
+Zatem $e$ jest elementem neutralnym dla mnożenia 
+\subsection{Przemienność i nieprzemienność}
+Po zapoznaniu się z tabelą \ref{table}. możemy odnieść wrażenie, że działanie mnożenia 
+wektorów nad rozważaną algebrą jest nieprzemienne.
+Zastanówmy się teraz, czy istnieją warunki które spełnione spowodują przemienność mnożenia wektorów w algebrze 
+$\mathcal{H}\left( \mathbb{F}\right)$. Niech 
+$q_1=a_1e +b_1 i +c_1j +d_1 k$ oraz $q_2=a_2e +b_2 i +c_2j +d_2 k$ będą dowolnymi elementami 
+$\mathcal{H}\left( \mathbb{F}\right)$. By mnożenie wektorów było przemienne musi zachodzić równość $q_1q_2 -q_2q_1 = 0$. W takim razie 
+$$q_1q_2 -q_2q_1  = (2c_1d_2 -2d_1c_2)i+(2d_1b_2-2b_1d_2)j+(2b_1c_2-2c_1b_2)k.$$
+Zauważmy, że równość $q_1q_2 -q_2q_1 = 0$ dla dowolnych elementów algebry
+$\mathcal{H}\left( \mathbb{F}\right)$ zachodzi wtedy i tylko wtedy, gdy char$(\mathbb{F})=2.$
+Podsumowując, mnożenie wektorów w $\mathcal{H}\left( \mathbb{F}\right)$ jest działaniem przemiennym wtedy i tylko wtedy, gdy charakterystyka ciała $\mathbb{F}$ jest równa 2.
+
+\begin{wni}
+
+Centrum $\mathcal{H}(\mathbb{F})$ jest zależne od ciała. Jeśli char$ \left( \mathbb{F}
+\right) = 2 $, to działanie mnożenia jest przemienne. W takim razie mamy do 
+czynienia z algebrą przemienną. Natomiast jeśli char$ \left( \mathbb{F}
+\right)\neq 2$ to centrum rozważanej algebry jest równe $\mathbb{F}$. 
+\end{wni}
+\subsection{Łączność}
+Przyjrzymy się teraz czy mnożenie wektorów w $\mathcal{H}\left(  \mathbb{F}\right)$ jest działaniem łącznym. Zacznijmy od udowodnienia pewnego lematu.
+\begin{lem}\label{lemLacznosc}
+Niech $V$ będzie przestrzenią wektorową o bazie $(e_1,\dots,e_n)$. Ustalmy $k\in\mathbb{N}\setminus \left\{ 0 \right\}$. Dla dowolnych odwzorowań $k-$liniowych $f,g:V^k 	\rightarrow V$ następujące warunki są równoważne:
+\begin{enumerate}
+\item odwzorowania $f$ i $g$ są równe
+\item dla dowolnego ciągu wektorów bazowych $\left\{ e_{i_1}\right\}_{i=1}^k$ zachodzi równość
+$f(e_{i_1},\dots,e_{i_k})=g(e_{i_1},\dots,e_{i_k})$.
+\end{enumerate}
+\end{lem}
+\begin{dowod}
+Zacznijmy od udowodnienia lematu dla $k=1$. Niech $a$ będzie dowolnym wektorem przestrzeni
+$V$ nad dowolnym ciałem $\mathbb{F}$ i niech $a=\sum\limits_{i=1}^{n}\alpha_i e_i$, gdzie $e$ jest elementem bazy
+przestrzeni $V$ oraz $\alpha\in\mathbb{F}$. Wówczas 
+$$f(a)=f\left(\sum\limits_{i=1}^{n}\alpha_i e_i\right)=\sum\limits_{i=1}^{n}\alpha_i f(e_i)=\sum\limits_{i=1}^{n}\alpha_i g(e_i)=g\left(\sum\limits_{i=1}^{n}\alpha_i e_i\right)=g(a).$$
+Z powyższej równości wynika, że lemat \ref{lemLacznosc} jest prawdziwy dla $k=1$.
+
+Załóżmy teraz, że lemat nasz jest spełniony dla $k=m$, gdzie $m\in\mathbb{N}$. Jeśli z tym
+założeniem uda nam się pokazać, że lemat jest spełniony dla $k=m+1$ to na mocy zasady indukcji
+matematycznej uda nam popełnić dowód lematu \ref{lemLacznosc}.\\
+
+Weźmy dwie funkcje $f,g:V^{m+1} 	\rightarrow V$, które dla dowolnego ciągu wektorów bazowych 
+$\left\{ e_{i_1}\right\}_{i=1}^m$ zachodzi równość
+$f(e_{i_1},\dots,e_{i_m},e_{i_{m+1}})=g(e_{i_1},\dots,e_{i_m},e_{i_{m+1}})$.
+Niech $e_0$ będzie dowolnie wybranym wektorem bazowym. Weźmy teraz funkcje  
+$\tilde{f},\tilde{g}: V^m\rightarrow V$ zdefiniowane za pomocą wzorów
+$$\tilde{f}(a_1,\dots,a_m)= f(a_1,\dots,a_m,e_0),\hspace{1mm}\tilde{g}(a_1,\dots,a_m)=
+ g(a_1,\dots,a_m,e_0). $$
+ Warto zaznaczyć, że $\tilde{f},\tilde{g}$ są $m-$liniowe. Jest to bezpośrednią konsekwencją
+ $m+1-$liniowości funkcji $f,g$. 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ $$f(e_1,\dots,e_m,e_0) = \tilde{f}(e_1,\dots,e_m) = \tilde{g}(e_1,\dots,e_m) 
+ =g(e_1,\dots,e_m,e_0). $$
+W takim razie zachodzi poniższa równość.
+ $$\tilde{f}(a_1,\dots,a_m)=\tilde{g}\left(a_1,\dots,a_m\right)$$
+ %%%%%%%%%%%%%%%%%%
+ Korzystając z powyższej równości możemy przejść do ostatniej równości.
+  $$f(a_1,\dots,a_m,\alpha) = 
+  f\left(a_1,\dots,a_m,\sum\limits_{i=1}^{n}\alpha_i e_i\right)=
+  \sum\limits_{i=1}^{n}\alpha_i f\left(a_1,\dots,a_m, e_i\right)= $$
+  $$=\sum\limits_{i=1}^{n}\alpha_i \tilde{f}_i\left(a_1,\dots,a_m\right)=
+  \sum\limits_{i=1}^{n}\alpha_i \tilde{g}_i\left(a_1,\dots,a_m\right)= 
+     \sum\limits_{i=1}^{n}\alpha_i g\left(a_1,\dots,a_m, e_i\right)= $$
+     $$=g\left(a_1,\dots,a_n,\sum\limits_{i=1}^{n+1}\alpha_i e_i\right)=g(a_1,\dots,a_m,\alpha).$$
+\end{dowod}
+Zastanówmy się teraz, czy mnożenie wektorów jest działaniem łącznym.
+Rozważmy funkcje $f,g:\mathcal{H}^3\rightarrow\mathcal{H}$ zdefiniowane za pomocą wzorów:
+$$f(x,y,z)=(xy)z,\hspace{1mm}g(x,y,z)=x(yz).$$ 
+Wystarczy sprawdzić, czy dla dowolnego ciągu wektorów bazowych  $\left\{ e_{i_1}\right\}_{i=1}^3$ algebry $\mathcal{H}(\mathbb{F})$ zachodzi równość
+$f(e_{i_1},e_{i_2},e_{i_3})=g(e_{i_1},e_{i_2},e_{i_3})$. Zauważmy jednak, że wśród elementów
+elementów bazowych znajduję się również element neutralny względem mnożenia $e$. W takim razie wystarczy sprawdzić czy powyższa równość zachodzi, dla dowolnego ciągu wektorów bazowych bez wektora $e$. Zauważmy dodatkowo, że dla trzech tych samych wektorów bazowych
+funkcje $f,g$ również dadzą ten sam wynik. Rozważmy teraz przypadki kiedy elementami
+trójelementowego ciągu wektorów bazowych, gdzie wszystkie elementy ciągu będą różne. Wówczas równość również funkcji $f,g$ również będzie zachodzić. Pozostaje, więc sprawdzić równość dla trójelementowego ciągu wektorów bazowych, 
+gdzie jeden z elementów bazowych występuje dwa razy. Łatwo jednak zauważyć, że równość funkcji $f,g$ będzie zachodzić również, gdy powtarzające się elementy będą ze sobą sąsiadowały. Rozważmy pozostałe przypadki
+$$f(i,j,i)=(ij)i=j=i(ji)=g(i,j,i),f(j,i,j)=(ji)j=i=j(ij)=g(j,i,j),$$
+$$f(k,i,k)=(ki)k=i=k(ik)=g(k,i,k),f(i,k,i)=(ki)k=i=k(ik)=g(i,k,i),$$
+$$f(k,j,k)=(kj)k=j=k(jk)=g(i,j,i),f(j,k,j)=(jk)j=k=j(kj)=g(j,k,j).$$
+Wynika z tego, że dla dowolnego ciągu wektorów bazowych $\left\{ e_{i_1}\right\}_{i=1}^3$ zachodzi równość\\
+$f(e_{i_1},e_{i_2},e_{i_3})=g(e_{i_1},e_{i_2},e_{i_3})$. Powołując się zatem na  lemat \ref{lemLacznosc}. działanie mnożenia wektorów na $\mathcal{H}(\mathbb{F})$ jest działaniem łącznym.
+\section{Alternatywna definicja}
+\begin{twr}
+Dla algebry łącznej o bazie $(e,i,j,k)$ następujące warunki są równoważne:
+\begin{enumerate}
+\item spełnione są tożsamości z tabeli \ref{table},
+\item zachodzą następujące równości $i^2=j^2=k^2=-e=ijk.$
+\end{enumerate}
+\end{twr}
+\begin{dowod}
+Zauważmy, że z warunku $\mathit{1}.$ bezpośrednio wynikają równości z warunku
+$\mathit{2}$.
+Pozostaje więc sprawdzić, czy z równości zawartych w $\mathit{2}$. możemy wyprowadzić wszystkie równości z tabeli \ref{table}. 
+$$ee=ijkijk=e,ei=(-ijk)jk=i=jk(-ijk)=ie,$$
+$$ej=(-ijk)ki=j=ki(-ijk)=je,ek=(-ijk)ij=k=ij(-ijk)=ke,$$
+$$ijk=-1 \Rightarrow i(ijk) = -i\Rightarrow jk = i, $$
+$$ijk=-1 \Rightarrow (ijk)k = -k\Rightarrow ij = k, $$
+$$ijk=-1 \Rightarrow i(ijk)k = -ik\Rightarrow -ik = j, $$
+$$j^2=-1 \Rightarrow j^2i=-i \Rightarrow j(ji) = j(-k)\Rightarrow ji=-k \Rightarrow ki=j  , kj = -i. $$
+Z powyższych równań udało nam się wyprowadzić wszystkie działania uwzględnione 
+w tabeli \ref{table}. Oznacza to że warunki $\mathit{1}$. i $\mathit{2}$. są równoważne.
+\end{dowod}
+\section{Kwaternion odwrotny}
+
+Niech $q$ będzie pewnym kwaternionem w dowolnej algebrze czterowymiarowej kwaternionu.
+Kwaternionem odwrotnym do naszego kwaternionu $q$ będziemy nazywać taki element algebry, który
+pomnożony przez $q$ zwróci nam element neutralny. %nieskaładnie do poprawy
+W tej sekcji zaczniemy od zdefiniowania normy i sprzężenie kwaternionu, omówimy własności sprzężenia.
+Następnie przedstawimy wzór na kwaternion odwrotny oraz opiszemy jego własności. 
+Na końcu odpowiemy na pytanie, jakie warunki musi spełniać algebra, by każdy kwaternion
+poza elementem $0$ miał swój kwaternion odwrotny.
+
+\subsection{Norma oraz sprzężenie kwaternionu}
+
+Niech $q = ae+bi+cj+dk$ będzie elementem algebry kwaternionów nad dowolnym ciałem 
+$\mathbb{F}$, gdzie $a,b,c,d\in\mathbb{F}$ oraz $e,i,j,k$ są elementami bazowymi algebry, 
+przy czym  $e$ jest również elementem neutralnym względem działania mnożenia kwaternionów. 
+\begin{defi}
+Moduł kwaternionu definiujemy jako pierwiastek z sumy kwadratów współczynników tzn.
+$$\sqrt{a^2 +b^2+c^2+d^2}.$$
+Moduł kwaternionu będziemy oznaczać jako $\vert q\vert$.
+\end{defi}
+W podobny sposób definiujemy normę kwaternionu.
+\begin{defi} \label{NormaKwaternionu}
+Normę kwaternionu będziemy definiować jako sumę kwadratów współczynników, tzn.
+$$a^2 +b^2+c^2+d^2.$$
+Normę będziemy oznaczać jako $\mathcal{N}(q)$.
+\end{defi}
+
+\begin{wni}
+Łatwo zauważyć, że jeśli $q=0$, to  $\mathcal{N}(q) = 0$. Jednakże, odwrotna implikacja 
+nie zawsze zachodzi. W dalszej części tego rozdziału przedstawimy przykład algebry, gdzie
+odwrotna implikacja nie występuje.
+\end{wni}
+
+Przejdźmy teraz do zdefiniowania sprzężenia kwaternionu oraz udowodnienia kilku jego własności.
+
+\begin{defi}
+Sprzężenie kwaternionu $q$ nazywamy liczbę $ae-bi-cj-dk$ oraz będziemy ją oznaczać jako 
+$\overline{q}$.
+\end{defi}
+
+\begin{twr}\label{SprzężenieWłasności}[Własności sprzężenia]
+Niech $q,q_1,q_2 \in \mathcal{H}$
+\begin{enumerate}
+\item $\overline{\overline{q}} = q$,
+\item $\overline{q_1+q_2} = \overline{q_1}+\overline{q_2}$,
+\item $\overline{q}q= q\overline{q}=\mathcal{N}(q)e$.
+\end{enumerate}
+
+\end{twr}
+
+
+\begin{dowod}
+Dowód punktu $\mathit{1}.$ wynika bezpośrednio z definicji sprzężenia. Skupmy się na
+udowodnieniu $\mathit{2}.$ oraz $\mathit{3}.$ punktu.
+
+$$\overline{q_1}+\overline{q_2} = a_1e-b_1i-c_1j-d_1k+a_2e-b_2i-c_2j-d_2k =
+(a_1+a_2)e-(b_1+b_2)i-(c_1+c_2)j-(d_1+d_2)k =$$
+$$=\overline{q_1+q_2}.$$
+
+W ten sposób udowodniliśmy własność z punktu  $\mathit{2}.$ 
+Zatem przejdźmy do udowodnienia ostatniej pozycji z powyższego twierdzenia. 
+$$q\overline{q}= (ae+bi+cj+dk)(ae-bi-cj-dk) =$$
+$$= (a^2+b^2+c^2+d^2)e
++(-ab+ba-cd+dc)i+(-ac+bd+ca-db)j+(-ad-bc+cb+da)k  =$$
+$$=(a^2+b^2+c^2+d^2)e = \mathcal{N}(q)e.$$
+
+By zakończyć dowód pozostaje nam pokazać, że iloczyn $\overline{q}q$ również wyniesie 
+$\mathcal{N}(q)e$.
+
+$$\overline{q}q= (ae-bi-cj-dk)(ae+bi+cj+dk) =$$
+$$= (a^2+b^2+c^2+d^2)e
++(-ab+ba-cd+dc)i+(-ac+bd+ca-db)j+(-ad-bc+cb+da)k  =$$
+$$=(a^2+b^2+c^2+d^2)e = \mathcal{N}(q)e.$$
+\end{dowod}
+
+Mając zdefiniowaną normę oraz sprzężenie kwaternionu, możemy w końcu zdefiniować kwaternion odwrotny.
+
+\begin{defi}
+Niech $q$ będzie elementem algebry kwaternionów nad dowolnym ciałem 
+$\mathbb{F}$, którego $\mathcal{N}(q) \neq 0 $. Element odwrotny do $q$ określamy wzorem
+$\frac{\overline{q}}{\mathcal{N}(q)}$ i będziemy go oznaczać jako $q^{-1}$.
+\end{defi}
+
+Z powyższej definicji wynika, że element odwrotny kwaternionu istnieje wtedy i tylko wtedy, gdy
+norma rozważanego kwaternionu jest większa od $0$.
+
+\begin{prz}
+Niech $q  = ae+ai$ będzie elementem algebry kwaternionów nad ciałem 
+$\mathbb{F}$, gdzie $a\in\mathbb{F}$ oraz $e,i,j,k$ są elementami bazowymi algebry, 
+przy czym  $e$ jest również elementem neutralnym względem działania mnożenia kwaternionów.
+Dodatkowo, niech $\textup{char}(\mathbb{F})=2$. Obliczmy teraz normę wypisanego kwaternionu.
+$$\mathcal{N}(q) = a^2 +a^2 = 2a^2 = 0.$$
+Ze względu na to, że norma kwaternionu jest równa $0$, nie ma on elementu odwrotnego.
+\end{prz}
+
+Udało nam się pokazać, że implikacja odwrotna zawarta 
+w wniosku do definicji \ref{NormaKwaternionu}, nie zachodzi jeśli charakterystyka ciała nad przestrzenią kwaternionów jest równa $2$. 
+
+\begin{wni}
+Wszystkie elementy poza $0$ w $\mathcal{H}\left( \mathbb{F}\right)$ posiadają
+element odwrotny, jeśli $\mathbb{F}$ jest ciałem formalnie rzeczywistym.
+\end{wni}
+
+\begin{twr}
+Niech $q \in \mathcal{H}\left( \mathbb{F}\right)$ będzie elementem dla którego istnieje $q^{-1}$.
+Wówczas $$qq^{-1} = q^{-1}q=e.$$
+\end{twr}
+\begin{dowod}
+By udowodnić powyższą własność wystarczy skorzystać z ostatniej własności podanej w twierdzeniu 
+\ref{SprzężenieWłasności}.
+$$qq^{-1} =q\frac{\overline{q}}{\mathcal{N}(q)} = \frac{\mathcal{N}(q)}{\mathcal{N}(q)}=e =
+\frac{\mathcal{N}(q)}{\mathcal{N}(q)}= \frac{\overline{q}}{\mathcal{N}(q)}q =  q^{1}q. $$
+\end{dowod}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Przykładowe algebry kwaternionów}
+W tym rozdziale przedstawimy przykładowe interpretacje algebry kwaternionów oraz ich własności.
+
+\subsection{Postać kanoniczna}
+Rozważmy przestrzeń $\mathbb{R}^4$. Zbiór ${(1,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)}$
+jest bazą kanoniczną przestrzeni $\mathbb{R}^4$. Oznaczmy te elementy odpowiednio jako $e,i,j,k$.
+Definiując mnożenie elementów bazowych, w ten sposób by spełniały one warunki z
+tabeli \ref{table}. Uzyskujemy w ten sposób jedną z najbardziej oczywistych interpretacji algebry kwaternionów
+na ciele liczb rzeczywistych. %Czy dodać tutaj wyjasnienie 
+
+
+\subsection{Postać hamiltonowska}
+Rozważmy teraz przestrzeń $\mathbb{R}\times \mathbb{R}^3$. Jedną z baz
+tej przestrzeni jest zbiór\\
+$\{ 1,(1,0,0),(0,1,0),(0,0,1) \}$,i tak jak wyżej, oznaczy te elementy kolejno
+jako $e,i,j,k$. Dodawanie elementów w tej przestrzeni, możemy definiujemy w następujący sposób.
+Niech $q_1,q_2\in\mathbb{R}\times \mathbb{R}^3$, przy czym  $q_i =a_i +(b_i,c_i,d_i)$ 
+dla $i\in \{ 1,2\}$. Wówczas
+$$q_1+q_2=a_1 +(b_1,c_1,d_1) + a_2 +(b_2,c_2,d_2) = a_1+a_2 +(b_1+b_2,c_1+c_2,d_1+d_2)$$.
+Przejdźmy teraz do rozważenia mnożenia. Działanie to definiujemy w następujący sposób,
+wektory bazowe muszą spełniać warunki z tabeli \ref{table}, następnie rozszerzamy
+je na całą przestrzeń. W ten oto sposób udało nam się przedstawić 
+%czy dodac tutaj wzor na q1q2
+$$q_1q_2= (a_1 a_2-b_1b_2-c_1c_2-d_1d_2)+(a_1b_2+b_1a_2+c_1d_2-d_1c_2,a_1c_2-b_1d_2+c_1a_2+d_1b_2,a_1d_2+b_1c_2-c_1b_2+d_1a_2).$$
+Spróbujmy uprościć otrzymany wzór. Zacznijmy od wprowadzenia dwóch nowych pojęć, jakimi będą
+część skalarna oraz część wektorowa kwaternionu. 
+Współczynnik przy elemencie neutralnym względem działania mnożenia nazywamy częścią skalarną kwaternionu,
+natomiast wektor wchodzący w skład kwaternionu nazywamy częścią wektorową kwaternionu.
+Część wektorową kwaternionu $q$ będziemy oznaczać jako $\overrightarrow{q}$.\\ %mozliwe do poprawy
+\indent
+Przyjrzyjmy się najpierw części skalarnej otrzymanego iloczynu. Łatwo zauważyć, 
+że składa się ona z dwóch części. Pierwszą z nich jest iloczyn części skalarnych
+mnożonych kwaternionów. Drugą częścią, co łatwo zauważyć, jest element przeciwny do iloczynu skalarnego części wektorowych mnożonych kwaternionów. 
+Podsumowując cześć skalarną iloczynu możemy zapisać jako 
+$a_1a_2 - \overrightarrow{q_1}\circ\overrightarrow{q_2}$.\\
+\indent
+Skupmy się teraz na części wektorowej iloczynu. Zacznijmy od przedstawienia go jako sumę 
+dwóch wektorów, oznaczmy je kolejno jako $\overrightarrow{w_1}$ oraz $\overrightarrow{w_2}$.
+$$\overrightarrow{w_1}+\overrightarrow{w_2}=(a_1b_2 +a_2b_1 ,a_1c_2+a_2c_1,a_1d_2+a_2d_1) + 
+(c_1d_2-d_1c_2,
+d_1b_2-b_1d_2,
+b_1c_2-c_1b_2)= $$
+$$=(a_1b_2+b_1a_2+c_1d_2-d_1c_2,
+a_1c_2-b_1d_2+c_1a_2+d_1b_2,
+a_1d_2+b_1c_2-c_1b_2+d_1a_2).$$ 
+Zauważmy, że wektor $\overrightarrow{w_1}$ to jest sumą części wektorowych kwaternionów
+pomnożonych przez cześć skalarną drugiego kwaternionu, tzn. 
+$a_1\overrightarrow{q_2}+a_2\overrightarrow{q_1}$.\\
+
+Przyjrzyjmy się teraz wektorowi $\overrightarrow{w_2}$. Wektor ten możemy, przedstawić
+w postaci iloczynu wektorowego części wektorowych kwaternionów, tzn. 
+$\overrightarrow{w_2} = \overrightarrow{q_1}\times\overrightarrow{q_2}$.\\
+\indent
+Podsumowując, mnożenie kwaternionów można przedstawić poniższym wzorem.
+$$q_1q_2 = a_1a_2-\overrightarrow{v_1}\circ \overrightarrow{v_2}+a_1\overrightarrow{v_1}+a_2\overrightarrow{v_2}+\overrightarrow{v_1}\times \overrightarrow{v_2}.$$   
+%dodac jakies podsumowanie
+\subsection{Postać macierzowa}
+Niech $V = \left\lbrace \begin{bmatrix}
+	z&w\\
+	-\overline{w}& \overline{z}
+\end{bmatrix}: z,w \in \mathbb{C}\right\rbrace \subseteq
+ \mathcal{M}_2\left(\mathbb{C}\right)$. 
+Łatwo zauważyć, że zbiór $V$ jest podprzestrzenią liniową 
+$\mathcal{M}_2\left(\mathbb{C}\right)$.
+Jedną z baz przestrzeni $V$ jest zbiór 
+$$\left\lbrace \begin{bmatrix}
+	1&0\\
+	0& 1
+\end{bmatrix},
+\begin{bmatrix}
+	i&0\\
+	0& -i
+\end{bmatrix},
+\begin{bmatrix}
+	0&1\\
+	-1& 0
+\end{bmatrix},
+\begin{bmatrix}
+	0&i\\
+	i& 0
+\end{bmatrix}\right\rbrace,$$
+oznaczmy te macierze kolejno jako $e,i,j,k$. Działanie mnożenia macierzy spełnia warunki z 
+zawarte w tabeli \ref{table}. W ten sposób udało nam się zdefiniować postać macierzową
+kwaternionu.\\
+\indent
+Rozważmy jakie własności posiada postać macierzowa. Niech
+$$ q=a\begin{bmatrix}
+	1&0\\
+	0& 1
+\end{bmatrix}+
+b\begin{bmatrix}
+	i&0\\
+	0& -i
+\end{bmatrix}+
+c\begin{bmatrix}
+	0&1\\
+	-1& 0
+\end{bmatrix}+
+d\begin{bmatrix}
+	0&i\\
+	i& 0
+\end{bmatrix}$$
+będzie dowolnym elementem przestrzeni $V$.
+Norma kwaternionu $q$ jest równa $a^2+b^2+c^2+d^2$. Dodając wszystkie elementy do siebie 
+otrzymamy macierz 
+$$q=\begin{bmatrix}
+	a+ib&c+id\\
+	c-id& a-ib
+\end{bmatrix}.$$
+Zauważmy, że wyznacznik tej macierzy jest równy $a^2+b^2+c^2+d^2$. W ten sposób udało
+się nam pokazać, że norma kwaternionu jest równa jest równa wyznacznikowi w postaci 
+macierzowej, tzn. $\mathcal{N}(q) = \det(q)$.\\
+\indent
+Przejdźmy teraz do tego jak wygląda sprzężenie w postaci macierzowej.
+$$ \overline{q}=a\begin{bmatrix}
+	1&0\\
+	0& 1
+\end{bmatrix}-
+b\begin{bmatrix}
+	i&0\\
+	0& -i
+\end{bmatrix}-
+c\begin{bmatrix}
+	0&1\\
+	-1& 0
+\end{bmatrix}-
+d\begin{bmatrix}
+	0&i\\
+	i& 0
+\end{bmatrix}.$$
+Efektem dodania wszystkich elementów do siebie jest macierz
+$$\overline{q}=\begin{bmatrix}
+	a-bi&-c-di\\
+	c-di& a+bi
+\end{bmatrix}.$$
+Rozważmy, teraz jak będzie wyglądać macierz $q$, na której dokonamy sprzężenie hermitowskie.
+$$\begin{bmatrix}
+	a+ib&c+id\\
+	c-id& a-ib
+\end{bmatrix}^\dagger=\begin{bmatrix}
+	a-bi&-c-di\\
+	c-di& a+bi
+\end{bmatrix}.$$
+W ten sposób udało nam się pokazać, że sprzężenie kwaternionu w postaci macierzowej 
+jest tak naprawdę macierzą $q$ na której popełniono sprzężenie hermitowskie, tzn.
+$\overline{q} = q^\dagger$.\\
+\indent
+Z powyższych własności wynika poniższy wzór na element odwrotny:
+$$q^{-1} = \frac{1}{\det(q)}\begin{bmatrix}
+	\overline{z}&-w\\
+	\overline{w}& z
+\end{bmatrix}.$$
+Okazało się, że by znaleźć element odwrotny kwaternionu $q$, wystarczy obliczyć macierz odwrotną postaci kwaterunkowej kwaternionu. 
+
+\subsection{Postać trygonometryczna}
+
+Rozważmy kwaternion postaci hamiltonowskiej $q=q_0+\overrightarrow{q}$, której moduł jest równy $1$.
+Spełnione tutaj są następujące własności
+$$\left\{\begin{array}{l}
+\mathcal{N}(q)=1\\
+q_0^2 +\Vert\overrightarrow{q}\Vert_e^2= 1
+\end{array} \right. ,$$
+gdzie $\Vert \overrightarrow{q} \Vert_e$ jest normą euklidesową wektora $\overrightarrow{q}$.
+Korzystając z równania na jedynkę trygonometryczną, otrzymujemy
+$$q_0^2 + \big| \overrightarrow{q}\big|_e^2= \cos^2\theta + \sin^2\theta.$$
+Oznacza to, że istnieje $\theta \in (0,2\pi)$ takie, że 
+$$\left\{\begin{array}{l}
+q_0^2=\cos^2\theta\\
+\Vert\overrightarrow{q}\Vert_e^2=\sin^2\theta
+\end{array} \right. \Rightarrow \left\{\begin{array}{l}
+q_0=\cos\theta\\
+\Vert\overrightarrow{q}\Vert_e=\sin\theta
+\end{array} \right. $$
+Zdefiniujmy, wektor $\overrightarrow{u} = \frac{\overrightarrow{q}}{\Vert\overrightarrow{q}\Vert_e}$.
+Wówczas kwaternion $q$ możemy zapisać w postaci $\cos\theta + \overrightarrow{u}\sin\theta$.
+Postać tą nazywamy postacią trygonometryczną kwaternionu.
+Zastanówmy się teraz jak będzie wyglądać postać trygonometryczna kwaternionu,
+którego moduł jest różny od $0$. Zauważmy, że dowolny kwaternion $q=q_0+\overrightarrow{q}$
+możemy zapisać jako $q=|q|\left(\frac{1}{|q|}q_0+\frac{1}{|q|}\overrightarrow{q}\right)$.
+Łatwo zauważyć, że $\Big|\frac{1}{|q|}q_0+\frac{1}{|q|}\overrightarrow{q}\Big|=1$.
+Podsumowując postać trygonometryczna kwaternionu ma postać 
+$$q = |q|(\cos\theta + \overrightarrow{u}\sin\theta).$$
+
+Mówmy teraz jak w sprzężenie, norma oraz kwaternion odwrotny w postaci trygonometrycznej
+
+Sprzężenie dla postaci trygonometrycznej ma postać
+$$\overline{q} = |q|(\cos\theta + \overrightarrow{u}\sin\theta).$$
+Korzystając jednak z własności parzystości i nieparzystości funkcji kolejno cosinus i sinus, 
+łatwo zauważyć, że
+$$\overline{q}=|q|(\cos\theta - \overrightarrow{u}\sin\theta)=
+|q|(\cos(-\theta) + \overrightarrow{u}\sin(-\theta)). $$
+\chapter{Powiązanie z geometrią}
+
+
+\section{Obrót w przestrzeni dwuwymiarowej}\label{obrot2drozdzial}
+Przypomnijmy teraz analityczny i macierzowy opis obrotu na płaszczyźnie 
+$\mathbb{R}^2$. 
+
+Niech $p=(x,y)\in\mathbb{R}^2$ będzie pewnym punktem zapisanym za pomocą w 
+współrzędnych kartezjańskich. Wówczas:
+$$r = \sqrt{x^2+y^2},\theta=\textup{arctg}\frac{y}{x}.$$
+
+Rozważmy teraz przejście ze współrzędnych biegunowych na
+współrzędne kartezjańskie.
+Niech $p=(r,\theta)\in\mathbb{R}^2$ będzie pewnym punktem zapisanym za pomocą w 
+współrzędnych biegunowych. Wówczas:
+$$x=r\cos\theta,y=r\sin\theta.$$ 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6 cm]{wsp_biegunowe.png}
+\caption{Związek między biegunowym i kartezjańskim układem współrzędnych}
+\end{center}
+\end{figure}
+
+
+
+Rozważmy teraz obrót wektora $\overrightarrow{v}$ o kąt $\psi$. Efektem obrotu jest powstanie wektora
+$\overrightarrow{v}'=(r,\theta+\psi)$. Spróbujmy zapisać wektor $\overrightarrow{v}'$
+przy użyciu współrzędnych kartezjańskich.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=6 cm]{wsp_biegunowe.png}
+\caption{Wizualizacja obrotu}
+\end{center}
+\end{figure}
+
+
+$$x_\Delta=r\cos(\theta +\psi) =
+r(\cos\theta \cos\psi - \sin \theta \sin \psi)=(r\cos\theta) \cos\psi -
+(r\sin \theta) \sin \psi = x \cos\psi - y\sin \psi,$$
+$$y_\Delta=r\sin(\theta +\psi)= r(\sin \theta \cos \psi +
+\cos\theta \sin\psi) = (r\sin \theta) \cos \psi +
+(r\cos\theta) \sin\psi  = x\sin\psi +y\cos\psi . $$
+
+\subsection{Opis macierzowy obrotu}\label{SO(2)}
+Powyższe równości możemy przedstawić za pomocą notacji macierzowej
+
+$$
+\begin{bmatrix}
+x_\Delta\\
+y_\Delta
+\end{bmatrix} =
+\begin{bmatrix}
+\cos\psi   & -\sin\psi \\
+\sin\psi & \cos\psi  
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y 
+\end{bmatrix},
+$$
+Powyższą macierz kwadratową nazywamy macierzą obrotu na płaszczyźnie i oznaczamy jako
+$\mathcal{R}_2(\psi)$.
+
+\begin{defi}
+Niech $A\in\mathcal{M}_n(\mathbb{R})$. Zbiór macierzy spełniający warunki:
+\begin{enumerate}
+	\item $ AA^t=I_n  A^tA,$
+	\item $ det(A)=1,$
+\end{enumerate}
+nazywamy specjalną grupą ortogonalną przestrzeni $\mathbb{R}^n$ i oznaczamy ją jako 
+SO($n$).
+\end{defi}
+
+Okazuję się każda macierz będąca elementem zbioru SO($n$), jest tak naprawdę opisem 
+obrotu o pewien kąt w przestrzeni $\mathbb{R}^n$. Skupimy się teraz na dowodzie dla $n=2$,
+w następnym rozdziale po przedstawieniu macierzy obrotu dla przestrzeni $R^3$, 
+popełnimy dowód dla $n=3$.
+\begin{twr}\label{rotationMatrixSO(2)}
+Niech $A\in\textup{SO}(2)$. Wówczas $A$ jest macierzą obrotu na płaszczyźnie liczb rzeczywistych.
+\end{twr}
+\begin{dowod}
+Niech $A=[a_{ij}]$ będzie dowolną macierzą ze zbioru SO($2$).
+Oznacza to, że $A^t = A^{-1}$ oraz $\textup{det}A=\textup{det}A^t=\textup{det}A^{-1}=1$.
+Z pierwszej równości dowiadujemy się, że macierz $A$ ma tak naprawdę postać
+$$\begin{bmatrix}
+a_{11}&-a_{12} \\
+a_{12} & a_{11}
+\end{bmatrix}.$$
+Dodatkowo z drugiej równości wynika, że $\textup{det}A = a^2_{11}+a^2_{12}=1$.
+W takim razie, posiłkując się wzorem na jedynkę trygonometryczną,
+istnieje taki kąt $\psi$, że  $a_{11}=\cos\psi$ i $a_{12}=\sin\psi$.
+Podsumowując, dowolna macierz ze zbioru SO($2$) jest tak naprawdę
+opisem obrotu o pewien kąt na płaszczyźnie rzeczywistej.
+\end{dowod}
+
+\begin{prz}\label{exT_rotation}
+W ramach przykładu dokonamy obrotu litery T, o kolejno $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$.
+Zacznijmy od narysowania litery. Zauważmy, że by narysować literę T, wystarczy w
+odpowiedni sposób połączyć $8$ dokładnie dobranych punktów.
+Punktami jakimi posłużymy się w wygenerowaniu litery T, są:
+$$x_1 = (10,1),x_2 = (11,1),x_3 = (11,6),x_4 = (13,6),$$
+$$x_5 = (13,7),x_6 = (8,7),x_7 = (8,6),x_8 = (10,6).$$
+By wygenerować omawianą literę wystarczy w linii prostej połączyć punkt
+$x_i$ z punktem $x_{i+1}$, gdzie $i\in\{1,2,...,8\}$. Dodatkowo,
+łączymy punkt $x_8$ z $x_1$, uzyskujemy w ten sposób krzywe zamkniętą
+w kształcie litery T.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5 cm]{T_samo.png}
+\caption{}
+\end{center}
+\end{figure}
+\newpage
+
+By obrócić literę $T$ wystarczy, że obrócimy punkty, które posłużyły do jej narysowania.
+By to zrobić skorzystamy z macierzy obrotu dla  $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$.
+Mają one postać odpowiednio
+$$R_\frac{\pi}{2}=\begin{bmatrix}
+0&-1 \\
+1&0 
+\end{bmatrix},
+R_\pi=\begin{bmatrix}
+-1&0 \\
+0&-1 
+\end{bmatrix},
+R_\frac{3\pi}{2}=\begin{bmatrix}
+0&1 \\
+-1&0 
+\end{bmatrix}.
+$$
+W tym monecie wystarczy każdy z punktów przemnożyć przez powyższe macierze,a otrzymane wyniki będą 
+obróconymi punktami. Punkty te łączymy w taki sam sposób, co oryginalne. W efekcie otrzymujemy:
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5 cm]{T_obroty.png}
+\caption{Wizualizacja }
+\end{center}
+\end{figure}
+\end{prz}
+
+
+\subsection{Macierze odbicia}
+Naturalnym pytaniem po zapoznaniu się z macierzami obrotu, jest co w przypadku gdy macierz
+ortogonalna posiada wyznacznik równy $-1$. W dowodzie do twierdzenie \ref{rotationMatrixSO(2)}.
+udało nam pokazać, że dowolna macierz ortogonalna w $\mathcal{M}_2(\mathbb{R})$ jesteśmy 
+w stanie zapisać w postaci
+$$\begin{bmatrix}
+\cos\theta&\sin\theta \\
+\sin\theta & \cos\theta
+\end{bmatrix}.$$
+Pamiętając o tym jak wygląda macierz obrotu, możemy wywnioskować, że dowolną macierz 
+ortogonalna stopnia $2$ o elementach rzeczywistych, której wyznacznik jest równy -$1$ ma postać
+$$\begin{bmatrix}
+\cos\theta&-\sin\theta \\
+\sin\theta & -\cos\theta
+\end{bmatrix}.$$
+
+Rozważmy zatem ,,obrót" pewnego punktu $(x,y)\in\mathbb{R}^2$ o kąt równy $0$, jednak zamiast typowej macierzy obrotu użyjemy nam powyższej macierzy. W efekcie otrzymujemy 
+
+$$\left\{\begin{array}{l}
+x_\Delta = x \cos 0 - y\sin 0 =x\\
+y_\Delta = x \sin 0 - y\cos 0 = -y
+\end{array} \right. . $$
+
+Efektem wykonanego ,,obrotu" jest odbicie lustrzane pierwotnego punktu względem osi $y$.
+Pytaniem na jakie spróbujemy teraz odpowiedzieć to jak wygląda zmiana kąta wpływa na odbicie. 
+By odpowiedzieć na to pytanie powtórzymy obrót litery $T$ z przykładu \ref{exT_rotation}.
+\begin{prz}
+W celu lepszej wizualizacji wykorzystamy te same punkty $x_1,...,x_8$ oraz połączymy je w taki sam sposób
+jak w przykładzie  \ref{exT_rotation}. Macierze przez jakie przemnożymy punkty to kolejno
+$$\begin{bmatrix}
+0&1 \\
+1&0 
+\end{bmatrix},
+\begin{bmatrix}
+-1&0 \\
+0&1 
+\end{bmatrix},
+\begin{bmatrix}
+0&1 \\
+1&0 
+\end{bmatrix},
+$$
+odpowiednio opisujące kąt równy $\frac{\pi}{2},\pi,\frac{3\pi}{2}.$ W efekcie otrzymujemy  
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5 cm]{T_obroty.png}
+\caption{Wizualizacja }
+\end{center}
+\end{figure}
+
+\end{prz}
+\subsection{Opis obrotu za pomocą liczb zespolonych}
+Alternatywnym sposobem opisu obrotu na płaszczyźnie $\mathbb{R}^2$
+jest użycie liczby zespolonych. Wówczas dowolny punkt o współrzędnych kartezjańskich $(a,b)$
+jesteśmy w stanie przedstawić w postaci $a+bi$, gdzie $a,b$ są liczbami rzeczywistymi, natomiast 
+$i$ jest jednostką urojoną spełniającą warunek $i^2 = -1$. Powyższy sposób zapisu nazywamy 
+postacią kanoniczną liczby zespolonej.\\
+Alternatywnym sposobem zapisu $a+bi$ jest postać trygonometryczna. Przedstawia się ona w sposób
+$|z|(\cos\theta+i\sin\theta),$
+gdzie $\|z\| =\sqrt{a^2+b^2}$, $\theta=\textup{arctg}\frac{b}{a}$.\\
+
+Rozważmy teraz mnożenie liczb zespolonych. Niech $z_1 = z_1(\cos\theta +i\sin\theta)$ oraz 
+niech $z_2 = r_2(\cos\psi +i\sin\psi)$.
+Wówczas mnożenie przedstawia się wzorem
+$$z_1z_2=r_1r_2(\cos(\theta+\psi) +i\sin(\theta+\psi)).$$
+Zauważmy, że by dokonać obrotu liczby zespolonej o kąt $\psi$ 
+wystarczy pomnożyć ją przez liczbę postaci $$\cos\psi +i\sin\psi.$$
+Podsumowując, obrót punktu na płaszczyźnie możemy interpretować jako mnożenie liczb zespolonych.
+
+\section{Obrót w przestrzeni w r3}
+
+W tym rozdziale skupimy się na opisie obrotu w
+przestrzeni $\mathbb{R}^3$. 
+Począwszy od opisu macierzowego obrotu dookoła osi $x$, $y$ oraz $z$, następnie
+rozważymy postać macierzy dookoła dowolnej osi obrotu.
+
+\subsection{Kierunek obrotu}
+
+W przestrzeni trójwymiarowej ważne jest ujednolicenie obrotu między osiami.
+W tym celu kierunek obrotu będzie u nas wyznaczała powszechnie znana metoda
+o nazwie ,,reguła prawej dłoni". W ramach przypomnienia działania reguły, jeśli ustawimy
+kciuk prawej dłoni wzdłuż osi wokół której chcemy
+dokonać obrotu, to zgięte palce będą przedstawiać kierunek obrotu.
+Dzięki takiemu ujednoliceniu obrotu mamy tak naprawdę trzy osobne obroty względem osi $x,y$
+oraz $z$.
+
+\subsection{Opis macierzowy obrotu w przestrzeni}
+W tym podrozdziale skupimy się na znalezieniu macierzy 
+obrotu dla przestrzeni $\mathbb{R}^3$. W tym celu 
+dla pewnego losowego punktu w tej przestrzeni dokonamy obroty względem głównych 
+osi układu współrzędnych. 
+
+Niech $p=(x_p,y_p,z_p)$ będzie pewnym punktem w $\mathbb{R}^3$. Zamodelujmy teraz
+obrót punktu $p$ względem osi $z$, o kąt równy $\psi$. 
+Dodatkowo niech $p_\Delta=(x_{p_\Delta},y_{p_\Delta},z_{p_\Delta})$ będzie punktem w $\mathbb{R}^3$, 
+który jest efektem rozważanego obrotu. 
+Zauważmy, że wartość współrzędnej
+odpowiadająca osi $z$ nie ulega zmianie. Zmieniają się współrzędne odpowiadające osi $x$ oraz $y$.
+W takim razie, możemy skorzystać ze wzorów wyprowadzonych z podrozdziału \ref{obrot2drozdzial}.
+Podsumowując
+$$\left\{\begin{array}{l}
+x_{p_\Delta} = x_{p_\Delta} \cos\psi - y_{p_\Delta}\sin\psi \\
+y_{p_\Delta}=x_{p_\Delta}\sin\psi + y_{p_\Delta}\cos\psi\\
+z_{p_\Delta} = z_{p_\Delta}
+\end{array}\right. \Longleftrightarrow \begin{bmatrix}
+x_{p_\Delta}\\
+y_{p_\Delta}\\
+z_{p_\Delta}
+\end{bmatrix} =
+\begin{bmatrix}
+\cos\psi   & -\sin\psi&0 \\
+\sin\psi & \cos\psi & 0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+x_{p} \\
+y_{p} \\
+z_{p}
+\end{bmatrix}.$$
+Powyższa macierz kwadratowa jest macierzą obrotu względem osi $z$ o kąt równy $\psi$, oznaczać będziemy ją jako $\mathcal{R}_z(\psi)$.\\. 
+W sposób analogiczny jesteśmy w stanie zdefiniować obrót względem pozostałych osi.\\
+Macierz obrotu względem osi $x$ o kąt $\psi$ ma postać
+ $$\begin{bmatrix}
+ 1&0&0\\
+0&\cos\psi   & -\sin\psi\\
+0&\sin\psi & \cos\psi
+\end{bmatrix},$$
+oznaczać będziemy ją jako $\mathcal{R}_x(\psi)$.\\
+Natomiast, macierz obrotu względem osi $y$ o kąt $\psi$ ma postać
+$$\begin{bmatrix}
+\cos\psi&0&\sin\psi\\
+0&1   & 0\\
+-\sin\psi &0 & \cos\psi
+\end{bmatrix},$$
+oznaczać będziemy ją jako $\mathcal{R}_y(\psi)$.\\
+W ten oto sposób udało nam się rozważyć obrót na trzech podstawowych osiach.
+
+%obroe wokol roznych osi
+\subsection{Wielokrotne obroty}
+Pytaniem na jakie spróbujemy teraz odpowiedzieć będzie to, czy kolejność obrotu ma znaczenie. Okazuje się, że ma bardzo duże znaczenie. 
+Istotność kolejności obrotu pokażemy w poniższym przykładzie.
+\begin{prz}\label{PrzykladWielokrotnyObrot}
+W przykładzie rozważymy obrót punktu $p=(1,1,1)$ wokół osi $x,z$ 
+o kąt równy w obu przypadkach $\frac{\pi}{2}$.
+Macierze obrotu mają wówczas postać
+$$
+\mathcal{R}_z\left(\frac{\pi}{2}
+\right)=
+ \begin{bmatrix}
+0   & -1&0 \\
+1 & 0 & 0\\
+0&0&1
+\end{bmatrix},\mathcal{R}_x\left(\frac{\pi}{2}
+\right)=\begin{bmatrix}
+ 1&0&0\\
+0&0   & -1\\
+0&1 & 0
+\end{bmatrix}.$$
+Zacznijmy od rozważenia przypadku, gdzie najpierw dokonujemy obrót względem osi $x$.
+$$\begin{bmatrix}
+ 1&0&0\\
+0&0   & -1\\
+0&1 & 0
+\end{bmatrix}\begin{bmatrix}
+ 1\\
+1\\
+1 
+\end{bmatrix} = \begin{bmatrix}
+ 1\\
+-1\\
+1 
+\end{bmatrix}. $$
+Po wykonaniu pierwszego obrotu uzyskaliśmy punkt o współrzędnych $(1,-1,1)$.
+Wykonajmy obrót otrzymanego punktu względem osi $z$.
+$$\begin{bmatrix}
+0   & -1&0 \\
+1 & 0 & 0\\
+0&0&1
+\end{bmatrix}\begin{bmatrix}
+ 1\\
+-1\\
+1 
+\end{bmatrix} = \begin{bmatrix}
+ 1\\
+1\\
+1 
+\end{bmatrix}.$$
+Efektem obrócenia punktu $p$ najpierw względem osi $x$, a następnie względem osi $z$ o kąt równy $\frac{\pi}{2}$ w obu przypadkach, jest otrzymanie punktu wyjściowego.
+Rozważmy teraz sytuacje, gdzie najpierw dokonujemy obrotu względem osi $z$.
+$$\begin{bmatrix}
+0   & -1&0 \\
+1 & 0 & 0\\
+0&0&1
+\end{bmatrix}\begin{bmatrix}
+ 1\\
+1\\
+1 
+\end{bmatrix} = \begin{bmatrix}
+ -1\\
+1\\
+1 
+\end{bmatrix}.$$
+Efektem obrócenia względem osi $z$ jest otrzymanie punktu $(-1,1,1)$.
+Wykonamy ostatni obrót względem osi $x$.
+$$\begin{bmatrix}
+ 1&0&0\\
+0&0   & -1\\
+0&1 & 0
+\end{bmatrix}\begin{bmatrix}
+ -1\\
+1\\
+1 
+\end{bmatrix} = \begin{bmatrix}
+-1\\
+-1\\
+1 
+\end{bmatrix}. $$
+Efektem obrócenia punktu $p$ najpierw względem osi $z$, a następnie względem osi $x$ o kąt równy $\frac{\pi}{2}$ w obu przypadkach, jest punkt $(-1,-1,1)$. 
+W ten sposób udało nam się pokazać, że kolejność obrotu względem osi ma znaczenie.
+\end{prz}
+
+Zauważmy, że dowolny obrót w przestrzeni $\mathbb{R}^3$ jesteśmy w stanie przedstawić
+w postaci 
+$(\psi,\theta,\gamma)$, gdzie 
+\begin{itemize}
+\item[$\bullet$] $\psi$ jest kątem obrotu względem osi $z$,
+\item[$\bullet$] $\theta$ jest kątem obrotu względem osi $y$,
+\item[$\bullet$] $\gamma$ jest kątem obrotu względem osi $x$.
+\end{itemize}
+Wyżej wymienioną trojkę nazywamy kątem Eulera.
+\subsection{Macierz obrotu względem dowolnej osi obrotu}
+Rozważmy teraz sytuację kiedy obracamy pewien punkt
+najpierw o kąt równy $\phi$ względem osi $z$, następnie o kąt $\theta$ względem
+osi $y$, kończąc na obrocie o kąt $\psi$ względem osi $x$.
+Zacznijmy od pomnożenia obrotu względem osi $x$ przez obrót względem osi $y$.
+$$
+\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)=\begin{bmatrix}
+\cos\theta&0&\sin\theta\\
+0&1   & 0\\
+-\sin\theta &0 & \cos\theta
+\end{bmatrix}
+\begin{bmatrix}
+ 1&0&0\\
+0&\cos\psi   & -\sin\psi\\
+0&\sin\psi & \cos\psi
+\end{bmatrix}=
+\begin{bmatrix}
+\cos\theta&\sin\theta\sin\psi&\sin\theta\cos\psi\\
+0&\cos\psi   & -\sin\psi\\
+-\sin\theta &\cos\theta\sin\psi & \cos\theta\cos\psi
+\end{bmatrix}.
+$$
+
+$$
+\mathcal{R}_z(\phi)(\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)) = 
+\begin{bmatrix}
+0&\cos\phi   & -\sin\phi\\
+0&\sin\phi & \cos\phi\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+\cos\theta&\sin\theta\sin\psi&\sin\theta\cos\psi\\
+0&\cos\psi   & -\sin\psi\\
+-\sin\theta &\cos\theta\sin\psi & \cos\theta\cos\psi
+\end{bmatrix}.
+$$ 
+Otrzymany produkt pomnóżmy teraz przez macierz obrotu względem osi $z$.
+$$\mathcal{R}_{z(\phi)y(\theta)x(\psi)} = \mathcal{R}_z(\phi)\mathcal{R}_y(\theta)\mathcal{R}_x(\psi) = \begin{bmatrix}
+\cos\phi\cos\theta& \cos\phi\sin\theta\sin\psi -& \cos\phi\sin\theta\cos\psi + \\
+& \sin\phi \cos\psi &\sin\phi \sin\psi\\
+&&\\
+\sin\phi\cos\theta&\sin\phi\sin\theta\sin\psi+   & \sin\phi\sin\theta\cos\psi- \\
+&\cos\phi\cos\psi&\cos\phi \sin\psi\\
+&&\\
+-\sin\theta &\cos\theta\sin\psi & \cos\theta\cos\psi
+\end{bmatrix}.$$
+W ten sposób udało nam się znaleźć macierz obrotu dla kąta Eulera równego $(\phi,\theta,\psi).$
+
+Sprawdzimy teraz, czy macierz $\mathcal{R}_{z(\phi)y(\theta)x(\psi)}$ jest 
+elementem specjalnej grupy ortogonalnej w $\mathbb{R}^3$.\\
+Zacznijmy od obliczenia wyznacznika macierzy. Zauważmy, że stosując rozwinięcie Laplace'a
+na macierzach obrotu względem osi $x,y$ oraz $x$ na kolejno $1,2$ i $3$ kolumnie, mamy tak naprawdę
+do obliczenia minor, który jest macierzą obrotu na płaszczyźnie $\mathbb{R}^2$. Oznacza to, że każda 
+z macierzy wyżej wspomnianych macierzy ma wyznacznik równy $1$. 
+W takim razie, korzystając z twierdzenia Cauchy'ego w produkcie wyznacznika otrzymujemy: 
+$$\det\left(\mathcal{R}_{z(\phi)y(\theta)x(\psi)}\right) = 
+\det \left( \mathcal{R}_z(\phi)\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)\right) = 
+\det \left( \mathcal{R}_z(\phi)\right)\det\left(\mathcal{R}_y(\theta)\right)
+\det\left(\mathcal{R}_x(\psi)\right)=1.$$
+Zostało nam pokazać, że macierzą odwrotną do $\mathcal{R}_{z(\phi)y(\theta)x(\psi)}$
+jest jej macierz transponowana. Zaczynimy od zauważenia, że macierzami odwrotnymi dla 
+$\mathcal{R}_{x},\mathcal{R}_{y},\mathcal{R}_{z}$ są ich macierze transponowane.
+W takim razie 
+$$\mathcal{R}_{z(\phi)y(\theta)x(\psi)}\mathcal{R}^T_{z(\phi)y(\theta)x(\psi)} = 
+\mathcal{R}_z(\phi)\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)
+\left(\mathcal{R}_z(\phi)\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)\right)^T=$$
+$$=\mathcal{R}_z(\phi)\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)
+\mathcal{R}^T_x(\psi)\mathcal{R}^T_y(\theta)\mathcal{R}^T_z(\phi) = I_n.$$
+W ten sposób udało nam się pokazać, że  $\mathcal{R}_{z(\phi)y(\theta)x(\psi)} \in \textup{SO}(3).$
+
+\subsection{Opis kwaternionowy obrotu w przestrzeni }
+\begin{defi}
+Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
+\end{defi}
+\begin{defi}
+Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
+\end{defi}
+
+\begin{lem}\label{lematDolematuSO3}
+Niech $A\in\mathcal{M}_n(\mathbb{R})$, gdzie $n$ jest liczną naturalną nieparzystą. 
+Wówczas macierz $A$ posiada przynajmniej jedną rzeczywistą wartość własną. 
+\end{lem}
+\begin{dowod}
+W celu popełnienia dowodu zacznijmy od policzenia wielomianu charakterystycznego macierzy $A$.
+$$p_A \left( \lambda \right) = \det \left( \lambda I_n-A \right) = \lambda ^n 
++ a_1\lambda ^{n-1} +...+ a_n,$$
+gdzie $a_1,...,a_n$ są rzeczywistymi współczynnikami wielomianu. 
+Pamiętając o tym, że $n$ jest liczbą nieparzystą
+przejdźmy do obliczenia granicy $p_A$ w $-\infty$ i $\infty$.
+$$\lim\limits_{\lambda\rightarrow -\infty}p_A \left( \lambda \right)=
+\lim\limits_{\lambda\rightarrow -\infty} \left(\lambda ^n 
++ a_1\lambda ^{n-1} +...+ a_n\right) = -\infty,$$
+
+$$\lim\limits_{\lambda\rightarrow \infty}p_A \left( \lambda \right)=
+\lim\limits_{\lambda\rightarrow \infty} \left(\lambda ^n 
++ a_1\lambda ^{n-1} +...+ a_n\right) = \infty.$$
+Dowolny wielomian jest funkcją ciągłą. W takim razie udało nam się pokazać, że
+$p_A$ posiada przynajmniej jedno rzeczywiste miejsce zerowe $\lambda_0$. 
+W efekcie $lambda_0$ jest rzeczywistą wartością własną macierzy $A$ 
+\end{dowod}
+
+\begin{lem}
+Niech $A\in\textup{O}(n)$, gdzie $n$ jest liczną naturalną nieparzystą. Niech dodatkowo
+$\lambda_0$ będzie rzeczywistą wartością własną macierzy A. Wówczas $\lambda_0 = \pm 1$.
+\end{lem}
+\begin{dowod}
+Z lematu \ref{lematDolematuSO3}. wiemy, że macierz $A$ pewną ma przynajmniej jedna rzeczywistą wartość
+własną $\lambda_0$. Oznacza to, że istnieje odpadający wartości własnej $\lambda_0$, wektor własny
+$v=[x_1,...,x_n]\in\mathbb{R}^n$ tzn. $Av=\lambda_0 v$. 
+Pamiętając, że $A$ jest macierzą ortogonalną, przejdźmy wyprowadzenia pierwszej równości.
+$$\lambda_0v^Tv = (\lambda_0 v)^T\lambda_0 v=(Av)^T Av = v^T A^T Av = v^T v .$$
+W konsekwencji
+$$\lambda_0^2v^Tv = v^T v\Rightarrow\lambda_0^2 = 1\Rightarrow \lambda_0 = \pm 1.$$
+\end{dowod}
+
+
+\chapter{Zastosowanie}
+\chapter{Literatura}
+\end{document}
