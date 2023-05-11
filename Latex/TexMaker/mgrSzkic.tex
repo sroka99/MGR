@@ -794,29 +794,55 @@ Pytaniem na jakie spróbujemy teraz odpowiedzieć to jak wygląda zmiana kąta w
 By odpowiedzieć na to pytanie powtórzymy obrót litery $T$ z przykładu \ref{exT_rotation}.
 \begin{prz}
 W celu lepszej wizualizacji wykorzystamy te same punkty $x_1,...,x_8$ oraz połączymy je w taki sam sposób
-jak w przykładzie  \ref{exT_rotation}. Macierze przez jakie przemnożymy punkty to kolejno
-$$\begin{bmatrix}
-0&1 \\
-1&0 
+jak w przykładzie  \ref{exT_rotation}. Dla ułatwienia zapisu wprowadźmy pewne oznaczenia. 
+Oznaczmy, zatem
+$$\mathcal{O}(\theta) =\begin{bmatrix}
+\cos\theta_n&\sin\theta_n \\
+\sin\theta_n & \cos\theta_n
+\end{bmatrix}.$$
+Katy ,,obrotu" dzięki, których użyjemy do określenia wartości elementów powyższej macierzy
+będą elementami zbioru $\left\{\frac{2\pi x}{10}: x\in\mathbb{N}\cup\left\{ 0 \right\} \wedge x\leqslant10 \right\}$. Podane punkty przemnożymy przez zdefiniowane w ten sposób macierze.
+Wynik wizualizujemy na płaszczyźnie w następujący sposób:
+\begin{itemize}
+\item[•] kolorem czerwonym zaznaczymy boki oryginalnej litery T,
+\item[•] kolorem szarym zaznaczymy boki ,,obróconej" litery T.
+\end{itemize}
+W efekcie otrzymujemy  
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=7 cm]{T-reflection.png}
+\caption{Wizualizacja odbicia}
+\end{center}
+\end{figure}
+Możemy łatwo zauważyć, że dokonanie ,,obrotu" macierzami 
+ortogonalnymi o wyznaczniku równym $-1$ nie spełnia założeń obrotu. Najbardziej widoczne
+jest to na porównaniu pól obróconej litry T z jej pierwotną. W powyższym przykładzie tylko 
+$2$ obroty mają identyczne pola co do wyjściowej. ,,Obroty" te zostały wykonane przez macierze
+$$
+\begin{bmatrix}
+1&0 \\
+0 & -1
 \end{bmatrix},
 \begin{bmatrix}
 -1&0 \\
-0&1 
-\end{bmatrix},
-\begin{bmatrix}
-0&1 \\
-1&0 
-\end{bmatrix},
-$$
-odpowiednio opisujące kąt równy $\frac{\pi}{2},\pi,\frac{3\pi}{2}.$ W efekcie otrzymujemy  
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=5 cm]{T_obroty.png}
-\caption{Wizualizacja }
-\end{center}
-\end{figure}
-
+0 & 1
+\end{bmatrix}.$$
+Okazuje się, że przemnożenie dowolnego punktu przez dwie powyższe macierze daje w efekcie kolejno
+odbicie względem osi $y$ oraz odbicie osi $x$.
 \end{prz}
+Z powyższego przykładu możemy wywnioskować, że mnożenie przez macierze ortogonalne 
+o wyznaczniku równym $-1$ ma mało wspólnego z obrotem, za to dużo więcej z odbiciem. Z tego 
+względu na zakończenie tej sekcji wprowadźmy dwie nowe definicje. 
+\begin{defi}
+Macierz ortogonalną stopnia $n$ o elementach rzeczywistych, której wyznacznik jest równy $-1$ 
+nazywamy macierzą odbicia w przestrzeni $n$. 
+\end{defi}
+\begin{defi}
+Zbiór składający się z macierzy ortogonalną stopnia $n$ o elementach rzeczywistych, nazywamy grupą
+ortogonalną stopnia $n$. Omawiany zbiór oznaczamy jako $\textup{O}(n)$.
+\end{defi}
+
+
 \subsection{Opis obrotu za pomocą liczb zespolonych}
 Alternatywnym sposobem opisu obrotu na płaszczyźnie $\mathbb{R}^2$
 jest użycie liczby zespolonych. Wówczas dowolny punkt o współrzędnych kartezjańskich $(a,b)$
@@ -1066,38 +1092,11 @@ $$=\mathcal{R}_z(\phi)\mathcal{R}_y(\theta)\mathcal{R}_x(\psi)
 \mathcal{R}^T_x(\psi)\mathcal{R}^T_y(\theta)\mathcal{R}^T_z(\phi) = I_n.$$
 W ten sposób udało nam się pokazać, że  $\mathcal{R}_{z(\phi)y(\theta)x(\psi)} \in \textup{SO}(3).$
 
-\subsection{Opis kwaternionowy obrotu w przestrzeni }
-\begin{defi}
-Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
-\end{defi}
-\begin{defi}
-Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
-\end{defi}
 
-\begin{lem}\label{lematDolematuSO3}
-Niech $A\in\mathcal{M}_n(\mathbb{R})$, gdzie $n$ jest liczną naturalną nieparzystą. 
-Wówczas macierz $A$ posiada przynajmniej jedną rzeczywistą wartość własną. 
-\end{lem}
-\begin{dowod}
-W celu popełnienia dowodu zacznijmy od policzenia wielomianu charakterystycznego macierzy $A$.
-$$p_A \left( \lambda \right) = \det \left( \lambda I_n-A \right) = \lambda ^n 
-+ a_1\lambda ^{n-1} +...+ a_n,$$
-gdzie $a_1,...,a_n$ są rzeczywistymi współczynnikami wielomianu. 
-Pamiętając o tym, że $n$ jest liczbą nieparzystą
-przejdźmy do obliczenia granicy $p_A$ w $-\infty$ i $\infty$.
-$$\lim\limits_{\lambda\rightarrow -\infty}p_A \left( \lambda \right)=
-\lim\limits_{\lambda\rightarrow -\infty} \left(\lambda ^n 
-+ a_1\lambda ^{n-1} +...+ a_n\right) = -\infty,$$
-
-$$\lim\limits_{\lambda\rightarrow \infty}p_A \left( \lambda \right)=
-\lim\limits_{\lambda\rightarrow \infty} \left(\lambda ^n 
-+ a_1\lambda ^{n-1} +...+ a_n\right) = \infty.$$
-Dowolny wielomian jest funkcją ciągłą. W takim razie udało nam się pokazać, że
-$p_A$ posiada przynajmniej jedno rzeczywiste miejsce zerowe $\lambda_0$. 
-W efekcie $lambda_0$ jest rzeczywistą wartością własną macierzy $A$ 
-\end{dowod}
-
-\begin{lem}
+Przedstawimy teraz, że inkluzja zachodzi również w drugą stronę, tzn. że każda macierz 
+z specjalnej grupy ortogonalnej jest tak naprawdę macierzą obrotu w przestrzeni $R^3$. 
+W tym celu przedstawię dowód dwóch lematów, które ułatwią nam prace nad ostatecznym dowodem.
+\begin{lem}\label{lematDolematuSO3_2}
 Niech $A\in\textup{O}(n)$, gdzie $n$ jest liczną naturalną nieparzystą. Niech dodatkowo
 $\lambda_0$ będzie rzeczywistą wartością własną macierzy A. Wówczas $\lambda_0 = \pm 1$.
 \end{lem}
@@ -1110,7 +1109,86 @@ $$\lambda_0v^Tv = (\lambda_0 v)^T\lambda_0 v=(Av)^T Av = v^T A^T Av = v^T v .$$
 W konsekwencji
 $$\lambda_0^2v^Tv = v^T v\Rightarrow\lambda_0^2 = 1\Rightarrow \lambda_0 = \pm 1.$$
 \end{dowod}
+\begin{twr}
+Jeśli $R\in\textup{SO}(3)$, to jest ona macierzą obrotu o pewien kąt.
+\end{twr}
+\begin{dowod}
+Dzięki lematowi \ref{lematDolematuSO3_2}. wiemy, że rzeczywistą wartością 
+własną macierzy $A$ jest $-1$ lub $1$. By pokazać prawdziwość powyższego twierdzenia
+pokażemy jego prawdziwość najpierw z założeniem, że $1$ jest wartością własną macierzy $A$, a następnie
+powtórzymy to dla wartości własnej równe $-1$.
 
+Załóżmy zatem, że $1$ jest wartością własną macierzy $A$. Przypiszmy zatem do podanej wartości własnej
+odpowiadający jej jednostkowy wektor własny $v_3\in \mathbb{R}$. Weźmy dodatkowo wektory $v_1,v_2$,
+które będą bazą ortonormalną podprzestrzeni 
+$v^\perp = \left\{ v\in\mathbb{R}^3 : v\circ v_3 = 0 \right\}$. Używając wektorów $v_1,v_2,v_3$ 
+skonstruujmy macierz $B = [v_1,v_2,v_3]$, gdzie podane wektory są kolumnami macierzy. Zauważmy, że 
+macierz $B$ jest macierzą ortogonalną. By to potwierdzić pomnóżmy macierz $B$ przez jej macierz transponowaną. 
+$$
+BB^T = [v_1,v_2,v_3]\left[\begin{array}{c}
+v_1^T\\
+v_2^T\\
+v_3^T
+\end{array}  \right],
+$$
+gdzie $v_1^T,v_2^T,v_3^T$ są wersami macierzy transponowanej $B$. Ze względu na to, że każdy z wektorów
+jest prosto padły do pozostałych, to zachodzi równość 
+$$v_i\circ v_j = 0,$$
+gdzie $i,j\in \{1,2,3 \}$ przy czym $i\neq j $. Natomiast, w przypadku $i = j$ to powyższy iloczyn skarany
+wynosi $1$, wynika to z faktu ortonormalności wektorów rozważanych wektorów. Podsumowując 
+$$
+BB^T = [v_1,v_2,v_3]\left[\begin{array}{c}
+v_1^T\\
+v_2^T\\
+v_3^T
+\end{array}  \right] = I_3,
+$$
+zatem udało nam się potwierdzić ortogonalność macierzy $B$. Oznacza to, że wyznacznik macierzy $A$
+jest równy $1$ lub $-1$. Ze względu na to, że zamiana kolejności wierszy zmienia znak wyznacznika
+wybierzemy wyznacznik równy $1$ bez straty ogólności.
+Oznacz to, że $B\in\textup{SO}(3)$. W takim razie 
+$$AB = [Bv_1,Bv_2,Bv_3],$$
+pamiętając jednak o tym, że $v_3$ jest wektorem własnym macierzy $A$, zatem $Av_3 = v_3$.
+Dodatkowo, iloczyn dwóch macierzy ortogonalnych również jest macierzą ortogonalną. Oznacza to, 
+że macierz $AB$ jest macierzą ortogonalną. Dodatkowo, $Bv_1,Bv_2\in v_3^\perp$.
+W takim razie $A(v_1)=av_1+bv_2$, $A(v_2)=cv_1+dv_2$, $A(v_3) = v_3$, co w konsekwencji daje nam macierz
+$$B^{-1}AB\begin{bmatrix}
+a&c   & 0\\
+b&d & 0\\
+0&0&1
+\end{bmatrix}\in \textup{SO}(3) \Longrightarrow
+\begin{bmatrix}
+a&c\\
+b&d 
+\end{bmatrix}\in \textup{SO}(2).$$
+Oznacza to, że macierz $A$ jest macierzą obrotu o pewien kąt.\\
+
+Przypuśćmy teraz, że wartość własną macierzy $A$ jest równa $-1$. Niech $v_3$ będzie odpowiadającym
+ortogonalnym wektorem własnym do podanej wartości własnej. Definiując macierz macierz $B$ w analogiczny
+sposób jak wyżej otrzymujemy 
+  $$B^{-1}AB\begin{bmatrix}
+a&c   & 0\\
+b&d & 0\\
+0&0&-1
+\end{bmatrix}\Longrightarrow \det\left(\begin{bmatrix}
+a&c \\
+b&d 
+\end{bmatrix} \right) =-1.$$
+Oznacza to, że $\begin{bmatrix}
+a&c \\
+b&d 
+\end{bmatrix}$ jest elementem zbioru $\textup{O}(2)$. Oznacza to, że istnieje niezerowy wektor 
+$v\in v^\perp_3$ taki, że $Av=v$. Oznacza  to, że $1$ jest również wartością własną macierz $A$.
+W ten sposób udało nam się pokazać, że jeśli $A\in\textup{SO}(3)$ to jest ona tak naprawdę macierzą
+obrotu.  
+\end{dowod}
+\subsection{Opis kwaternionowy obrotu w przestrzeni }
+\begin{defi}
+Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
+\end{defi}
+\begin{defi}
+Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
+\end{defi}
 
 \chapter{Zastosowanie}
 \chapter{Literatura}
