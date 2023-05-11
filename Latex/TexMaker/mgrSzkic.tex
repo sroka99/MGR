@@ -1096,6 +1096,22 @@ W ten sposób udało nam się pokazać, że  $\mathcal{R}_{z(\phi)y(\theta)x(\ps
 Przedstawimy teraz, że inkluzja zachodzi również w drugą stronę, tzn. że każda macierz 
 z specjalnej grupy ortogonalnej jest tak naprawdę macierzą obrotu w przestrzeni $R^3$. 
 W tym celu przedstawię dowód dwóch lematów, które ułatwią nam prace nad ostatecznym dowodem.
+\begin{lem}\label{lematDolematuSO3}
+Niech $A\in\mathcal{M}_n(\mathbb{R})$, gdzie $n$ jest liczną naturalną nieparzystą.
+Wówczas macierz $A$ posiada przynajmniej jedną rzeczywistą wartość własną.
+\end{lem}
+\begin{dowod}
+Wartości własne macierzy $A$, znajdziemy obliczając miejsca zerowe jej wielomianu charakterystycznego.
+$$p_A(\lambda) = \det(\lambda I_n-A) = \lambda^n + a_1\lambda^{n-1}+...+a_n,$$
+gdzie $a_1,a_2,...,a_n$ są rzeczywistymi współczynnikami wielomianu charakterystycznego macierzy $A$.
+Obliczmy teraz granice jakie przyjmuje $p_A(\lambda)$ w $-\infty$ oraz $\infty$.
+$$\lim\limits_{\lambda\rightarrow -\infty} p_A(\lambda) = -\infty,$$
+$$\lim\limits_{\lambda\rightarrow \infty} p_A(\lambda) =  \infty.$$
+Ze względu na to, że $p_A(\lambda)$ jest funkcją ciągłą 
+to musi istnieć przynajmniej jedno rzeczywiste miejsce
+zerowe wielomianu charakterystycznego macierzy $A$. 
+Oznacza to, że macierz $A$ posiada przynajmniej jedną rzeczywistą wartość własną.
+\end{dowod}
 \begin{lem}\label{lematDolematuSO3_2}
 Niech $A\in\textup{O}(n)$, gdzie $n$ jest liczną naturalną nieparzystą. Niech dodatkowo
 $\lambda_0$ będzie rzeczywistą wartością własną macierzy A. Wówczas $\lambda_0 = \pm 1$.
