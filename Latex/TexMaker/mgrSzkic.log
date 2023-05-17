@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  15 MAY 2023 23:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  16 MAY 2023 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,21 +620,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 256--259
  []
 
 [4] [5] [6] [7]
-Overfull \hbox (38.56313pt too wide) detected at line 457
-\OML/plm/m/it/10.95 q[]q[] \OT4/cmr/m/n/10.95 = (\OML/plm/m/it/10.95 a[]a[] \OM
-S/plsy/m/n/10.95 ^^@ \OML/plm/m/it/10.95 b[]b[] \OMS/plsy/m/n/10.95 ^^@ \OML/pl
-m/m/it/10.95 c[]c[] \OMS/plsy/m/n/10.95 ^^@ \OML/plm/m/it/10.95 d[]d[]\OT4/cmr/
-m/n/10.95 ) + (\OML/plm/m/it/10.95 a[]b[] \OT4/cmr/m/n/10.95 + \OML/plm/m/it/10
-.95 b[]a[] \OT4/cmr/m/n/10.95 + \OML/plm/m/it/10.95 c[]d[] \OMS/plsy/m/n/10.95 
-^^@ \OML/plm/m/it/10.95 d[]c[]; a[]c[] \OMS/plsy/m/n/10.95 ^^@ \OML/plm/m/it/10
-.95 b[]d[] \OT4/cmr/m/n/10.95 + \OML/plm/m/it/10.95 c[]a[] \OT4/cmr/m/n/10.95 +
- \OML/plm/m/it/10.95 d[]b[]; a[]d[] \OT4/cmr/m/n/10.95 + \OML/plm/m/it/10.95 b[
-]c[] \OMS/plsy/m/n/10.95 ^^@ \OML/plm/m/it/10.95 c[]b[] \OT4/cmr/m/n/10.95 + \O
-ML/plm/m/it/10.95 d[]a[]\OT4/cmr/m/n/10.95 )\OML/plm/m/it/10.95 :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--482
+Underfull \hbox (badness 10000) in paragraph at lines 479--483
 
  []
 
@@ -643,11 +629,11 @@ Rozdzia\PlPrIeC {\l } 2.
 <wsp_biegunowe.png, id=259, 350.30875pt x 231.86626pt>
 File: wsp_biegunowe.png Graphic file (type png)
 <use wsp_biegunowe.png>
-Package pdftex.def Info: wsp_biegunowe.png  used on input line 644.
+Package pdftex.def Info: wsp_biegunowe.png  used on input line 645.
 (pdftex.def)             Requested size: 170.71652pt x 112.99629pt.
 File: wsp_biegunowe.png Graphic file (type png)
 <use wsp_biegunowe.png>
-Package pdftex.def Info: wsp_biegunowe.png  used on input line 657.
+Package pdftex.def Info: wsp_biegunowe.png  used on input line 658.
 (pdftex.def)             Requested size: 170.71652pt x 112.99629pt.
 [11
 
@@ -655,7 +641,7 @@ Package pdftex.def Info: wsp_biegunowe.png  used on input line 657.
 <T_samo.png, id=267, 388.8126pt x 377.9721pt>
 File: T_samo.png Graphic file (type png)
 <use T_samo.png>
-Package pdftex.def Info: T_samo.png  used on input line 736.
+Package pdftex.def Info: T_samo.png  used on input line 737.
 (pdftex.def)             Requested size: 142.26378pt x 138.30182pt.
 
 
@@ -665,16 +651,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <T_obroty.png, id=277, 388.8126pt x 377.9721pt>
 File: T_obroty.png Graphic file (type png)
 <use T_obroty.png>
-Package pdftex.def Info: T_obroty.png  used on input line 762.
+Package pdftex.def Info: T_obroty.png  used on input line 763.
 (pdftex.def)             Requested size: 142.26378pt x 138.30182pt.
  [13 <./T_samo.png> <./T_obroty.png>]
 <T-reflection.png, id=289, 400.3758pt x 298.4751pt>
 File: T-reflection.png Graphic file (type png)
 <use T-reflection.png>
-Package pdftex.def Info: T-reflection.png  used on input line 813.
+Package pdftex.def Info: T-reflection.png  used on input line 814.
 (pdftex.def)             Requested size: 199.16928pt x 148.48116pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 847--855
+Underfull \hbox (badness 10000) in paragraph at lines 848--856
 
  []
 
@@ -682,10 +668,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 847--855
 <zasPrawejReki.png, id=299, 828.9369pt x 253.6677pt>
 File: zasPrawejReki.png Graphic file (type png)
 <use zasPrawejReki.png>
-Package pdftex.def Info: zasPrawejReki.png  used on input line 883.
+Package pdftex.def Info: zasPrawejReki.png  used on input line 884.
 (pdftex.def)             Requested size: 426.79134pt x 130.6074pt.
  [15 <./zasPrawejReki.png>] [16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1188
+Underfull \hbox (badness 10000) in paragraph at lines 1187--1189
 
  []
 
@@ -739,7 +725,7 @@ C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C
 :/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pf
 b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhv
 r.pfb>
-Output written on mgrSzkic.pdf (26 pages, 519418 bytes).
+Output written on mgrSzkic.pdf (26 pages, 519337 bytes).
 PDF statistics:
  454 PDF objects out of 1000 (max. 8388607)
  96 named destinations out of 1000 (max. 500000)

@@ -454,7 +454,8 @@ Przejdźmy teraz do rozważenia mnożenia. Działanie to definiujemy w następuj
 wektory bazowe muszą spełniać warunki z tabeli \ref{table}, następnie rozszerzamy
 je na całą przestrzeń. W ten oto sposób udało nam się przedstawić 
 %czy dodac tutaj wzor na q1q2
-$$q_1q_2= (a_1 a_2-b_1b_2-c_1c_2-d_1d_2)+(a_1b_2+b_1a_2+c_1d_2-d_1c_2,a_1c_2-b_1d_2+c_1a_2+d_1b_2,a_1d_2+b_1c_2-c_1b_2+d_1a_2).$$
+$$q_1q_2= (a_1 a_2-b_1b_2-c_1c_2-d_1d_2)+$$
+$$+(a_1b_2+b_1a_2+c_1d_2-d_1c_2,a_1c_2-b_1d_2+c_1a_2+d_1b_2,a_1d_2+b_1c_2-c_1b_2+d_1a_2).$$
 Spróbujmy uprościć otrzymany wzór. Zacznijmy od wprowadzenia dwóch nowych pojęć, jakimi będą
 część skalarna oraz część wektorowa kwaternionu. 
 Współczynnik przy elemencie neutralnym względem działania mnożenia nazywamy częścią skalarną kwaternionu,
@@ -485,7 +486,7 @@ w postaci iloczynu wektorowego części wektorowych kwaternionów, tzn.
 $\overrightarrow{w_2} = \overrightarrow{q_1}\times\overrightarrow{q_2}$.\\
 \indent
 Podsumowując, mnożenie kwaternionów można przedstawić poniższym wzorem.
-$$q_1q_2 = a_1a_2-\overrightarrow{v_1}\circ \overrightarrow{v_2}+a_1\overrightarrow{v_1}+a_2\overrightarrow{v_2}+\overrightarrow{v_1}\times \overrightarrow{v_2}.$$   
+$$q_1q_2 =a_1a_2-\overrightarrow{v_1}\circ \overrightarrow{v_2}+a_2\overrightarrow{v_1}+a_1\overrightarrow{v_2}+\overrightarrow{v_1}\times \overrightarrow{v_2}.$$   
 %dodac jakies podsumowanie
 \subsection{Postać macierzowa}
 Niech $V = \left\lbrace \begin{bmatrix}
@@ -1212,43 +1213,6 @@ Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 \begin{defi}
 Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
 \end{defi}
-\begin{twr}
-Dla dowolnego obrotu kuli w $\mathbb{R}^3$ wokół jej 
-środka, zawsze istnieje średnica której pozycja po 
-obrocie nie ulega zmianie.
-\end{twr}
-\begin{dowod}
-Dowolny obrót w $\mathbb{R}^3$ możemy potraktować jako pewne 
-odwzorowanie $\varphi_R: \mathbb{R}^3 \rightarrow \mathbb{R}^3$, 
-zdefiniowane wzorem $\varphi_R(x)= Rx$, gdzie $R$ jest pewną 
-macierzą obrotu.
-Łatwo możemy dowieść, że odwzorowanie 
-$\varphi_R$ jest tak naprawdę odwzorowaniem liniowym.
-Zacznijmy od pokazania, że dla dowolnego $\lambda \in \mathbb{R}$
-oraz dowolnego wektora $x\in\mathbb{R}^3$
-zachodzi $\varphi_R(\lambda x)=\lambda\varphi_R(x)$.
-$$\varphi_R(\lambda x) = R(\lambda x)=\lambda Rx = \lambda\varphi_R(x).$$
-By zakończyć dowód liniowości odwzorowania wystarczy, że udowodnimy poniższy warunek
-$$\forall x,y\in\mathbb{R}^3 \hspace{0.5cm}\varphi_R(x+y) = \varphi_R(x) + \varphi_R(y).$$
-$$\varphi_R(x+y) = R(x+y) = Rx+Ry=\varphi_R(x) +\varphi_R(y). $$
-W ten sposób udało nam się pokazać liniowość powyższego odwzorowania. 
-Pokarzemy teraz, że macierz $R$ ma przynajmniej 
-jeden niezmienny wektor własny. Wiemy ze 
-wcześniejszych twierdzeń i lematów, że $R$ jest macierzą, której
-przynajmniej jedna wartość jest równa $1$. Przypisaną do niej wektor 
-własny oznaczmy jako $v$. Przypomnijmy jeszcze podstawową 
-własności macierzy kwadratowej stopnia $n$. Otóż:
-$$\det (-R) = (-1)^n\det(R).$$ 
-W takim razie policzmy wyznacznik macierzy
-$R-I_3$.
-$$\det(R-I_3) = \det (R-I_3)^T =\det(R^T-I_3) =\det(R^{-1}-I_3) =$$ 
-$$=\det (R^{-1}(R-I_3)) = -\det(R-I_3).$$
-Z powyższej równości wynika, że wyznacznik macierzy $R-I_3$ jest
-równy $0$. Oznacza to, że istnieje przynajmniej jeden wektor 
-$v$ dla którego, zachodzi
-$$(R-I_3)v = 0\Rightarrow Rv=v.$$
-Wektor $v$ jest niezależny od dokonanego obrotu co kończy dowód twierdzenia Eulera o obrocie. 
-\end{dowod}
 \chapter{Zastosowanie}
 \chapter{Literatura}
 \end{document}
