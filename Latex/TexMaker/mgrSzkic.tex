@@ -1074,43 +1074,6 @@ Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
 \end{defi}
 
-\begin{lem}\label{lematDolematuSO3}
-Niech $A\in\mathcal{M}_n(\mathbb{R})$, gdzie $n$ jest liczną naturalną nieparzystą. 
-Wówczas macierz $A$ posiada przynajmniej jedną rzeczywistą wartość własną. 
-\end{lem}
-\begin{dowod}
-W celu popełnienia dowodu zacznijmy od policzenia wielomianu charakterystycznego macierzy $A$.
-$$p_A \left( \lambda \right) = \det \left( \lambda I_n-A \right) = \lambda ^n 
-+ a_1\lambda ^{n-1} +...+ a_n,$$
-gdzie $a_1,...,a_n$ są rzeczywistymi współczynnikami wielomianu. 
-Pamiętając o tym, że $n$ jest liczbą nieparzystą
-przejdźmy do obliczenia granicy $p_A$ w $-\infty$ i $\infty$.
-$$\lim\limits_{\lambda\rightarrow -\infty}p_A \left( \lambda \right)=
-\lim\limits_{\lambda\rightarrow -\infty} \left(\lambda ^n 
-+ a_1\lambda ^{n-1} +...+ a_n\right) = -\infty,$$
-
-$$\lim\limits_{\lambda\rightarrow \infty}p_A \left( \lambda \right)=
-\lim\limits_{\lambda\rightarrow \infty} \left(\lambda ^n 
-+ a_1\lambda ^{n-1} +...+ a_n\right) = \infty.$$
-Dowolny wielomian jest funkcją ciągłą. W takim razie udało nam się pokazać, że
-$p_A$ posiada przynajmniej jedno rzeczywiste miejsce zerowe $\lambda_0$. 
-W efekcie $lambda_0$ jest rzeczywistą wartością własną macierzy $A$ 
-\end{dowod}
-
-\begin{lem}
-Niech $A\in\textup{O}(n)$, gdzie $n$ jest liczną naturalną nieparzystą. Niech dodatkowo
-$\lambda_0$ będzie rzeczywistą wartością własną macierzy A. Wówczas $\lambda_0 = \pm 1$.
-\end{lem}
-\begin{dowod}
-Z lematu \ref{lematDolematuSO3}. wiemy, że macierz $A$ pewną ma przynajmniej jedna rzeczywistą wartość
-własną $\lambda_0$. Oznacza to, że istnieje odpadający wartości własnej $\lambda_0$, wektor własny
-$v=[x_1,...,x_n]\in\mathbb{R}^n$ tzn. $Av=\lambda_0 v$. 
-Pamiętając, że $A$ jest macierzą ortogonalną, przejdźmy wyprowadzenia pierwszej równości.
-$$\lambda_0v^Tv = (\lambda_0 v)^T\lambda_0 v=(Av)^T Av = v^T A^T Av = v^T v .$$
-W konsekwencji
-$$\lambda_0^2v^Tv = v^T v\Rightarrow\lambda_0^2 = 1\Rightarrow \lambda_0 = \pm 1.$$
-\end{dowod}
-
 
 \chapter{Zastosowanie}
 \chapter{Literatura}
