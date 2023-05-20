@@ -357,40 +357,64 @@ $\overline{q}$.
 \end{defi}
 
 \begin{twr}\label{SprzężenieWłasności}[Własności sprzężenia]
-Niech $q,q_1,q_2 \in \mathcal{H}$
+Niech $q,q_1,q_2 \in \mathcal{H}(\mathbb{F})$. Wtedy
 \begin{enumerate}
 \item $\overline{\overline{q}} = q$,
 \item $\overline{q_1+q_2} = \overline{q_1}+\overline{q_2}$,
-\item $\overline{q}q= q\overline{q}=\mathcal{N}(q)e$.
+\item $\overline{q}q= q\overline{q}=\mathcal{N}(q)e$,
+\item $\overline{q_1q_2} = \overline{q_2} \hspace{1mm}\overline{q_1}$.
 \end{enumerate}
 
 \end{twr}
 
 
 \begin{dowod}
+Zacznijmy od zapisania $q,q_1,q_2$ w postaci sumy wektorów bazowych, wówczas
+$$q = ae+bi+cj+dk,q_i = a_ie+b_ii+c_ij+d_ik, $$
+gdzie $a,a_i,b,b_i,c,c_i,d,d_i\in \mathbb{F}$ oraz $i\in\left\{1,2\right\}$.\\
 Dowód punktu $\mathit{1}.$ wynika bezpośrednio z definicji sprzężenia. Skupmy się na
-udowodnieniu $\mathit{2}.$ oraz $\mathit{3}.$ punktu.
-
+udowodnieniu pozostałych punktów. By udowodnić drugą własność dodamy do siebie sprzężenia
+kwaternionów $q_1,q_2$. W efekcie tego otrzymujemy poniższą równość.
 $$\overline{q_1}+\overline{q_2} = a_1e-b_1i-c_1j-d_1k+a_2e-b_2i-c_2j-d_2k =
 (a_1+a_2)e-(b_1+b_2)i-(c_1+c_2)j-(d_1+d_2)k =$$
 $$=\overline{q_1+q_2}.$$
 
 W ten sposób udowodniliśmy własność z punktu  $\mathit{2}.$ 
-Zatem przejdźmy do udowodnienia ostatniej pozycji z powyższego twierdzenia. 
+Zatem przejdźmy do udowodnienia przedostatniej pozycji z powyższego twierdzenia. 
 $$q\overline{q}= (ae+bi+cj+dk)(ae-bi-cj-dk) =$$
 $$= (a^2+b^2+c^2+d^2)e
 +(-ab+ba-cd+dc)i+(-ac+bd+ca-db)j+(-ad-bc+cb+da)k  =$$
 $$=(a^2+b^2+c^2+d^2)e = \mathcal{N}(q)e.$$
 
-By zakończyć dowód pozostaje nam pokazać, że iloczyn $\overline{q}q$ również wyniesie 
+By zakończyć dowód punktu $\mathit{3}.$ pozostaje nam pokazać, że iloczyn $\overline{q}q$ również wyniesie 
 $\mathcal{N}(q)e$.
 
 $$\overline{q}q= (ae-bi-cj-dk)(ae+bi+cj+dk) =$$
 $$= (a^2+b^2+c^2+d^2)e
 +(-ab+ba-cd+dc)i+(-ac+bd+ca-db)j+(-ad-bc+cb+da)k  =$$
 $$=(a^2+b^2+c^2+d^2)e = \mathcal{N}(q)e.$$
+By pokazać ostatnią własność pomnożymy przez siebie kwaterniony $q_1,q_2$,
+a następnie na produkcie tych kwaternionów dokonamy sprzężenia.
+$$\overline{q_1q_2}= (a_1 a_2-b_1b_2-c_1c_2-d_1d_2)e+
+(a_1b_2+b_1a_2+c_1d_2-d_1c_2)i+$$
+$$+(a_1c_2-b_1d_2+c_1a_2+d_1b_2)j+(a_1d_2+b_1c_2-c_1b_2+d_1a_2)k,$$
+Pozostaje teraz pomnożyć przez siebie sprzężenia kwaternionów $q_2$, $q_1$ oraz porównać wynik.
+$$\overline{q_2} \hspace{1mm}\overline{q_1}= (a_1 a_2-b_1b_2-c_1c_2-d_1d_2)e+
+(a_1b_2+b_1a_2+c_1d_2-d_1c_2)i+$$
+$$+(a_1c_2-b_1d_2+c_1a_2+d_1b_2)j+(a_1d_2+b_1c_2-c_1b_2+d_1a_2)k.$$
 \end{dowod}
-
+Z powyższego twierdzenia możemy wyprowadzić ciekawy wniosek dotyczący modułu kwaternionu. 
+\begin{wni}
+Niech $q_1q_2\in\mathcal{H}(\mathbb{F})$. Wówczas
+$|q_1q_2|=|q_1||q_2|.$
+\end{wni}
+\begin{dowod}
+By popełnić dowód powyższego wniosku skorzystamy z $\mathit{3}$ i $\mathit{4}$. Zauważmy
+dodatkowo, że $\sqrt{e} = e$, bo $e^2 = e$. W takim razie
+$$|q_1q_2|e =\sqrt{\mathcal{N}(q_1q_2)e}= \sqrt{q_1q_2\overline{q_1q_2}}=
+\sqrt{q_1q_2\overline{q_2}\hspace{1mm}\overline{q_1}} = 
+\sqrt{\mathcal{N}(q_1)e\hspace{1mm}\mathcal{N}(q_2)e}=|q_1||q_2|.$$
+\end{dowod}
 Mając zdefiniowaną normę oraz sprzężenie kwaternionu, możemy w końcu zdefiniować kwaternion odwrotny.
 
 \begin{defi}

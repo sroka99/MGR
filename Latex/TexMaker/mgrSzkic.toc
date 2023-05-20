@@ -8,11 +8,11 @@
 \contentsline {section}{\numberline {1.2\relax .\enspace }Alternatywna definicja}{5}{section.1.2}%
 \contentsline {section}{\numberline {1.3\relax .\enspace }Kwaternion odwrotny}{6}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1\relax .\enspace }Norma oraz sprzężenie kwaternionu}{6}{subsection.1.3.1}%
-\contentsline {section}{\numberline {1.4\relax .\enspace }Przykładowe algebry kwaternionów}{7}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1\relax .\enspace }Postać kanoniczna}{7}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.4\relax .\enspace }Przykładowe algebry kwaternionów}{8}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1\relax .\enspace }Postać kanoniczna}{8}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2\relax .\enspace }Postać hamiltonowska}{8}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3\relax .\enspace }Postać macierzowa}{8}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4\relax .\enspace }Postać trygonometryczna}{9}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.3\relax .\enspace }Postać macierzowa}{9}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4\relax .\enspace }Postać trygonometryczna}{10}{subsection.1.4.4}%
 \contentsline {chapter}{\numberline {2\relax .\enspace }Powiązanie z geometrią}{11}{chapter.2}%
 \contentsline {section}{\numberline {2.1\relax .\enspace }Obrót w przestrzeni dwuwymiarowej}{11}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1\relax .\enspace }Opis macierzowy obrotu}{12}{subsection.2.1.1}%
