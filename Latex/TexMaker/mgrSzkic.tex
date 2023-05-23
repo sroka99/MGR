@@ -1240,5 +1240,25 @@ Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
 \end{defi}
 \chapter{Zastosowanie}
+\section{Wydajność}
+W celu porównania ze sobą metody obu metod obrotu wykonamy test, dzięki któremu porównamy ich wydajność ze sobą. Zacznijmy od nadania testowi pewnego kontekstu.
+
+Horizont: Zero Down, jest grą która miała swoją premierę w na początku $2017$. Gra ta zasłynęła głównie ze względu na aspekty techniczne gry, takie jak otwarty świat, czy co 
+dla nas ciekawsze jakości wykonanych modeli graficznych. Jedną z informacji jaką podzieli się twórcy gry
+są detale dotyczące modelu głównej bohaterki gry o imieniu Aloy. Otóż model głównej bohaterki składał się 
+z około $550$ tyś. trójkątów sklejonymi ze sobą zwanych potocznie ,,poligonami". 
+Dla uproszczenia załóżmy, że model Aloy, możemy przedstawić za pomocą dokładnie $550$ tyś punktów.
+W ramach określenia wydajności modeli dokonamy obroty pewnego zbioru punktów o mocy równej $550$ tyś, co
+będzie reprezentować model głównej bohaterki gry Horizont: Zero Down.  
+\subsection{Kontrukcja benchamrka}
+Test będzie składał się z trzech niezależnych od segmentów, jednakże w każdym z nich będziemy obracać 
+ten sam zbiór punktów. Zanim przejdziemy do opisania poszczególnych segmentów, omówię 
+generowanie zbioru punktów.
+Zbiór punktów reprezentujący 'Aloy' zostanie utworzony przy pomocy pakietu 
+\textit{random} do języka Python, a będąc precyzyjnym skorzystamy z funkcji o nazwie \textit{random}(),
+która zwraca losowy punkt w przedziału $[0,1]$. 
+Zbiór ten będzie generować pętla, która będzie powtarzać się $550$ tyś. razy i w każdym cyklu do 
+listy będzie dodawać trójelementową listę złożą z elementów pochodzących z funkcji \textit{random}.
+
 \chapter{Literatura}
 \end{document}
