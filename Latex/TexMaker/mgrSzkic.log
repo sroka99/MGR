@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  25 MAY 2023 08:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  25 MAY 2023 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -703,8 +703,14 @@ Rozdzia\PlPrIeC {\l } 4.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
-(rerunfilecheck)             Checksum: 0FD417B9CAE21575C6F5944E95BDCF98;6418.
+
+Package rerunfilecheck Warning: File `mgrSzkic.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `mgrSzkic.out':
+(rerunfilecheck)             Before: 0FD417B9CAE21575C6F5944E95BDCF98;6418
+(rerunfilecheck)             After:  92F09B84FD59869DCAE05C31BE3FA839;6423.
  ) 
 Here is how much of TeX's memory you used:
  11267 strings out of 478582
@@ -741,7 +747,7 @@ C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C
 :/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pf
 b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhv
 r.pfb>
-Output written on mgrSzkic.pdf (27 pages, 545669 bytes).
+Output written on mgrSzkic.pdf (27 pages, 546617 bytes).
 PDF statistics:
  492 PDF objects out of 1000 (max. 8388607)
  103 named destinations out of 1000 (max. 500000)

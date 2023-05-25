@@ -1253,7 +1253,7 @@ z około $550$ tyś. trójkątów sklejonymi ze sobą zwanych potocznie ,,poligo
 Dla uproszczenia załóżmy, że model Aloy, możemy przedstawić za pomocą dokładnie $550$ tyś punktów.
 W ramach określenia wydajności modeli dokonamy obroty pewnego zbioru punktów o mocy równej $550$ tyś, co
 będzie reprezentować model głównej bohaterki gry Horizont: Zero Down.  
-\subsection{Kontrukcja benchamrka}
+\subsection{Kontrukcja benchmark'u}
 Test będzie składał się z dwóch niezależnych od segmentów, jednakże w każdym z nich będziemy obracać 
 ten sam zbiór punktów. Zanim przejdziemy do opisania poszczególnych segmentów, omówię 
 generowanie zbioru punktów.
@@ -1284,7 +1284,7 @@ Model Macierzowy    &$415$&$430$&$427$&$427$&$383$&$354$&$360$&$355$&$346$&$354$
 \end{table}
 \subsection*{Test wydajności względnej zmiennej osi obrotu}
 Drugi test obejmuje założenie, że każdy punkt ma inną oś obrotu. 
-Sytuacja ta występuje np przypadku, gdy postać porusza się. 
+Sytuacja ta występuje np. w przypadku, gdy postać porusza się. 
 W tym celu musimy delikatnie zmienić kod benchmarku. Siła obrotu przy użyciu macierzy było to, że na
 jedną generowaną klatkę obrazu wystarczyło wygenerować jedną macierz obrotu, co jest powolnym procesem.
 W tym przypadku, dla każdego punktu musimy wygenerować osobną macierz obrotu podczas generowania jednej klatki.
@@ -1310,7 +1310,13 @@ Macie. &$1767$&$1769$&$1768$&$1768$&$1768$&$1759$&$1757$&$1757$&$1759$&$1765$& $
 \end{table}
 
 \subsection*{Wniosek}
-
-
+Pierwszym wnioskiem jaki nasuwa się po po wykonaniu testów jest to, że wybór macierzowego 
+modelu obrotu ma sens w momencie, gdy możemy sobie pozwolić na generowaniu małej liczby
+macierzy obrotu podczas tworzenia pojedynczej klatki obrazu. Na podstawie testu pierwszego 
+powinniśmy wykonać obrót szybciej o około $11.5\%$. 
+W momencie kiedy mamy do czynienia z sytuacją, kiedy chcemy obrócić każdy punkt o inny kąt, 
+zdecydowanie lepszym wyborem jest kwaternionowy model obrotu. Dzięki testowi drugiemu
+udało nam się pokazać, że obrót z użyciem kwaternionu jest prawie $3$-krotnie szybszy od
+alternatywnego modelu obrotu macierzowego.
 \chapter{Literatura}
 \end{document}
