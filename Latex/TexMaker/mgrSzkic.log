@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  23 MAY 2023 23:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  25 MAY 2023 08:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -503,7 +503,7 @@ File: ot4qhv.fd 2009/09/25 v1.2 font definition file for OT4/qhv
 LaTeX Font Warning: Font shape `OT4/qhv/m/sf' undefined
 (Font)              using `OT4/qhv/m/n' instead on input line 77.
 
-<logoPK.png, id=123, 151.3153pt x 151.3153pt>
+<logoPK.png, id=139, 151.3153pt x 151.3153pt>
 File: logoPK.png Graphic file (type png)
 <use logoPK.png>
 Package pdftex.def Info: logoPK.png  used on input line 78.
@@ -547,7 +547,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Warning: Font shape `OT4/qhv/b/sf' undefined
 (Font)              using `OT4/qhv/b/n' instead on input line 87.
 
-<logoIT.png, id=125, 1778.14313pt x 1778.14313pt>
+<logoIT.png, id=141, 1778.14313pt x 1778.14313pt>
 File: logoIT.png Graphic file (type png)
 <use logoIT.png>
 Package pdftex.def Info: logoIT.png  used on input line 88.
@@ -626,12 +626,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 503--507
 
 [9] [10]
 Rozdzia\PlPrIeC {\l } 2.
-<wizualizacja.png, id=270, 372.1905pt x 193.6836pt>
+<wizualizacja.png, id=290, 372.1905pt x 193.6836pt>
 File: wizualizacja.png Graphic file (type png)
 <use wizualizacja.png>
 Package pdftex.def Info: wizualizacja.png  used on input line 669.
 (pdftex.def)             Requested size: 170.71652pt x 88.83841pt.
-<wizualizacjaobrotu.png, id=271, 281.1303pt x 281.1303pt>
+<wizualizacjaobrotu.png, id=291, 281.1303pt x 281.1303pt>
 File: wizualizacjaobrotu.png Graphic file (type png)
 <use wizualizacjaobrotu.png>
 Package pdftex.def Info: wizualizacjaobrotu.png  used on input line 682.
@@ -639,7 +639,7 @@ Package pdftex.def Info: wizualizacjaobrotu.png  used on input line 682.
 [11
 
  <./wizualizacja.png> <./wizualizacjaobrotu.png>]
-<T_samo.png, id=280, 388.8126pt x 377.9721pt>
+<T_samo.png, id=300, 388.8126pt x 377.9721pt>
 File: T_samo.png Graphic file (type png)
 <use T_samo.png>
 Package pdftex.def Info: T_samo.png  used on input line 761.
@@ -649,13 +649,13 @@ Package pdftex.def Info: T_samo.png  used on input line 761.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12]
-<T_obroty.png, id=290, 388.8126pt x 377.9721pt>
+<T_obroty.png, id=310, 388.8126pt x 377.9721pt>
 File: T_obroty.png Graphic file (type png)
 <use T_obroty.png>
 Package pdftex.def Info: T_obroty.png  used on input line 787.
 (pdftex.def)             Requested size: 142.26378pt x 138.30182pt.
  [13 <./T_samo.png> <./T_obroty.png>]
-<T-reflection.png, id=302, 400.3758pt x 298.4751pt>
+<T-reflection.png, id=322, 400.3758pt x 298.4751pt>
 File: T-reflection.png Graphic file (type png)
 <use T-reflection.png>
 Package pdftex.def Info: T-reflection.png  used on input line 838.
@@ -666,7 +666,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 872--880
  []
 
 [14 <./T-reflection.png>]
-<zasPrawejReki.png, id=312, 828.9369pt x 253.6677pt>
+<zasPrawejReki.png, id=332, 828.9369pt x 253.6677pt>
 File: zasPrawejReki.png Graphic file (type png)
 <use zasPrawejReki.png>
 Package pdftex.def Info: zasPrawejReki.png  used on input line 910.
@@ -678,24 +678,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 1213--1215
 
 [19] [20]
 Rozdzia\PlPrIeC {\l } 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1267--1275
+
+ []
+
 [21
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1292
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1293--1300
+
+ []
+
+[22]
 Rozdzia\PlPrIeC {\l } 4.
-[22
+[23
 
 ] (mgrSzkic.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
-(rerunfilecheck)             Checksum: AAA3E3746D9CCABC45CD1DCCECA65AF6;5517.
+(rerunfilecheck)             Checksum: 0FD417B9CAE21575C6F5944E95BDCF98;6418.
  ) 
 Here is how much of TeX's memory you used:
- 11258 strings out of 478582
- 173937 string characters out of 2844345
+ 11267 strings out of 478582
+ 174052 string characters out of 2844345
  488365 words of memory out of 3000000
- 29161 multiletter control sequences out of 15000+600000
+ 29165 multiletter control sequences out of 15000+600000
  503213 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,63p,391b,411s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -726,9 +741,9 @@ C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C
 :/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pf
 b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhv
 r.pfb>
-Output written on mgrSzkic.pdf (26 pages, 537336 bytes).
+Output written on mgrSzkic.pdf (27 pages, 545669 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 98 named destinations out of 1000 (max. 500000)
- 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 492 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
+ 313 words of extra memory for PDF output out of 10000 (max. 10000000)
 
