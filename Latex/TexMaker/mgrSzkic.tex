@@ -1240,8 +1240,32 @@ Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
 \end{defi}
 \chapter{Zastosowanie}
-\section{Implementacja w języku Python}
+\section{Implementacja obrotu w języku Python}
+\subsection{Macierzowy model obrotu}
+Do przygotowania macierzowego modelu obrotu w języku Python skorzystamy z pakietu \textit{numpy}. 
+Jedną z funkcji jaką zawiera ten pakiet jest $matmul()$, który umożliwia mnożenie macierzy. 
+W celu zaprogramowania obrotu zdefiniowałem pięć nowych funkcji, o nazwach
+\begin{itemize}
+\item[$\bullet$] $xaxisMatrixrotation()$,
+\item[$\bullet$] $yaxisMatrixrotation()$,
+\item[$\bullet$] $zaxisMatrixrotation()$,
+\item[$\bullet$] $rotationMatrixZYX()$,
+\item[$\bullet$] $MatrixRotation()$.
+\end{itemize} 
+Omówmy teraz sposób działania powyższych funkcji. Funkcje $xaxisMatrixrotation()$,\\
+$yaxisMatrixrotation()$,
+$zaxisMatrixrotation()$ jako przyjmują jeden argument typu $float$, a zwracają one macierz obrotu o kącie równym
+argumentowi odpowiednio wokół osi $x,y$ oraz $z$. Są to funkcje bazowe, wywołujemy je w wewnątrz definicji
+$rotationMatrixZYX()$, gdzie za pomocą funkcji $matmul()$ dokonujemy ich mnożenia. Funkcja ta przyjmuje trzy argumenty
+typu $float$ oznaczmy je jako $\psi,\phi,\theta$, zwraca natomiast macierz obrotu względem kąta eulera $(\psi,\phi,\theta)$.
+Ostatnia funkcja $MatrixRotation()$, przyjmuje dwa argumenty, pierwszym z nich jest macierz, natomiast drugim argumentem 
+punkt. Macierz wykorzystuje $matmul()$ do przemnożenia argumentów miedzy sobą, a wynik tego mnożenia jest zwracany.
 
+Założenia algorytmu obrotu są proste, $rotationMatrixZYX()$ wykorzystuje funkcje\\
+$xaxisMatrixrotation()$, $yaxisMatrixrotation()$, $zaxisMatrixrotation()$ do obliczenia 
+macierzy obrotu dla podanego przez nas kąta eulera. Wygenerowana w ten sposób macierz służy jako argument
+dla funkcji $MatrixRotation()$, która dokonuje na drugim argumencie dokonuje obrotu co jest zwracane przez nią.
+\subsection{Kwaternionowy model obrotu}
 \section{Wydajność}
 W celu porównania ze sobą metody obu metod obrotu wykonamy test, dzięki któremu porównamy ich wydajność ze sobą. Zacznijmy od nadania testowi pewnego kontekstu.
 
@@ -1317,6 +1341,7 @@ powinniśmy wykonać obrót szybciej o około $11.5\%$.
 W momencie kiedy mamy do czynienia z sytuacją, kiedy chcemy obrócić każdy punkt o inny kąt, 
 zdecydowanie lepszym wyborem jest kwaternionowy model obrotu. Dzięki testowi drugiemu
 udało nam się pokazać, że obrót z użyciem kwaternionu jest prawie $3$-krotnie szybszy od
-alternatywnego modelu obrotu macierzowego.
+alternatywnego modelu obrotu macierzowego. Dodatkowo można zauważyć, że średnia czasu obrotu metodą kwaternionów 
+z testu $1$ oraz $2$ rożni się od siebie o prawie $10$ sekund. Wynika to z faktu, użycia normalizacji co delikatnie proces.
 \chapter{Literatura}
 \end{document}
