@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  26 MAY 2023 23:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  26 MAY 2023 23:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -699,6 +699,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1317--1324
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1346
+
+ []
+
+
 Underfull \vbox (badness 1577) has occurred while \output is active []
 
  [22]
@@ -748,7 +753,7 @@ C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C
 :/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pf
 b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhv
 r.pfb>
-Output written on mgrSzkic.pdf (28 pages, 551580 bytes).
+Output written on mgrSzkic.pdf (28 pages, 551950 bytes).
 PDF statistics:
  506 PDF objects out of 1000 (max. 8388607)
  106 named destinations out of 1000 (max. 500000)

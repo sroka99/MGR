@@ -1342,6 +1342,11 @@ W momencie kiedy mamy do czynienia z sytuacją, kiedy chcemy obrócić każdy pu
 zdecydowanie lepszym wyborem jest kwaternionowy model obrotu. Dzięki testowi drugiemu
 udało nam się pokazać, że obrót z użyciem kwaternionu jest prawie $3$-krotnie szybszy od
 alternatywnego modelu obrotu macierzowego. Dodatkowo można zauważyć, że średnia czasu obrotu metodą kwaternionów 
-z testu $1$ oraz $2$ rożni się od siebie o prawie $10$ sekund. Wynika to z faktu, użycia normalizacji co delikatnie proces.
+z testu $1$ oraz $2$ rożni się od siebie o prawie $10$ sekund. Wynika to z faktu, użycia normalizacji co spowolniło proces.\\
+
+Z powyższego testu wynika, że zdecydowanie bardziej użyteczna jest metoda obrotu przy użyciu kwaternionów. 
+Obrót macierzowy jest szybszy, ale pojedynczych przypadkach. W ogólności metoda kwaternionowa jest zdecydowanie szybsza.
+Najbardziej optymalne, oczywiście byłoby połączenie ty dwóch metod obrotu. Należy jednak pamiętać, że samo połączenie 
+ich ze sobą może spowolnić proces co może spowodować nieopłacalność syntezy algorytmów.   
 \chapter{Literatura}
 \end{document}
