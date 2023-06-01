@@ -1348,5 +1348,45 @@ Z powyższego testu wynika, że zdecydowanie bardziej użyteczna jest metoda obr
 Obrót macierzowy jest szybszy, ale pojedynczych przypadkach. W ogólności metoda kwaternionowa jest zdecydowanie szybsza.
 Najbardziej optymalne, oczywiście byłoby połączenie ty dwóch metod obrotu. Należy jednak pamiętać, że samo połączenie 
 ich ze sobą może spowolnić proces co może spowodować nieopłacalność syntezy algorytmów.   
+\section{Konstrukcja bączka}
+W tym rozdziale skupimy się na opisaniu konstrukcji bączka, którego obrót będziemy symulować w dalszej części pracy.
+Zauważmy, że bączkiem możemy nazwać stożki sklejone ze sobą podstawami. 
+W punkcie $(0,0,0)$ będzie znajdowała się podstawa, punkt styku bączka
+z podłożem, którym w naszym przypadku jest płaszczyzna $z=0$. Punk ten będzie wierzchołkiem naszego pierwszego bączka,
+jego podstawą będą elementy należące do zbioru \\
+$\lbrace (x,y,z)\in\mathbb{R}^3: x^2+y^2 = 1, z=1\rbrace$. Zbiór ten oznaczmy jako $P_1$. W ten sposób udało nam się uzyskać prowizoryczny bączek, dodajmy jednak ze względów estetycznych drugi stożek. Wierzchołkiem drugiego stożka ustawimy w punkcie
+$(0,0,3)$, natomiast jego podstawą będzie zbiór 
+$\left\lbrace (x,y,z)\in\mathbb{R}^3: x^2+y^2 = \left(\frac{1}{3}\right)^3, z=\frac{11}{10}\right\rbrace$. Oznaczmy go jako
+$P_2$. W ten sposób otrzymujemy dwa stożki, które po połączaniu ze sobą podstaw z opowiadającymi sobie punktami utworzą 
+bączek.\\
+
+By narysować stożek za pomocą powyższego modelu będziemy musieli określić precyzje rysunku. Wynika to z faktu nieprzeliczalności
+zbiorów $P_1$ oraz $P_2$. Oznacza to, że im więcej punktów wybierzemy tym bardziej model bączka będzie dokładniejszy.
+Pamiętajmy jednak o tym, że zwiększenie dokładności modelu spowoduje zwiększenie czasu trwania generowania obrazu.
+Zacznijmy od narysowania szkieletu oraz głównych punktów bączka przy użyciu $10$ elementów ze zbiorów $P_1$ oraz $P_2$.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=12 cm]{skrech.png}
+\end{center}
+\end{figure}
+
+Na obrazku po lewej stronie widzimy punkty, których połączenie w odpowiedni sposób skutkuje powstaniem modelu bączka 
+(rysunek prawy). Kolorem zielonym zaznaczone zostały elementy zbioru $P_1$, natomiast czerwonym elementy zbioru $P_2$.
+Na rysunku prawym przedstawiony został szkic modelu bączka przy pomocy punktów bazowych. W tym miejscu warto zauważyć,
+że powyższy szkic tak naprawdę składa się z trójkątów oraz czworokątów sklejonych ze sobą brzegami. 
+Łatwo obliczyć, że powyższy model składa się z $30$ wielokątów. 
+
+Wyżej wykonane rysunki mają jednak pewną wadę konstrukcyjną, w celu ich narysowania wykorzystaliśmy funkcje 
+\textit{plot3d} z pakietu $matplotlib$. Świetnie sprawuje się ona do rysowania wykresów, czy prostych szkiców, jednak
+sensowne zaprezentowanie obrotu za jej pomocą nie jest możliwe. W tym celu skorzystamy z funkcji $Poly3DCollection$,
+z tego samego pakietu. Umożliwia jako wartości przyjmuje ona punkty, które są zamieniane na wielokąty, 
+których kolor możemy ustawić. Przejdźmy zatem do narysowania modelu bączka, którego ruch będziemy w dalszej
+części pracy modelować: 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10 cm]{top_0.png}
+\end{center}
+\end{figure}
+
 \chapter{Literatura}
 \end{document}
