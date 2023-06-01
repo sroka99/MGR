@@ -33,4 +33,5 @@
 \contentsline {subsection}{Test wydajności względem jednej osi obrotu}{22}{subsection*.4}%
 \contentsline {subsection}{Test wydajności względnej zmiennej osi obrotu}{22}{subsection*.5}%
 \contentsline {subsection}{Wniosek}{23}{subsection*.6}%
-\contentsline {chapter}{\numberline {4\relax .\enspace }Literatura}{24}{chapter.4}%
+\contentsline {section}{\numberline {3.3\relax .\enspace }Konstrukcja bączka}{23}{section.3.3}%
+\contentsline {chapter}{\numberline {4\relax .\enspace }Literatura}{25}{chapter.4}%
