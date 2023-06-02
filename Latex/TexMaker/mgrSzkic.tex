@@ -1241,6 +1241,16 @@ Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorow�
 \end{defi}
 \chapter{Zastosowanie}
 \section{Implementacja obrotu w języku Python}
+\subsection{Kwaterniony- Python}
+W celu zaimplementowania obrotu przy użyciu kwaternionów, musimy zaimplementować
+podstawowe działania algebraiczne na ciele kwaternionów do języka Python.
+Zacznijmy od ustalenia jakiej postaci będziemy używać. Mianowicie postacią
+kwaternionu jaką wykorzystamy jest postać Hamiltonowska $q=q_0+\overrightarrow{q}$.
+Przy pomocy tej postaci zdefiniujemy funkcje, które umożliwią nam wykonanie 
+działania $qvq^-1$.
+
+
+
 \subsection{Macierzowy model obrotu}
 Do przygotowania macierzowego modelu obrotu w języku Python skorzystamy z pakietu \textit{numpy}. 
 Jedną z funkcji jaką zawiera ten pakiet jest $matmul()$, który umożliwia mnożenie macierzy. 
@@ -1250,7 +1260,7 @@ W celu zaprogramowania obrotu zdefiniowałem pięć nowych funkcji, o nazwach
 \item[$\bullet$] $yaxisMatrixrotation()$,
 \item[$\bullet$] $zaxisMatrixrotation()$,
 \item[$\bullet$] $rotationMatrixZYX()$,
-\item[$\bullet$] $MatrixRotation()$.
+\item[$\bullet$] $matrixRotation()$.
 \end{itemize} 
 Omówmy teraz sposób działania powyższych funkcji. Funkcje $xaxisMatrixrotation()$,\\
 $yaxisMatrixrotation()$,
@@ -1379,8 +1389,10 @@ Na rysunku prawym przedstawiony został szkic modelu bączka przy pomocy punktó
 Wyżej wykonane rysunki mają jednak pewną wadę konstrukcyjną, w celu ich narysowania wykorzystaliśmy funkcje 
 \textit{plot3d} z pakietu $matplotlib$. Świetnie sprawuje się ona do rysowania wykresów, czy prostych szkiców, jednak
 sensowne zaprezentowanie obrotu za jej pomocą nie jest możliwe. W tym celu skorzystamy z funkcji $Poly3DCollection$,
-z tego samego pakietu. Umożliwia jako wartości przyjmuje ona punkty, które są zamieniane na wielokąty, 
-których kolor możemy ustawić. Przejdźmy zatem do narysowania modelu bączka, którego ruch będziemy w dalszej
+z tego samego pakietu, jako wartości przyjmuje ona punkty, które są zamieniane na wielokąty, 
+których kolor możemy ustawić. Ustawienie różnych kolorów w naszym przypadku jest niezwykle ważnie,
+ponieważ ustawienie bączka jednokolorowego lub ustawienie takiego samego koloru dla poszczególnej warstwy spowoduje
+,że obrót bączka nie będzie zauważalny. Przejdźmy zatem do narysowania modelu bączka, którego ruch będziemy w dalszej
 części pracy modelować: 
 \begin{figure}[h]
 \begin{center}
@@ -1388,5 +1400,31 @@ części pracy modelować:
 \end{center}
 \end{figure}
 
+By dokonać obrotu powyższej figury musimy tak naprawdę obrócić punkty, które są używane do utworzenia wielokątów.
+W ramach prezentacji zasady działania dokonamy obrotu powyższego bączka, względem dwóch osi o pewne kąty. 
+Pierwszą z nich będzie oś $z$, o drugą oś obrotu dokładnie opiszemy w dalszej cześć pracy w części
+gdzie będziemy modelować ostateczny model bączka.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10 cm]{0.png}
+\end{center}
+\end{figure}
+\newpage
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10 cm]{1.png}
+\end{center}
+\end{figure}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10 cm]{2.png}
+\end{center}
+\end{figure}
+Powyższe rysunki przedstawią, że by dokonać obrotu bączka wystarczy obrócić 
+punkty, które służą do utworzenia wielokątów. Warto w tym miejscu zauważyć,
+że punkt $(0,0,0)$ nie zależnie od wykonanego na nim obrotu, nie zmieni się.
+
+Ostateczny model bączka, będzie składał się z łącznie $20000$ elementów ze zbiorów $P_1$ oraz $P_2$ oraz wierzchołków naszych stożków. Oznacza to, że model naszego bączka będzie składał się z $60$ tyś. wielokątów.
 \chapter{Literatura}
 \end{document}
