@@ -1283,9 +1283,9 @@ Przy użyciu powyższych funkcji możemy zdefiniować funkcje $multiQuaternion()
 do obliczenia iloczynu kwaternionów. Przyjmuje ona cztery argumenty, kolejno 
 \begin{itemize}
 \item[$\bullet$] $a_1$ zmienną typu ,,float",
-\item[$\bullet$] $v_1$ zmienna typu lista rozmiaru $3$,
+\item[$\bullet$] $v_1$ zmienna typu ,,list" rozmiaru $3$,
 \item[$\bullet$] $a_2$ zmienną typu ,,float",
-\item[$\bullet$] $v_2$ zmienna typu lista rozmiaru $3$.
+\item[$\bullet$] $v_2$ zmienna typu ,,list" rozmiaru $3$.
 \end{itemize} 
 Zmienne $a_1$,$a_2$ traktujemy jako część skalarną kwaternionów, odpowiednio $v_1$ oraz $v_2$ interpretujemy
 jako część wektorową. Funkcja zwraca listę o dwóch elementach, pierwszym z nich będzie
@@ -1297,8 +1297,41 @@ wynikiem działania $a_1-a_2 - dotProduct(v_1,v_2)$. Drugi element określamy pr
 $crossProduct()$, $scalarVector()$ oraz $addingVectorPart()$.
 Program zaczyna od obliczenia $crossProduct(v_1,v_2)$, $scalarVector(a_1,v_2)$ oraz $scalarVector(a_2,v_1)$.
 Wyniki powyższych obliczeń są następnie sumowane za pomocą $addingVectorPart()$ oraz zwracane jako drugi
-element listy.
+element listy. W ten oto sposób udało nam się skonstruować funkcje $multiQuaternion()$
+obliczającą iloczyn kwaternionów.
 
+By napisać funkcje dokonującą obrotu przy użyciu kwaternionów, potrzebujemy jeszcze napisać funkcje obliczając
+sprzężenie. Funkcja $conjugateQuaternion()$ przyjmuje dwie zmienne jedną typu ,,float", drugą typu ,,list"
+o długości trzech elementów. Zmienne odpowiadają odpowiednio części skalarnej oraz wektorowej kwaternionu.
+Sposób działania funkcji polega na zmianie znaków elementom listy. $conjugateQuaternion()$ zwraca
+listę złożoną z dwóch elementów, gdzie pierwszym z nich jest nie zmieniona pierwsza zmienna przyjęta 
+przez funkcje, drugim natomiast jest przyjęta lista, której elementy mają zmieniony znak. W ten sposób
+udało nam się przedstawić sprzężenie.
+
+W ten sposób mamy już wszystkie składowe potrzebne do napisania funkcji $rotation_quaterion()$ mamy już gotowe.
+Funkcja ta będzie przyjmowała trzy zmienne
+\begin{itemize}
+\item[$\bullet$] $angle$ zmienną typu ,,float",
+\item[$\bullet$] $rotation_axis$ zmienna typu ,,list" rozmiaru $3$,
+\item[$\bullet$] $element$ zmienna typu ,,list" rozmiaru $3$.
+\end{itemize}  
+Zmienna $angle$ jest kątem obrotu, $rotation_axis$ wektor określający oś obrotu, 
+z kolei $element$ jest punktem przestrzeni $\mathbb{R}^3$ który chcemy
+obrócić. Wewnątrz definicji funkcji zaczynamy od przekształcenia zmiennych $angle$ i 
+$rotation_axis$ na kwaternion tym razem postaci trygonometrycznej.
+Następnie obliczamy kwaternion odwrotny do podanego w zmiennych przy pomocy $conjugateQuaternion()$. Kolejno
+przy pomocy $multiQuaternion()$ w odpowiedni dokonujemy mnożenia podanych 
+podanych kwaternionów, przez co w efekcie otrzymujemy obrócony $element$, który jest zwracany w przez funkcje.
+Opisana powyżej definicja funkcji jest najszybsza i zostanie ona użyta w benchmarku w kolejnym rozdziale,
+jednak posiada ona pewną wadę. Podany przez nas $rotation_axis$ musi być kwaternionem o długości równej $1$.
+Dlatego zdefiniujemy dodatkową funkcje obliczającą obrót, która będzie dokonywała normalizacji wektora
+odpowiadającego osi obrotu.
+W tym celu napiszemy funkcje $NormalizeVector()$, która jako argument będzie przyjmowała wektor
+w formie listy o trzech elementach. Policzy od normę euklidesową dla tego wektora, a następnie
+każdy z elementów zostanie przez nią podzielony. Nowo postały w ten sposób wektor zostanie przez tą funkcje zwrócony.
+Ta prosta funkcja nie wpływa w dużym stopniu na czas wykonywania operacji, jednak w 
+jeśli chcemy uzyskiwać jak najszybszy efekt, to powinniśmy z niej zrezygnować.
+W rozdziale Wydajność zostanie przeprowadzony test dla obrotu z normalizacją jak i bez normalizacji.
 \subsection{Macierzowy model obrotu}
 Do przygotowania macierzowego modelu obrotu w języku Python skorzystamy z pakietu \textit{numpy}. 
 Jedną z funkcji jaką zawiera ten pakiet jest $matmul()$, który umożliwia mnożenie macierzy. 
@@ -1323,6 +1356,8 @@ Założenia algorytmu obrotu są proste, $rotationMatrixZYX()$ wykorzystuje funk
 $xaxisMatrixrotation()$, $yaxisMatrixrotation()$, $zaxisMatrixrotation()$ do obliczenia 
 macierzy obrotu dla podanego przez nas kąta eulera. Wygenerowana w ten sposób macierz służy jako argument
 dla funkcji $MatrixRotation()$, która dokonuje na drugim argumencie dokonuje obrotu co jest zwracane przez nią.
+
+Mamy zatem zdefiniowane mnożenie, pozostaje jeszcze zdefiniować funkcje 
 \subsection{Kwaternionowy model obrotu}
 \section{Wydajność}
 W celu porównania ze sobą metody obu metod obrotu wykonamy test, dzięki któremu porównamy ich wydajność ze sobą. Zacznijmy od nadania testowi pewnego kontekstu.
@@ -1436,7 +1471,7 @@ Na rysunku prawym przedstawiony został szkic modelu bączka przy pomocy punktó
 
 Wyżej wykonane rysunki mają jednak pewną wadę konstrukcyjną, w celu ich narysowania wykorzystaliśmy funkcje 
 \textit{plot3d} z pakietu $matplotlib$. Świetnie sprawuje się ona do rysowania wykresów, czy prostych szkiców, jednak
-sensowne zaprezentowanie obrotu za jej pomocą nie jest możliwe. W tym celu skorzystamy z funkcji $Poly3DCollection$,
+sensowne zaprezentowanie obrotu za jej pomocą nie jest możliwe. W tym celu skorzystamy z funkcji $Poly3DCollection()$,
 z tego samego pakietu, jako wartości przyjmuje ona punkty, które są zamieniane na wielokąty, 
 których kolor możemy ustawić. Ustawienie różnych kolorów w naszym przypadku jest niezwykle ważnie,
 ponieważ ustawienie bączka jednokolorowego lub ustawienie takiego samego koloru dla poszczególnej warstwy spowoduje
@@ -1473,6 +1508,46 @@ Powyższe rysunki przedstawią, że by dokonać obrotu bączka wystarczy obróci
 punkty, które służą do utworzenia wielokątów. Warto w tym miejscu zauważyć,
 że punkt $(0,0,0)$ nie zależnie od wykonanego na nim obrotu, nie zmieni się.
 
-Ostateczny model bączka, będzie składał się z łącznie $20000$ elementów ze zbiorów $P_1$ oraz $P_2$ oraz wierzchołków naszych stożków. Oznacza to, że model naszego bączka będzie składał się z $60$ tyś. wielokątów.
+Ostateczny model bączka, będzie składał się z łącznie $1000$ elementów ze zbiorów $P_1$ oraz $P_2$ oraz wierzchołków naszych stożków, co w sumie daje $2002$ punktów. Oznacza to, że model naszego bączka będzie składał się z $6$ tyś. wielokątów.
+\section{Ostateczny model i przygotowywanie animacji}
+Rozdział zaczniemy od skonstruowania wcześniej wspomnianego modelu bączka składającego się $6$ tyś. wielokątów.
+Następnie napiszemy funkcje, która będzie obracać bączek metodą macierzową, jak i przy użyciu kwaternionów.
+
+Konstrukcje bączka nie zmienia się w porównaniu do wcześniej wygenerowanych modeli. 
+Główną różnicą w porównaniu do wcześniejszych modeli jest liczba elementów wyciąganych ze zbiorów
+$P_1$ oraz $P_2$. Zacznijmy od opisania procesu wyciągania elementów.
+
+Przy użyciu funkcji $linspace()$ z pakietu $numpy$. Funkcja ta wyciąga przyjmuje $7$
+zmiennych, jednak nam wystarczy skorzystać z $3$, pozostałe $4$ są opcjonalne i nie ma potrzeby ich podawania.
+Pierwszym argumentem jaki przyjmuje jest zmienna $start$, w naszym przypadku oznaczać ona będzie początek przedziału. Drugim elementem jaki przyjmuje jest zmienna $stop$, odpowiednio do wcześniejszego 
+oznacza koniec przedziału. Ostatnią zmienną jest $num$, która służy do określenia liczby próbek do wygenerowania.
+Funkcja ta, w formie listy zwraca $num$ równo odległych punktów z przedziału $[start,stop]$.
+W naszym przypadku zwraca nam listę zawierającą $1000$ równo odległych punktów z przedziału $[0,2\pi]$.
+Przy użyciu powyższej listy możemy wygenerować dwie nowe listy, których elementy należą odpowiednio do 
+zbioru $P_1$ oraz $P_2$. Punkt odpowiadający za wierzchołek oraz punkt odpowiadający
+za czubek stożka podajemy manualnie. W ten sposób uzyskaliśmy wszystkie główne punkty, które możemy użyć do
+wygenerowania wielokątów przy użyciu $Poly3DCollection()$, które sklejone będą utworzą stożek.
+W celu ustawieniu różnych kolorów wielokątów skorzystamy z instrukcji warunkowej $if$ oraz z ustawionej przez
+nas stałej o nazwie $color\_change\_frequency$ typu $int$. Kolory na jakie się zdecydowałem to, żółty oraz
+czarny.     
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3 cm]{test0.png}
+\caption{Ostateczny model bączka składającego się z $6$ tyś. wielokątów.}
+\end{center}
+\end{figure} 
+W taki sposób udało nam się wygenerować model bączka, przejdźmy teraz do konstrukcji obrotu w celu wykonania animacji rotacji bączka.
+\subsection{Animacja w przy użyciu obrotu kwaternionowego}
+Mamy wygenerowane punkty, pozostaje je teraz odpowiednio obrócić. W tym podrozdziale przygotujemy funkcje,
+która posłuży do rotacji rozważanego stożka oraz omówimy model rotacji.
+
+Ruch bączka możemy przyrównać do precesji. Ruch ten oznacza zmiany kierunku obrotu osi obracającego ciała. 
+Oś obrotu obraca się wówczas pewnego kierunku zakreślając w ten sposób powierzchnie boczą bączka. Jednakże,
+w naszym przypadku oś obrotu będzie zakreślała z czasem coraz większe koło. Wynika to z faktu utraty, 
+że bączek z czasem traci prędkość obrotu co kończy się jego upadkiem. Zacznijmy od za modelowania 
+obrotu bączka, bez uwzględniania jego upadania.
+
+Łatwo zauważyć, że prędkość obrotu bączka możemy z wizualizować za pomocą obrotu względem osi $z$. Oznacza to, 
+że kąt obrotu możemy przypisać do prędkości obrotowej bączka. Im większą prędkość obrotową chcemy uzyskać tym większy kąt obrotu musimy podać     
 \chapter{Literatura}
 \end{document}

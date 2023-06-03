@@ -28,11 +28,13 @@
 \contentsline {section}{\numberline {3.1\relax .\enspace }Implementacja obrotu w języku Python}{21}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1\relax .\enspace }Kwaterniony- Python}{21}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Macierzowy model obrotu}{22}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3\relax .\enspace }Kwaternionowy model obrotu}{22}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2\relax .\enspace }Wydajność}{22}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Kontrukcja benchmark'u}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.1.3\relax .\enspace }Kwaternionowy model obrotu}{23}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2\relax .\enspace }Wydajność}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Kontrukcja benchmark'u}{23}{subsection.3.2.1}%
 \contentsline {subsection}{Test wydajności względem jednej osi obrotu}{23}{subsection*.4}%
-\contentsline {subsection}{Test wydajności względnej zmiennej osi obrotu}{23}{subsection*.5}%
-\contentsline {subsection}{Wniosek}{23}{subsection*.6}%
+\contentsline {subsection}{Test wydajności względnej zmiennej osi obrotu}{24}{subsection*.5}%
+\contentsline {subsection}{Wniosek}{24}{subsection*.6}%
 \contentsline {section}{\numberline {3.3\relax .\enspace }Konstrukcja bączka}{24}{section.3.3}%
-\contentsline {chapter}{\numberline {4\relax .\enspace }Literatura}{27}{chapter.4}%
+\contentsline {section}{\numberline {3.4\relax .\enspace }Ostateczny model i przygotowywanie animacji}{26}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1\relax .\enspace }Animacja w przy użyciu obrotu kwaternionowego}{27}{subsection.3.4.1}%
+\contentsline {chapter}{\numberline {4\relax .\enspace }Literatura}{28}{chapter.4}%
