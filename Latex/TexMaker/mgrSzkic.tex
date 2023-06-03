@@ -758,8 +758,8 @@ w kształcie litery T.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=5 cm]{T_samo.png}
-\caption{}
+\includegraphics[width=7 cm]{T_samo.png}
+\caption{Wygenerowana za pomocą powyższych instrukcji litera $T$.}
 \end{center}
 \end{figure}
 \newpage
@@ -784,8 +784,9 @@ W tym monecie wystarczy każdy z punktów przemnożyć przez powyższe macierze,
 obróconymi punktami. Punkty te łączymy w taki sam sposób, co oryginalne. W efekcie otrzymujemy:
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=5 cm]{T_obroty.png}
-\caption{Wizualizacja }
+\includegraphics[width=7 cm]{T_obroty.png}
+\caption{Kolorem czarnym zaznaczono litery $T$ obrócone o wcześniej podane macierze, kolorem szarym znaczono
+obroty ,,przejściowe" w celu lepszej prezentacji zasady działania obrotu.}
 \end{center}
 \end{figure}
 \end{prz}
@@ -1247,9 +1248,56 @@ podstawowe działania algebraiczne na ciele kwaternionów do języka Python.
 Zacznijmy od ustalenia jakiej postaci będziemy używać. Mianowicie postacią
 kwaternionu jaką wykorzystamy jest postać Hamiltonowska $q=q_0+\overrightarrow{q}$.
 Przy pomocy tej postaci zdefiniujemy funkcje, które umożliwią nam wykonanie 
-działania $qvq^-1$.
+działania $qvq^{-1}$.
+ 
 
+Ze względu na postać hamiltonowską kwaternionu możemy skorzystać ze wcześniej podanego
+wzoru mnożenia dla tej postaci. Jednak by zdefiniować mnożenie, będziemy musieli
+zdefiniować $4$ nowe funkcje, których połączenie pomoże nam napisać
+funkcje mnożenia. Przejdźmy do wypisania wszystkich potrzebnych funkcji i do
+opisania ich działania.
+\begin{itemize}
+\item[$\bullet$] $dotProduct()$,
+\item[$\bullet$] $crossProduct()$,
+\item[$\bullet$] $scalarVector()$,
+\item[$\bullet$] $addingVectorPart()$.
+\end{itemize} 
+W tym miejscu dobrze wspomnieć o założeniach jakie przyjąłem, 
+w ramach pisania powyższych funkcji jak i pozostałych związanych z obrotem kwaternionów.
+W ramach przyśpieszenia działania funkcji zdecydowałem się na niekorzystaniu z pętli czy
+innych instrukcji warunkowych. Użycie funkcji warunkowych zwiększyło czas wykonywania 
+obrotu przy pomocy kwaternionów niemal trzykrotnie.\\
+Zacznijmy od opisania funkcji $dotProduct()$. Przyjmuje dwa argumenty typu ,,lista" rozmiaru $3$.
+Reprezentują one część wektorową kwaternionów. Mnożymy odpowiadające sobie elementy list przez siebie, 
+a następnie je dodajemy. Wynik powyższego działania zostaje zwrócony.
+Funkcja $crossProduct()$ również przyjmuje dwa argumenty typu ,,lista" rozmiaru $3$.
+Zadaniem jej jest obliczenie iloczynu wektorowego podanych dla podanych wartości.
+Zwraca ona listę rozmiaru $3$. Funkcja $scalarVector()$ przyjmuje dwa argumenty
+w odróżnieniu jednak od wyżej opisanych, pierwszym argumentem jest zmienna typu ,,float", drugą
+natomiast jest lista rozmiaru $3$. Zadaniem funkcji jest przemnożenie wektora, przez podaną stała.
+Zwraca ona listę o trzech trzech elementach. Ostatnia funkcja o nazwie $addingVectorPart()$ przyjmuje 
+dwa argumenty typu ,,lista" rozmiaru $3$. Dodaje ona odpowiadające elementy do siebie
+i zwraca listę o rozmiaru $3$.\\
 
+Przy użyciu powyższych funkcji możemy zdefiniować funkcje $multiQuaternion()$, która posłuży 
+do obliczenia iloczynu kwaternionów. Przyjmuje ona cztery argumenty, kolejno 
+\begin{itemize}
+\item[$\bullet$] $a_1$ zmienną typu ,,float",
+\item[$\bullet$] $v_1$ zmienna typu lista rozmiaru $3$,
+\item[$\bullet$] $a_2$ zmienną typu ,,float",
+\item[$\bullet$] $v_2$ zmienna typu lista rozmiaru $3$.
+\end{itemize} 
+Zmienne $a_1$,$a_2$ traktujemy jako część skalarną kwaternionów, odpowiednio $v_1$ oraz $v_2$ interpretujemy
+jako część wektorową. Funkcja zwraca listę o dwóch elementach, pierwszym z nich będzie
+zmienna typu ,,float" rozumiana jako 
+cześć skalarna nowo powstałego kwaternionu, natomiast drugim elementem będzie lista o trzech elementach,
+którą interpretujemy jako część wektorową iloczynu.
+Rozważmy teraz budowę powyższej funkcji. Pierwszy element który zwracamy jest tak naprawdę efektem
+wynikiem działania $a_1-a_2 - dotProduct(v_1,v_2)$. Drugi element określamy przy użyciu funkcji
+$crossProduct()$, $scalarVector()$ oraz $addingVectorPart()$.
+Program zaczyna od obliczenia $crossProduct(v_1,v_2)$, $scalarVector(a_1,v_2)$ oraz $scalarVector(a_2,v_1)$.
+Wyniki powyższych obliczeń są następnie sumowane za pomocą $addingVectorPart()$ oraz zwracane jako drugi
+element listy.
 
 \subsection{Macierzowy model obrotu}
 Do przygotowania macierzowego modelu obrotu w języku Python skorzystamy z pakietu \textit{numpy}. 
