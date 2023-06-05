@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  4 JUN 2023 01:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  6 JUN 2023 00:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -763,9 +763,15 @@ File: test0.png Graphic file (type png)
 <use test0.png>
 Package pdftex.def Info: test0.png  used on input line 1535.
 (pdftex.def)             Requested size: 85.35826pt x 188.19833pt.
-[26 <./top_0.png> <./0.png> <./1.png>] [27 <./2.png> <./test0.png>]
+[26 <./top_0.png> <./0.png> <./1.png>]
+<precesja.png, id=435, 6022.5pt x 1405.25pt>
+File: precesja.png Graphic file (type png)
+<use precesja.png>
+Package pdftex.def Info: precesja.png  used on input line 1557.
+(pdftex.def)             Requested size: 426.79134pt x 99.57832pt.
+ [27 <./2.png> <./test0.png>] [28 <./precesja.png>]
 Rozdzia\PlPrIeC {\l } 4.
-[28
+[29
 
 ] (mgrSzkic.aux)
 
@@ -775,18 +781,18 @@ Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
 (rerunfilecheck)             Checksum: 429DBBF21B1177024A8C7F2BBD09D6D0;7740.
  ) 
 Here is how much of TeX's memory you used:
- 11328 strings out of 478582
- 174786 string characters out of 2844345
+ 11337 strings out of 478582
+ 174918 string characters out of 2844345
  488371 words of memory out of 3000000
- 29208 multiletter control sequences out of 15000+600000
+ 29214 multiletter control sequences out of 15000+600000
  503213 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,63p,391b,411s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc}{C:
-/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plms.enc}{C:/User
-s/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plme.enc}{C:/Users/Sku
-er/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plsc.enc}{C:/Users/Skuer/Ap
-pData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:/Users/Skuer/AppData
+{C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:
+/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc}{C:/User
+s/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plms.enc}{C:/Users/Sku
+er/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plme.enc}{C:/Users/Skuer/Ap
+pData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plsc.enc}{C:/Users/Skuer/AppData
 /Local/Programs/MiKTeX/fonts/enc/dvips/pl/plit.enc} <C:\Users\Skuer\AppData\Loc
 al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk>{C:/Users/Skuer/AppDat
 a/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-rm.enc}<C:/Users/Skuer/AppDa
@@ -799,19 +805,20 @@ c10.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/ple
 x10.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plm
 i10.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plm
 i6.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plmi
-8.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr10
-.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr6.p
-fb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr7.pfb
-><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr8.pfb><
-C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy10.pfb><
-C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C
-:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plti10.pfb><C
-:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pf
-b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhv
-r.pfb>
-Output written on mgrSzkic.pdf (32 pages, 2412559 bytes).
+7.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plmi8
+.pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr10.
+pfb><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr6.pf
+b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr7.pfb>
+<C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr8.pfb><C
+:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy10.pfb><C
+:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plsy8.pfb><C:
+/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plti10.pfb><C:
+/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb
+><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr
+.pfb>
+Output written on mgrSzkic.pdf (33 pages, 3149670 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 115 named destinations out of 1000 (max. 500000)
- 391 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 117 named destinations out of 1000 (max. 500000)
+ 396 words of extra memory for PDF output out of 10000 (max. 10000000)
 

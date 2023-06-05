@@ -1547,7 +1547,31 @@ w naszym przypadku oś obrotu będzie zakreślała z czasem coraz większe koło
 że bączek z czasem traci prędkość obrotu co kończy się jego upadkiem. Zacznijmy od za modelowania 
 obrotu bączka, bez uwzględniania jego upadania.
 
-Łatwo zauważyć, że prędkość obrotu bączka możemy z wizualizować za pomocą obrotu względem osi $z$. Oznacza to, 
-że kąt obrotu możemy przypisać do prędkości obrotowej bączka. Im większą prędkość obrotową chcemy uzyskać tym większy kąt obrotu musimy podać     
+Łatwo zauważyć, że prędkość obrotu bączka możemy określić za pomocą obrotu względem osi $z$. Im większą prędkość obrotową chcemy uzyskać tym większy kąt obrotu musimy podać. Problematyczne wydaje się za modelowanie stopniowe
+opadanie bączka. Zacznijmy od za modelowania ruchu bączka nachylonego bączka, który się nie obraca wokół własnej osi. Rozważmy osie, którą wyznaczają wektory $[r\cos(x_i),r\sin(x_i),\sqrt{1-r^2}]$, gdzie
+$r = \frac{1}{2}$, $x_i=\frac{\pi}{2}i$ oraz $i\in\{1,2,3,4\}$. Dokonamy obrotu względem powyższych osi 
+o kąt równy stały kąt, równy $\frac{\pi}{2}$. Efektem obrotu jest ruch precesyjny, co dobrze przedstawia 
+poniższa grafika.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=15 cm]{precesja.png}
+\caption{Wizualizacja obrotu względem osi określonej przez $\left[r\cos(x_i),r\sin(x_i),\sqrt{1-r^2}\right]$, o kąt
+ $\frac{\pi}{2}$}
+\end{center}
+\end{figure}
+By za modelować stopniowe opadanie bączka wartość $r$ w wektorze określającym oś, wraz z czasem z $0$
+powinna stopniowo się zwiększać. Połączenie dwóch wyżej opisanych obrotów, posłuży nam za ostateczne za modelowanie ruchu bączka.
+
+Funkcja jaka posłuży nam do obrotu bączka to $spin3d()$. Przyjmuje ona 4 zmienne,
+\begin{itemize}
+\item[$\bullet$] $speed$ zmienną typu ,,float",
+\item[$\bullet$] $angle$ zmienną typu ,,float",
+\item[$\bullet$] $axis\_rotation$ zmienna typu ,,list" rozmiaru $3$,
+\item[$\bullet$] $time$ zmienna typu ,,int".
+\end{itemize}
+Zmienne $speed$ oraz $angle$ odpowiadają za kąt obrotu odpowiednio względem osi $z$ i osi określanej przez $axis_rotation$. Zmienna $time$ wpływa jedynie na nazwę pliku.
+
+
+    
 \chapter{Literatura}
 \end{document}
