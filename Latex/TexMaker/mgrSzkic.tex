@@ -1240,6 +1240,17 @@ Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 \begin{defi}
 Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
 \end{defi}
+\begin{wni}
+Dowolny element z przestrzeni $\mathbb{R}^3$ jest możemy przedstawić w
+postaci kwaternionu czysto wektorowego.
+\end{wni}
+\begin{twr}
+Niech $q$ będzie kwaternionem jednostkowym w postaci $q=c+su$, gdzie $|u| = 1$, $c=cos\theta$
+oraz $s=sin\theta$ dla $\theta\in[0,\pi]$. Wówczas odwzorowanie 
+$T_q : \mathbb{R}^3\rightarrow \mathbb{R}^3$ zdefiniowane wzorem $T_q(v) = qvq^{-1}$ 
+obraca punkt $v$ względem osi $u$ 
+o kąt równy  $2\theta$ w kierunku przeciwnym do ruchu wskazówek zegara.
+\end{twr}
 \chapter{Zastosowanie}
 \section{Implementacja obrotu w języku Python}
 \subsection{Kwaterniony- Python}
@@ -1569,9 +1580,34 @@ Funkcja jaka posłuży nam do obrotu bączka to $spin3d()$. Przyjmuje ona 4 zmie
 \item[$\bullet$] $axis\_rotation$ zmienna typu ,,list" rozmiaru $3$,
 \item[$\bullet$] $time$ zmienna typu ,,int".
 \end{itemize}
-Zmienne $speed$ oraz $angle$ odpowiadają za kąt obrotu odpowiednio względem osi $z$ i osi określanej przez $axis_rotation$. Zmienna $time$ wpływa jedynie na nazwę pliku.
+Zmienne $speed$ oraz $angle$ odpowiadają za kąt obrotu odpowiednio względem osi $z$ i osi określanej przez $axis\_rotation$. Zmienna $time$ wpływa jedynie na nazwę pliku, będziemy jej używać do odpowiedniego 
+połączenia obrazków w celu uzyskania animacji. Wygenerujemy teraz $500$ obrazków, a następnie przy pomocy
+pakietu $imageio$ połączymy obrazki, będą one zmieniały się co $20$ milisekund. Oznacza to, że nasz animacja
+będzie trwała $10$ sekund oraz, że w nasza animacja będzie w $50$ klatach na sekundę.
+Ustalmy teraz jakie wartości przyjmie funkcja dla każdej klatki.
+Zbiory z jakich będziemy wyciągać wartości przedstawiają się w następujący sposób:
+\begin{itemize}
+\item[$\bullet$] $axisAngle = [0,32\pi]$,
+\item[$\bullet$] $radius = \left[0,\frac{1}{4}\right]$,
+\item[$\bullet$] $speedValue = $ .
+\end{itemize}
+Z każdego zbioru wyciągamy po $500$ równo odległych elementów i wykorzystamy do tego wcześniej używaną funkcje 
+$linspace()$. Wartość ze zbioru $speedValue$ użyjemy jako zmiennej $speed$, do zmiennej 
+$axis\_rotation$ wprowadzamy listę postaci 
+$[r\cos(angle),r\sin(angle),\sqrt{1-r}]$, gdzie $r$ jest elementem ze zbioru $radius$, a $angle$ należy do
+zbioru $axisAngle$. Do generowania obrazów wykorzystamy pętle $while$, z warunkiem $time < 500$.
+Zmienna $time$ na początku przyjmie wartość $0$, jednak podczas działania pętli będziemy do niej dodawać $1$
+za każde przejście cyklu. Zmienne $time$ wykorzystamy również jako ostatni parametr w zdefiniowanej funkcji o
+tej samej nazwie.
+Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14 cm]{Animation_pic.png}
+\caption{Klatki oznaczone numerami (od lewej): $0,49,99,149,199,249,299,349,399,449$ oraz $499$}
+\end{center}
+\end{figure}
 
+\subsection{Animacja w przy użyciu obrotu macierzowego}
 
-    
 \chapter{Literatura}
 \end{document}
