@@ -1267,16 +1267,23 @@ $v\in v^\perp_3$ taki, że $Av=v$. Oznacza  to, że $1$ jest również wartości
 W ten sposób udało nam się pokazać, że jeśli $A\in\textup{SO}(3)$ to jest ona tak naprawdę macierzą
 obrotu.  
 \end{dowod}
-\subsection{Opis kwaternionowy obrotu w przestrzeni }
+\subsection{Kwaternionowy opis obrotu w przestrzeni trójwymiarowej}
+W tej sekcji przejdziemy do zdefiniowania kwaternionu jednostkowego
+oraz kwaternionu czysto wektorowego. Następnie udowodnimy twierdzenie mówiące o tym,
+że obrót w przestrzeni $\mathbb{R}^3$
 \begin{defi}
 Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 \end{defi}
 \begin{defi}
-Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorową.
+Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorowym.
 \end{defi}
 \begin{wni}
 Dowolny element z przestrzeni $\mathbb{R}^3$ jest możemy przedstawić w
 postaci kwaternionu czysto wektorowego.
+\end{wni}
+\begin{wni}
+Niech $q_1$ oraz $q_2$ będą kwaternionami czysto wektorowymi, wówczas
+$$q_1q_2 =-q_1\circ q_2 +q_1\times q_2 .$$ 
 \end{wni}
 \begin{twr}
 Niech $q$ będzie kwaternionem jednostkowym w postaci $q=c+su$, gdzie $|u| = 1$, $c=cos\theta$
@@ -1285,10 +1292,32 @@ $T_q : \mathbb{R}^3\rightarrow \mathbb{R}^3$ zdefiniowane wzorem $T_q(v) = qvq^{
 obraca punkt $v$ względem osi $u$ 
 o kąt równy  $2\theta$ zgodnie z zasadą prawej ręki.
 \end{twr}
-$T_q(u) = (c+su)u(s-cu) = $
+\begin{dowod}
+Zacznijmy od udowodnienia, że $T_q(u) = u$
+$$T_q(u) = (c+su)u(s-cu) = c^2u - s^2 u^3.$$
+Zauważmy jednak, że $u$ jest wektorem o długości jeden. Oznacza to, że
+$u^2 = -1$. W takim razie
+$$T_q(u) =  c^2u + s^2 u = (c^2+s^2)u=u.$$ 
+Przejdźmy teraz do udowodnienia, że dla dowolnego wektora $v$, który spełnia warunki
+$|| v || = 1$ oraz $v\in u^\perp$ zachodzi poniższa równość
+$$T_q(v) = \cos\left(2\theta\right)v + \sin\left(2\theta\right)w,$$
+gdzie $w = u\times v$.
+$$T_q(v) = (c+su)v(c-su)=c^2v - scvu + scuv - s^2uvu.$$
+Pamiętajmy o tym, że $u \perp v $, zatem $uvu =(u\times v)u = wu = w\times u$.
+Korzystając z reguły prawej dłoni $w\times u = v$. Dodatkowo warto zauważyć, że
+$vu= v\times u = -u\times v = -uv = -w$.
+Podsumowując 
+  $$T_q(v) = (c^2 - s^2)v +2csw.$$
+Korzystając, ze wzorów na sinus i cosinus podwojonego kąta otrzymujemy 
+$$T_q(v) = \cos\left(2\theta\right)v + \sin\left(2\theta\right)w.$$
+By zakończyć dowód twierdzenia musimy pokazać, że zachodzi 
+$T_q(w) = -v\sin\left(2\theta\right) + w\cos\left(2\theta\right).$
+$$T_q(w) = T_q(u)T_q(v) = u(v\cos\left(2\theta\right) + w\sin\left(2\theta\right))=
+w\cos\left(2\theta\right) - v\sin\left(2\theta\right) .$$
+\end{dowod} 
 \chapter{Zastosowanie}
 \section{Implementacja obrotu w języku Python}
-\subsection{Kwaterniony- Python}
+\subsection{Obrót z użyciem kwaternionów}
 W celu zaimplementowania obrotu przy użyciu kwaternionów, musimy zaimplementować
 podstawowe działania algebraiczne na ciele kwaternionów do języka Python.
 Zacznijmy od ustalenia jakiej postaci będziemy używać. Mianowicie postacią
@@ -1378,7 +1407,7 @@ każdy z elementów zostanie przez nią podzielony. Nowo postały w ten sposób 
 Ta prosta funkcja nie wpływa w dużym stopniu na czas wykonywania operacji, jednak w 
 jeśli chcemy uzyskiwać jak najszybszy efekt, to powinniśmy z niej zrezygnować.
 W rozdziale Wydajność zostanie przeprowadzony test dla obrotu z normalizacją jak i bez normalizacji.
-\subsection{Macierzowy model obrotu}
+\subsection{Obrót z użyciem macierzy}
 Do przygotowania macierzowego modelu obrotu w języku Python skorzystamy z pakietu \textit{numpy}. 
 Jedną z funkcji jaką zawiera ten pakiet jest $matmul()$, który umożliwia mnożenie macierzy. 
 W celu zaprogramowania obrotu zdefiniowałem pięć nowych funkcji, o nazwach
@@ -1387,7 +1416,7 @@ W celu zaprogramowania obrotu zdefiniowałem pięć nowych funkcji, o nazwach
 \item[$\bullet$] $yaxisMatrixrotation()$,
 \item[$\bullet$] $zaxisMatrixrotation()$,
 \item[$\bullet$] $rotationMatrixZYX()$,
-\item[$\bullet$] $RotationbyMatrix()$.
+\item[$\bullet$] $rotationbyMatrix()$.
 \end{itemize} 
 Omówmy teraz sposób działania powyższych funkcji. Funkcje $xaxisMatrixrotation()$,\\
 $yaxisMatrixrotation()$,
@@ -1395,14 +1424,14 @@ $zaxisMatrixrotation()$ jako przyjmują jeden argument typu $float$, a zwracają
 argumentowi odpowiednio wokół osi $x,y$ oraz $z$. Są to funkcje bazowe, wywołujemy je w wewnątrz definicji
 $rotationMatrixZYX()$, gdzie za pomocą funkcji $matmul()$ dokonujemy ich mnożenia. Funkcja ta przyjmuje trzy argumenty
 typu $float$ oznaczmy je jako $\psi,\phi,\theta$, zwraca natomiast macierz obrotu względem kąta eulera $(\psi,\phi,\theta)$.
-Ostatnia funkcja $RotationbyMatrix()$, przyjmuje dwa argumenty, pierwszym z nich jest macierz, natomiast drugim argumentem 
+Ostatnia funkcja $rotationbyMatrix()$, przyjmuje dwa argumenty, pierwszym z nich jest macierz, natomiast drugim argumentem 
 punkt. Macierz wykorzystuje $matmul()$ do przemnożenia argumentów miedzy sobą, a wynik tego mnożenia jest zwracany.
 
 Założenia algorytmu obrotu są proste, $rotationMatrixZYX()$ wykorzystuje funkcje\\
 $xaxisMatrixrotation()$, $yaxisMatrixrotation()$, $zaxisMatrixrotation()$ do obliczenia 
 macierzy obrotu dla podanego przez nas kąta eulera. Wygenerowana w ten sposób macierz służy jako
 pierwszy argument
-funkcji $RotationbyMatrix()$. Drugim argumentem jest punkt, który chcemy obrócić przy użyciu
+funkcji $rotationbyMatrix()$. Drugim argumentem jest punkt, który chcemy obrócić przy użyciu
 pierwszej zmiennej.  
 Mamy zatem zdefiniowane mnożenie, pozostaje jeszcze zdefiniować funkcje 
 \section{Wydajność}

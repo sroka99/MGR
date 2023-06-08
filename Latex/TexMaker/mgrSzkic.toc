@@ -23,11 +23,11 @@
 \contentsline {subsection}{\numberline {2.2.2\relax .\enspace }Opis macierzowy obrotu w przestrzeni}{15}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3\relax .\enspace }Wielokrotne obroty}{16}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4\relax .\enspace }Macierz obrotu względem dowolnej osi obrotu}{17}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5\relax .\enspace }Opis kwaternionowy obrotu w przestrzeni }{20}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.5\relax .\enspace }Kwaternionowy opis obrotu w przestrzeni trójwymiarowej}{20}{subsection.2.2.5}%
 \contentsline {chapter}{\numberline {3\relax .\enspace }Zastosowanie}{21}{chapter.3}%
 \contentsline {section}{\numberline {3.1\relax .\enspace }Implementacja obrotu w języku Python}{21}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1\relax .\enspace }Kwaterniony- Python}{21}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Macierzowy model obrotu}{22}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.1\relax .\enspace }Obrót z użyciem kwaternionów}{21}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Obrót z użyciem macierzy}{22}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2\relax .\enspace }Wydajność}{23}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Kontrukcja benchmark'u}{23}{subsection.3.2.1}%
 \contentsline {subsection}{Test wydajności względem jednej osi obrotu}{23}{subsection*.4}%

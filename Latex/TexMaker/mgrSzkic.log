@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  8 JUN 2023 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  8 JUN 2023 22:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -679,41 +679,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 1248--1250
 [19] [20]
 Rozdzia\PlPrIeC {\l } 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1311--1327
+Underfull \hbox (badness 10000) in paragraph at lines 1340--1356
 
  []
 
 [21
 
 ]
-Overfull \hbox (9.84044pt too wide) in paragraph at lines 1357--1359
+Overfull \hbox (9.84044pt too wide) in paragraph at lines 1386--1388
 []\OT4/cmr/m/n/10.95 W ten spo-sób ma-my ju» wszyst-kie skªa-do-we po-trzeb-ne 
 do na-pi-sa-nia funk-cji $\OML/plm/m/it/10.95 rotationquaterion\OT4/cmr/m/n/10.
 95 ()$
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1430--1438
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1449--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1478--1484
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1456--1463
+Underfull \hbox (badness 10000) in paragraph at lines 1485--1492
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1476--1485
+Underfull \hbox (badness 10000) in paragraph at lines 1505--1514
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1491--1501
+Underfull \hbox (badness 10000) in paragraph at lines 1520--1530
 
  []
 
@@ -721,12 +721,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1491--1501
 <skrech.png, id=418, 2387.92125pt x 719.68875pt>
 File: skrech.png Graphic file (type png)
 <use skrech.png>
-Package pdftex.def Info: skrech.png  used on input line 1508.
+Package pdftex.def Info: skrech.png  used on input line 1537.
 (pdftex.def)             Requested size: 341.43306pt x 102.89714pt.
 <top_0.png, id=419, 462.528pt x 346.896pt>
 File: top_0.png Graphic file (type png)
 <use top_0.png>
-Package pdftex.def Info: top_0.png  used on input line 1528.
+Package pdftex.def Info: top_0.png  used on input line 1557.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
 
 
@@ -735,7 +735,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <0.png, id=420, 2405.98875pt x 734.745pt>
 File: 0.png Graphic file (type png)
 <use 0.png>
-Package pdftex.def Info: 0.png  used on input line 1539.
+Package pdftex.def Info: 0.png  used on input line 1568.
 (pdftex.def)             Requested size: 284.52756pt x 86.8875pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -744,12 +744,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <1.png, id=426, 2366.8425pt x 725.71124pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
-Package pdftex.def Info: 1.png  used on input line 1545.
+Package pdftex.def Info: 1.png  used on input line 1574.
 (pdftex.def)             Requested size: 284.52756pt x 87.23662pt.
 <2.png, id=427, 2381.89874pt x 734.745pt>
 File: 2.png Graphic file (type png)
 <use 2.png>
-Package pdftex.def Info: 2.png  used on input line 1550.
+Package pdftex.def Info: 2.png  used on input line 1579.
 (pdftex.def)             Requested size: 284.52756pt x 87.76198pt.
 
 
@@ -758,23 +758,23 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <test0.png, id=428, 499.8675pt x 1102.1175pt>
 File: test0.png Graphic file (type png)
 <use test0.png>
-Package pdftex.def Info: test0.png  used on input line 1581.
+Package pdftex.def Info: test0.png  used on input line 1610.
 (pdftex.def)             Requested size: 85.35826pt x 188.19833pt.
 [26 <./top_0.png> <./0.png> <./1.png>]
 <precesja.png, id=436, 6022.5pt x 1405.25pt>
 File: precesja.png Graphic file (type png)
 <use precesja.png>
-Package pdftex.def Info: precesja.png  used on input line 1603.
+Package pdftex.def Info: precesja.png  used on input line 1632.
 (pdftex.def)             Requested size: 426.79134pt x 99.57832pt.
  [27 <./2.png> <./test0.png>]
 <Animation_pic.png, id=445, 4015.0pt x 7026.25pt>
 File: Animation_pic.png Graphic file (type png)
 <use Animation_pic.png>
-Package pdftex.def Info: Animation_pic.png  used on input line 1641.
+Package pdftex.def Info: Animation_pic.png  used on input line 1670.
 (pdftex.def)             Requested size: 398.33858pt x 697.09116pt.
 
 
-LaTeX Warning: Float too large for page by 8.1817pt on input line 1644.
+LaTeX Warning: Float too large for page by 8.1817pt on input line 1673.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -791,7 +791,7 @@ Rozdzia\PlPrIeC {\l } 4.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
-(rerunfilecheck)             Checksum: 4668B440B4601EDE32950B7505DC2F68;7895.
+(rerunfilecheck)             Checksum: C8865C2AF4A11D654AA04360DAA13E8A;8042.
  ) 
 Here is how much of TeX's memory you used:
  11348 strings out of 478582
@@ -800,7 +800,7 @@ Here is how much of TeX's memory you used:
  29220 multiletter control sequences out of 15000+600000
  503213 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,20n,63p,391b,411s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 60i,20n,63p,402b,411s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:
 /Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc} <C:\Use
 rs\Skuer\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk>{C
@@ -829,7 +829,7 @@ b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr7.pfb>
 /Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb
 ><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr
 .pfb>
-Output written on mgrSzkic.pdf (35 pages, 5348562 bytes).
+Output written on mgrSzkic.pdf (35 pages, 5350596 bytes).
 PDF statistics:
  584 PDF objects out of 1000 (max. 8388607)
  121 named destinations out of 1000 (max. 500000)
