@@ -1270,13 +1270,16 @@ obrotu.
 \subsection{Kwaternionowy opis obrotu w przestrzeni trójwymiarowej}
 W tej sekcji przejdziemy do zdefiniowania kwaternionu jednostkowego
 oraz kwaternionu czysto wektorowego. Następnie udowodnimy twierdzenie mówiące o tym,
-że obrót w przestrzeni $\mathbb{R}^3$
+że obrót w przestrzeni $\mathbb{R}^3$.
+
+Zacznijmy od przedstawienia definicji.
 \begin{defi}
 Kwaternion którego moduł jest równy $0$, nazywamy kwaternionem jednostkowym.
 \end{defi}
 \begin{defi}
 Kwaternion którego część skalarna jest równa $0$, nazywamy czysto wektorowym.
 \end{defi}
+Z powyższych definicji wynikają poniższe wnioski.
 \begin{wni}
 Dowolny element z przestrzeni $\mathbb{R}^3$ jest możemy przedstawić w
 postaci kwaternionu czysto wektorowego.
@@ -1285,6 +1288,7 @@ postaci kwaternionu czysto wektorowego.
 Niech $q_1$ oraz $q_2$ będą kwaternionami czysto wektorowymi, wówczas
 $$q_1q_2 =-q_1\circ q_2 +q_1\times q_2 .$$ 
 \end{wni}
+Korzystając z powyższych definicji oraz z twierdzeń ze wcześniejszego rozdziału możemy wyprowadzić następujące twierdzenie.
 \begin{twr}
 Niech $q$ będzie kwaternionem jednostkowym w postaci $q=c+su$, gdzie $|u| = 1$, $c=cos\theta$
 oraz $s=sin\theta$ dla $\theta\in[0,\pi]$. Wówczas odwzorowanie 
@@ -1653,7 +1657,7 @@ Zbiory z jakich będziemy wyciągać wartości przedstawiają się w następują
 \begin{itemize}
 \item[$\bullet$] $axisAngle = [0,32\pi]$,
 \item[$\bullet$] $radius = \left[0,\frac{1}{4}\right]$,
-\item[$\bullet$] $speedValue = [\frac{\pi}{8},2\pi]  $ .
+\item[$\bullet$] $speedValue = [\frac{\pi}{8},16\pi]  $ .
 \end{itemize}
 Z każdego zbioru wyciągamy po $500$ równo odległych elementów i wykorzystamy do tego wcześniej używaną funkcje 
 $linspace()$. Wartości ze zbioru $speedValue$ jako jedyne wyciągniemy w kolejności malejącej.
@@ -1664,14 +1668,19 @@ zbioru $axisAngle$. Do generowania obrazów wykorzystamy pętle $while$, z warun
 Zmienna $time$ na początku przyjmie wartość $0$, jednak podczas działania pętli będziemy do niej dodawać $1$
 za każde przejście cyklu. Zmienne $time$ wykorzystamy również jako ostatni parametr w zdefiniowanej funkcji o
 tej samej nazwie.
-Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=14 cm]{Animation_pic.png}
-\caption{Klatki oznaczone numerami (od lewej): $0,49,99,149,199,249,299,349,399,449$ oraz $499$}
-\end{center}
-\end{figure}
+Na następnej stronie zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
 
+
+\begin{figure}
+
+\begin{center}
+\includegraphics[width=14 cm]{Merged_quaternion.png}
+\caption{Klatki oznaczone numerami (od lewej): $0,49,99,149,199,249,299,349,399$ oraz $449$}
+\end{center}
+
+\end{figure}
+\newpage
+$\left.\right.$
 \subsection{Animacja w przy użyciu obrotu macierzowego}
 Spróbujemy teraz przygotować identyczną animacje, jednak przy użyciu macierzy obrotu.
 Tak jak wcześniej, utworzymy dwie macierze obrotu odpowiadające za dwie osobne rotacje.
@@ -1697,5 +1706,14 @@ Przy użyciu $spin3dMatrixRotation()$ wygenerujemy $500$ klatek obrazu, które
 przedstawimy w formie animacji o częstotliwości $50$ klatek na sekundę.
 Tak jak wcześniej wykorzystamy do tego pakiet $imageio$.
 Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
+\newpage
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=13 cm]{MergedMatrix.png}
+\caption{Klatki oznaczone numerami (od lewej): $0,49,99,149,199,249,299,349,399$ oraz $449$}
+\end{center}
+\end{figure}
+
 \chapter{Literatura}
 \end{document}

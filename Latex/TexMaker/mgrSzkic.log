@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  8 JUN 2023 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  9 JUN 2023 01:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -679,41 +679,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 1248--1250
 [19] [20]
 Rozdzia\PlPrIeC {\l } 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1340--1356
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1360
 
  []
 
 [21
 
 ]
-Overfull \hbox (9.84044pt too wide) in paragraph at lines 1386--1388
+Overfull \hbox (9.84044pt too wide) in paragraph at lines 1390--1392
 []\OT4/cmr/m/n/10.95 W ten spo-sób ma-my ju» wszyst-kie skªa-do-we po-trzeb-ne 
 do na-pi-sa-nia funk-cji $\OML/plm/m/it/10.95 rotationquaterion\OT4/cmr/m/n/10.
 95 ()$
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1459--1467
+Underfull \hbox (badness 10000) in paragraph at lines 1463--1471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1484
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1488
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1485--1492
+Underfull \hbox (badness 10000) in paragraph at lines 1489--1496
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1505--1514
+Underfull \hbox (badness 10000) in paragraph at lines 1509--1518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1520--1530
+Underfull \hbox (badness 10000) in paragraph at lines 1524--1534
 
  []
 
@@ -721,12 +721,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1520--1530
 <skrech.png, id=418, 2387.92125pt x 719.68875pt>
 File: skrech.png Graphic file (type png)
 <use skrech.png>
-Package pdftex.def Info: skrech.png  used on input line 1537.
+Package pdftex.def Info: skrech.png  used on input line 1541.
 (pdftex.def)             Requested size: 341.43306pt x 102.89714pt.
 <top_0.png, id=419, 462.528pt x 346.896pt>
 File: top_0.png Graphic file (type png)
 <use top_0.png>
-Package pdftex.def Info: top_0.png  used on input line 1557.
+Package pdftex.def Info: top_0.png  used on input line 1561.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
 
 
@@ -735,7 +735,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <0.png, id=420, 2405.98875pt x 734.745pt>
 File: 0.png Graphic file (type png)
 <use 0.png>
-Package pdftex.def Info: 0.png  used on input line 1568.
+Package pdftex.def Info: 0.png  used on input line 1572.
 (pdftex.def)             Requested size: 284.52756pt x 86.8875pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -744,12 +744,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <1.png, id=426, 2366.8425pt x 725.71124pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
-Package pdftex.def Info: 1.png  used on input line 1574.
+Package pdftex.def Info: 1.png  used on input line 1578.
 (pdftex.def)             Requested size: 284.52756pt x 87.23662pt.
 <2.png, id=427, 2381.89874pt x 734.745pt>
 File: 2.png Graphic file (type png)
 <use 2.png>
-Package pdftex.def Info: 2.png  used on input line 1579.
+Package pdftex.def Info: 2.png  used on input line 1583.
 (pdftex.def)             Requested size: 284.52756pt x 87.76198pt.
 
 
@@ -758,33 +758,37 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <test0.png, id=428, 499.8675pt x 1102.1175pt>
 File: test0.png Graphic file (type png)
 <use test0.png>
-Package pdftex.def Info: test0.png  used on input line 1610.
+Package pdftex.def Info: test0.png  used on input line 1614.
 (pdftex.def)             Requested size: 85.35826pt x 188.19833pt.
 [26 <./top_0.png> <./0.png> <./1.png>]
 <precesja.png, id=436, 6022.5pt x 1405.25pt>
 File: precesja.png Graphic file (type png)
 <use precesja.png>
-Package pdftex.def Info: precesja.png  used on input line 1632.
+Package pdftex.def Info: precesja.png  used on input line 1636.
 (pdftex.def)             Requested size: 426.79134pt x 99.57832pt.
  [27 <./2.png> <./test0.png>]
-<Animation_pic.png, id=445, 4015.0pt x 7026.25pt>
-File: Animation_pic.png Graphic file (type png)
-<use Animation_pic.png>
-Package pdftex.def Info: Animation_pic.png  used on input line 1670.
+<Merged_quaternion.png, id=445, 4015.0pt x 7026.25pt>
+File: Merged_quaternion.png Graphic file (type png)
+<use Merged_quaternion.png>
+Package pdftex.def Info: Merged_quaternion.png  used on input line 1677.
 (pdftex.def)             Requested size: 398.33858pt x 697.09116pt.
 
 
-LaTeX Warning: Float too large for page by 8.1817pt on input line 1673.
+LaTeX Warning: Float too large for page by 8.1817pt on input line 1681.
+
+[28 <./precesja.png>] [29 <./Merged_quaternion.png>] [30]
+<MergedMatrix.png, id=463, 4015.0pt x 7026.25pt>
+File: MergedMatrix.png Graphic file (type png)
+<use MergedMatrix.png>
+Package pdftex.def Info: MergedMatrix.png  used on input line 1713.
+(pdftex.def)             Requested size: 369.88582pt x 647.23767pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \vbox (badness 1112) has occurred while \output is active []
-
- [28 <./precesja.png>] [29] [30 <./Animation_pic.png>]
+[31 <./MergedMatrix.png>]
 Rozdzia\PlPrIeC {\l } 4.
-[31
+[32
 
 ] (mgrSzkic.aux)
 
@@ -794,10 +798,10 @@ Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
 (rerunfilecheck)             Checksum: C8865C2AF4A11D654AA04360DAA13E8A;8042.
  ) 
 Here is how much of TeX's memory you used:
- 11348 strings out of 478582
- 175097 string characters out of 2844345
+ 11357 strings out of 478582
+ 175285 string characters out of 2844345
  488367 words of memory out of 3000000
- 29220 multiletter control sequences out of 15000+600000
+ 29226 multiletter control sequences out of 15000+600000
  503213 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,63p,402b,411s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -829,9 +833,9 @@ b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr7.pfb>
 /Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb
 ><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr
 .pfb>
-Output written on mgrSzkic.pdf (35 pages, 5350596 bytes).
+Output written on mgrSzkic.pdf (36 pages, 7508333 bytes).
 PDF statistics:
- 584 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 591 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
+ 406 words of extra memory for PDF output out of 10000 (max. 10000000)
 
