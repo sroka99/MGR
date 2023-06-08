@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  7 JUN 2023 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  8 JUN 2023 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -503,7 +503,7 @@ File: ot4qhv.fd 2009/09/25 v1.2 font definition file for OT4/qhv
 LaTeX Font Warning: Font shape `OT4/qhv/m/sf' undefined
 (Font)              using `OT4/qhv/m/n' instead on input line 77.
 
-<logoPK.png, id=167, 151.3153pt x 151.3153pt>
+<logoPK.png, id=163, 151.3153pt x 151.3153pt>
 File: logoPK.png Graphic file (type png)
 <use logoPK.png>
 Package pdftex.def Info: logoPK.png  used on input line 78.
@@ -547,7 +547,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Warning: Font shape `OT4/qhv/b/sf' undefined
 (Font)              using `OT4/qhv/b/n' instead on input line 87.
 
-<logoIT.png, id=169, 1778.14313pt x 1778.14313pt>
+<logoIT.png, id=165, 1778.14313pt x 1778.14313pt>
 File: logoIT.png Graphic file (type png)
 <use logoIT.png>
 Package pdftex.def Info: logoIT.png  used on input line 88.
@@ -592,7 +592,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.150 \chapter*{Podstawowe informacje}
+l.184 \chapter*{Podstawowe informacje}
                                        [1
 
 ] [2
@@ -600,14 +600,14 @@ l.150 \chapter*{Podstawowe informacje}
 ]
 Rozdzia\PlPrIeC {\l } 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--174
+Underfull \hbox (badness 10000) in paragraph at lines 205--208
 
  []
 
 [3
 
 ]
-Overfull \hbox (20.57687pt too wide) in paragraph at lines 245--247
+Overfull \hbox (20.57687pt too wide) in paragraph at lines 279--281
 []\OT4/cmr/m/it/10.95 dla do-wol-ne-go ci¡-gu wek-to-rów ba-zo-wych $[][]$ za-c
 ho-dzi rów-no±¢ $\OML/plm/m/it/10.95 f\OT4/cmr/m/n/10.95 (\OML/plm/m/it/10.95 e
 []; [] ; e[]\OT4/cmr/m/n/10.95 ) = \OML/plm/m/it/10.95 g\OT4/cmr/m/n/10.95 (\OM
@@ -615,199 +615,199 @@ L/plm/m/it/10.95 e[]; [] ; e[]\OT4/cmr/m/n/10.95 )$\OT4/cmr/m/it/10.95 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--259
+Underfull \hbox (badness 10000) in paragraph at lines 290--293
 
  []
 
 [4] [5] [6] [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 503--507
+Underfull \hbox (badness 10000) in paragraph at lines 537--541
 
  []
 
 [9] [10]
 Rozdzia\PlPrIeC {\l } 2.
-<wizualizacja.png, id=325, 372.1905pt x 193.6836pt>
+<wizualizacja.png, id=319, 372.1905pt x 193.6836pt>
 File: wizualizacja.png Graphic file (type png)
 <use wizualizacja.png>
-Package pdftex.def Info: wizualizacja.png  used on input line 669.
+Package pdftex.def Info: wizualizacja.png  used on input line 703.
 (pdftex.def)             Requested size: 170.71652pt x 88.83841pt.
-<wizualizacjaobrotu.png, id=326, 281.1303pt x 281.1303pt>
+<wizualizacjaobrotu.png, id=320, 281.1303pt x 281.1303pt>
 File: wizualizacjaobrotu.png Graphic file (type png)
 <use wizualizacjaobrotu.png>
-Package pdftex.def Info: wizualizacjaobrotu.png  used on input line 682.
+Package pdftex.def Info: wizualizacjaobrotu.png  used on input line 716.
 (pdftex.def)             Requested size: 170.71652pt x 170.71709pt.
 [11
 
  <./wizualizacja.png> <./wizualizacjaobrotu.png>]
-<T_samo.png, id=335, 462.528pt x 346.896pt>
+<T_samo.png, id=329, 462.528pt x 346.896pt>
 File: T_samo.png Graphic file (type png)
 <use T_samo.png>
-Package pdftex.def Info: T_samo.png  used on input line 761.
+Package pdftex.def Info: T_samo.png  used on input line 795.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12]
-<T_obroty.png, id=345, 462.528pt x 346.896pt>
+<T_obroty.png, id=339, 462.528pt x 346.896pt>
 File: T_obroty.png Graphic file (type png)
 <use T_obroty.png>
-Package pdftex.def Info: T_obroty.png  used on input line 787.
+Package pdftex.def Info: T_obroty.png  used on input line 821.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
  [13 <./T_samo.png> <./T_obroty.png>]
-<T-reflection.png, id=357, 400.3758pt x 298.4751pt>
+<T-reflection.png, id=351, 400.3758pt x 298.4751pt>
 File: T-reflection.png Graphic file (type png)
 <use T-reflection.png>
-Package pdftex.def Info: T-reflection.png  used on input line 839.
+Package pdftex.def Info: T-reflection.png  used on input line 873.
 (pdftex.def)             Requested size: 199.16928pt x 148.48116pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 873--881
+Underfull \hbox (badness 10000) in paragraph at lines 907--915
 
  []
 
 [14 <./T-reflection.png>]
-<zasPrawejReki.png, id=367, 828.9369pt x 253.6677pt>
+<zasPrawejReki.png, id=362, 828.9369pt x 253.6677pt>
 File: zasPrawejReki.png Graphic file (type png)
 <use zasPrawejReki.png>
-Package pdftex.def Info: zasPrawejReki.png  used on input line 911.
+Package pdftex.def Info: zasPrawejReki.png  used on input line 945.
 (pdftex.def)             Requested size: 426.79134pt x 130.6074pt.
  [15 <./zasPrawejReki.png>] [16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 1214--1216
+Underfull \hbox (badness 10000) in paragraph at lines 1248--1250
 
  []
 
 [19] [20]
 Rozdzia\PlPrIeC {\l } 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1276--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1311--1327
 
  []
 
 [21
 
 ]
-Overfull \hbox (9.14134pt too wide) in paragraph at lines 1322--1324
+Overfull \hbox (9.84044pt too wide) in paragraph at lines 1357--1359
 []\OT4/cmr/m/n/10.95 W ten spo-sób ma-my ju» wszyst-kie skªa-do-we po-trzeb-ne 
-do na-pi-sa-nia funk-cji $\OML/plm/m/it/10.95 rotation[]uaterion\OT4/cmr/m/n/10
-.95 ()$
+do na-pi-sa-nia funk-cji $\OML/plm/m/it/10.95 rotationquaterion\OT4/cmr/m/n/10.
+95 ()$
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 1395--1403
+Underfull \hbox (badness 10000) in paragraph at lines 1430--1438
 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1414--1420
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1455
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1421--1428
+Underfull \hbox (badness 10000) in paragraph at lines 1456--1463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1441--1450
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1485
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1456--1466
+Underfull \hbox (badness 10000) in paragraph at lines 1491--1501
 
  []
 
 [24]
-<skrech.png, id=423, 2387.92125pt x 719.68875pt>
+<skrech.png, id=418, 2387.92125pt x 719.68875pt>
 File: skrech.png Graphic file (type png)
 <use skrech.png>
-Package pdftex.def Info: skrech.png  used on input line 1473.
+Package pdftex.def Info: skrech.png  used on input line 1508.
 (pdftex.def)             Requested size: 341.43306pt x 102.89714pt.
-<top_0.png, id=424, 462.528pt x 346.896pt>
+<top_0.png, id=419, 462.528pt x 346.896pt>
 File: top_0.png Graphic file (type png)
 <use top_0.png>
-Package pdftex.def Info: top_0.png  used on input line 1493.
+Package pdftex.def Info: top_0.png  used on input line 1528.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<0.png, id=425, 2405.98875pt x 734.745pt>
+<0.png, id=420, 2405.98875pt x 734.745pt>
 File: 0.png Graphic file (type png)
 <use 0.png>
-Package pdftex.def Info: 0.png  used on input line 1504.
+Package pdftex.def Info: 0.png  used on input line 1539.
 (pdftex.def)             Requested size: 284.52756pt x 86.8875pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25 <./skrech.png>]
-<1.png, id=431, 2366.8425pt x 725.71124pt>
+<1.png, id=426, 2366.8425pt x 725.71124pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
-Package pdftex.def Info: 1.png  used on input line 1510.
+Package pdftex.def Info: 1.png  used on input line 1545.
 (pdftex.def)             Requested size: 284.52756pt x 87.23662pt.
-<2.png, id=432, 2381.89874pt x 734.745pt>
+<2.png, id=427, 2381.89874pt x 734.745pt>
 File: 2.png Graphic file (type png)
 <use 2.png>
-Package pdftex.def Info: 2.png  used on input line 1515.
+Package pdftex.def Info: 2.png  used on input line 1550.
 (pdftex.def)             Requested size: 284.52756pt x 87.76198pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<test0.png, id=433, 499.8675pt x 1102.1175pt>
+<test0.png, id=428, 499.8675pt x 1102.1175pt>
 File: test0.png Graphic file (type png)
 <use test0.png>
-Package pdftex.def Info: test0.png  used on input line 1546.
+Package pdftex.def Info: test0.png  used on input line 1581.
 (pdftex.def)             Requested size: 85.35826pt x 188.19833pt.
 [26 <./top_0.png> <./0.png> <./1.png>]
-<precesja.png, id=441, 6022.5pt x 1405.25pt>
+<precesja.png, id=436, 6022.5pt x 1405.25pt>
 File: precesja.png Graphic file (type png)
 <use precesja.png>
-Package pdftex.def Info: precesja.png  used on input line 1568.
+Package pdftex.def Info: precesja.png  used on input line 1603.
 (pdftex.def)             Requested size: 426.79134pt x 99.57832pt.
  [27 <./2.png> <./test0.png>]
-<Animation_pic.png, id=450, 4015.0pt x 7026.25pt>
+<Animation_pic.png, id=445, 4015.0pt x 7026.25pt>
 File: Animation_pic.png Graphic file (type png)
 <use Animation_pic.png>
-Package pdftex.def Info: Animation_pic.png  used on input line 1605.
+Package pdftex.def Info: Animation_pic.png  used on input line 1641.
 (pdftex.def)             Requested size: 398.33858pt x 697.09116pt.
 
 
-LaTeX Warning: Float too large for page by 8.1817pt on input line 1608.
+LaTeX Warning: Float too large for page by 8.1817pt on input line 1644.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28 <./precesja.png>] [29 <./Animation_pic.png>]
+
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [28 <./precesja.png>] [29] [30 <./Animation_pic.png>]
 Rozdzia\PlPrIeC {\l } 4.
-[30
+[31
 
 ] (mgrSzkic.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
-(rerunfilecheck)             Checksum: 4B7800699492FC446827DE6E20C9BB76;8030.
+(rerunfilecheck)             Checksum: 4668B440B4601EDE32950B7505DC2F68;7895.
  ) 
 Here is how much of TeX's memory you used:
- 11349 strings out of 478582
- 175124 string characters out of 2844345
- 488371 words of memory out of 3000000
- 29221 multiletter control sequences out of 15000+600000
+ 11348 strings out of 478582
+ 175097 string characters out of 2844345
+ 488367 words of memory out of 3000000
+ 29220 multiletter control sequences out of 15000+600000
  503213 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,63p,391b,411s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plmi.enc}{C:
-/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc}{C:/User
-s/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plms.enc}{C:/Users/Sku
-er/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plme.enc}{C:/Users/Skuer/Ap
-pData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plsc.enc}{C:/Users/Skuer/AppData
-/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plit.enc} <C:\Users\Skuer\AppData\Loc
-al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk>{C:/Users/Skuer/AppDat
+/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plrm.enc} <C:\Use
+rs\Skuer\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk>{C
+:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plms.enc}{C:/Use
+rs/Skuer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plme.enc}{C:/Users/Sk
+uer/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plsc.enc}{C:/Users/Skuer/A
+ppData/Local/Programs/MiKTeX/fonts/enc/dvips/pl/plit.enc}{C:/Users/Skuer/AppDat
 a/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-rm.enc}<C:/Users/Skuer/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Use
 rs/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm
@@ -829,9 +829,9 @@ b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr7.pfb>
 /Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb
 ><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr
 .pfb>
-Output written on mgrSzkic.pdf (34 pages, 5344042 bytes).
+Output written on mgrSzkic.pdf (35 pages, 5348562 bytes).
 PDF statistics:
- 585 PDF objects out of 1000 (max. 8388607)
+ 584 PDF objects out of 1000 (max. 8388607)
  121 named destinations out of 1000 (max. 500000)
- 409 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 

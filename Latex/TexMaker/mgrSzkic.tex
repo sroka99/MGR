@@ -52,7 +52,7 @@ Szymon Sroka} % Wpisz swoje imię i nazwisko
 Kwaterniony, obroty i animacje komputerowe} % Wpisz tytuł swojej pracy po polsku
 %
 \newcommand{\engtitle}{\fontfamily{qhv}\fontshape{sf}\selectfont\LARGE\bfseries
-Selected theorems on linear capacity of matrix sets} %  Wpisz tytuł swojej pracy po angielsku
+Quaternions, rotations, and computer animations} %  Wpisz tytuł swojej pracy po angielsku
 %
 \newcommand{\level}{\fontfamily{qhv}\fontshape{sf}\selectfont\large
 magisterska} % Wybierz odpowiednie określenie
@@ -146,7 +146,41 @@ kierunkiem
 % Początek pracy
 \pagenumbering{arabic}
 \chapter*{Wstęp}
-•
+Kwaterniony to struktura algebraiczna wprowadzona przez irlandzkiego matematyka Williama Hamiltona w 
+roku $1843$. Zostały one chłodno przyjęte przez ówczesny matematyków. Powodem tego była
+abstrakcyjność liczb czterowymiarowych. Celem pracy jest przedstawienie zastosowania kwaternionów
+w grafice komputerowej, w szczególności w modelowaniu ruchu modelu.  
+
+W tej pracy zaczniemy od przedstawienia definicje kwaternionów, udowodnienia ich własności 
+oraz zdefiniujemy najpopularniejsze postacie kwaternionów.
+
+W drugim rozdziale skupimy się na obrotach obiektów w przestrzeni dwu i trój wymiarowej.
+Zaczniemy od przedstawienia obrotu na płaszczyźnie, przypomnimy przejście z współrzędnych 
+kartezjańskich na współrzędne biegunowe. Następnie zdefiniujemy macierz obrotu
+oraz macierz odbicia. Udowodnimy twierdzenie mówiące o tym, że każda macierz 
+ortogonalna o wyznaczniku równym $1$ jest tak naprawdę macierzą obrotu o pewien kąt.
+Następnie przedstawię przykład działania macierzy obrotu i macierzy rotacji.
+Na końcu tego podrozdziału przedstawię interpretacje obrotu jako pomnożenia punktu przez
+liczbę zespoloną.
+
+Podrozdział pt. ,,Obrót w przestrzeni w trójwymiarowej" zaczniemy od określenia kierunku obrotu
+oraz przypomnienia zasady prawej. Kolejno przejdziemy do rozszerzenia definicji macierzy obrotu
+na przestrzeń trój wymiarową. Na końcu podrozdziału przedstawimy interpretacje obrotu 
+jako wynik mnożenia punktu przez kwaternion o module równym jeden.
+
+Rozdział trzeci skupia się na praktycznym zastosowaniu obu modeli.
+W pierwszym podrozdziale skupiam się na przedstawieniu implementacji 
+obrotu przy użyciu macierzy jak i kwaternionów w języku Python.
+Drugi podrozdział pt. ,,wydajność" skupia się na wykonaniu surowych testów wydajności i
+porównaniu obu modeli ze sobą. W tym celu będziemy obracać $550$ tyś. punktów, które mają
+imitować model ,,Aloy" głownej bohaterki gry Horizont: Zero Down.
+W trzecim podrozdziale skupimy się na za modelowaniu bączka, 
+którego będziemy chcieli wprowadzić w ruch w ramach animacji. Model bączka również zostanie
+wygenerowany za pomocą jezyka Python. 
+Skończymy rozdział na za modelowaniu ruchu, bączka zarówno przy użyciu kwaternionów jak 
+i macierzy.
+             
+
 \chapter*{Podstawowe informacje}
 \begin{defi}{Algebra nad ciałem}\label{defAlgebry}
 Niech $X$ będzie przestrzenią liniową nad ciałem $\mathbb{F}$. Jeśli dane jest działanie dwuargumentowe 
@@ -889,7 +923,7 @@ Korzystając z powszechnie znanego wzoru Eulera, obrót na płaszczyźnie
 o kąt równy $\psi$ możemy interpretować jako pomnożenie przez $e^{i\psi}$.
 Podsumowując, obrót punktu na płaszczyźnie możemy interpretować jako mnożenie liczb zespolonych.
 
-\section{Obrót w przestrzeni w r3}
+\section{Obrót w przestrzeni w trójwymiarowej}
 
 W tym rozdziale skupimy się na opisie obrotu w
 przestrzeni $\mathbb{R}^3$. 
@@ -1249,8 +1283,9 @@ Niech $q$ będzie kwaternionem jednostkowym w postaci $q=c+su$, gdzie $|u| = 1$,
 oraz $s=sin\theta$ dla $\theta\in[0,\pi]$. Wówczas odwzorowanie 
 $T_q : \mathbb{R}^3\rightarrow \mathbb{R}^3$ zdefiniowane wzorem $T_q(v) = qvq^{-1}$ 
 obraca punkt $v$ względem osi $u$ 
-o kąt równy  $2\theta$ w kierunku przeciwnym do ruchu wskazówek zegara.
+o kąt równy  $2\theta$ zgodnie z zasadą prawej ręki.
 \end{twr}
+$T_q(u) = (c+su)u(s-cu) = $
 \chapter{Zastosowanie}
 \section{Implementacja obrotu w języku Python}
 \subsection{Kwaterniony- Python}
@@ -1319,22 +1354,22 @@ listę złożoną z dwóch elementów, gdzie pierwszym z nich jest nie zmieniona
 przez funkcje, drugim natomiast jest przyjęta lista, której elementy mają zmieniony znak. W ten sposób
 udało nam się przedstawić sprzężenie.
 
-W ten sposób mamy już wszystkie składowe potrzebne do napisania funkcji $rotation_quaterion()$ mamy już gotowe.
+W ten sposób mamy już wszystkie składowe potrzebne do napisania funkcji $rotationquaterion()$ mamy już gotowe.
 Funkcja ta będzie przyjmowała trzy zmienne
 \begin{itemize}
 \item[$\bullet$] $angle$ zmienną typu ,,float",
-\item[$\bullet$] $rotation_axis$ zmienna typu ,,list" rozmiaru $3$,
+\item[$\bullet$] $rotation\_axis$ zmienna typu ,,list" rozmiaru $3$,
 \item[$\bullet$] $element$ zmienna typu ,,list" rozmiaru $3$.
 \end{itemize}  
-Zmienna $angle$ jest kątem obrotu, $rotation_axis$ wektor określający oś obrotu, 
+Zmienna $angle$ jest kątem obrotu, $rotation\_axis$ wektor określający oś obrotu, 
 z kolei $element$ jest punktem przestrzeni $\mathbb{R}^3$ który chcemy
 obrócić. Wewnątrz definicji funkcji zaczynamy od przekształcenia zmiennych $angle$ i 
-$rotation_axis$ na kwaternion tym razem postaci trygonometrycznej.
+$rotation\_axis$ na kwaternion tym razem postaci trygonometrycznej.
 Następnie obliczamy kwaternion odwrotny do podanego w zmiennych przy pomocy $conjugateQuaternion()$. Kolejno
 przy pomocy $multiQuaternion()$ w odpowiedni dokonujemy mnożenia podanych 
 podanych kwaternionów, przez co w efekcie otrzymujemy obrócony $element$, który jest zwracany w przez funkcje.
 Opisana powyżej definicja funkcji jest najszybsza i zostanie ona użyta w benchmarku w kolejnym rozdziale,
-jednak posiada ona pewną wadę. Podany przez nas $rotation_axis$ musi być kwaternionem o długości równej $1$.
+jednak posiada ona pewną wadę. Podany przez nas $rotation\_axis$ musi być kwaternionem o długości równej $1$.
 Dlatego zdefiniujemy dodatkową funkcje obliczającą obrót, która będzie dokonywała normalizacji wektora
 odpowiadającego osi obrotu.
 W tym celu napiszemy funkcje $NormalizeVector()$, która jako argument będzie przyjmowała wektor
@@ -1352,7 +1387,7 @@ W celu zaprogramowania obrotu zdefiniowałem pięć nowych funkcji, o nazwach
 \item[$\bullet$] $yaxisMatrixrotation()$,
 \item[$\bullet$] $zaxisMatrixrotation()$,
 \item[$\bullet$] $rotationMatrixZYX()$,
-\item[$\bullet$] $matrixRotation()$.
+\item[$\bullet$] $RotationbyMatrix()$.
 \end{itemize} 
 Omówmy teraz sposób działania powyższych funkcji. Funkcje $xaxisMatrixrotation()$,\\
 $yaxisMatrixrotation()$,
@@ -1360,16 +1395,16 @@ $zaxisMatrixrotation()$ jako przyjmują jeden argument typu $float$, a zwracają
 argumentowi odpowiednio wokół osi $x,y$ oraz $z$. Są to funkcje bazowe, wywołujemy je w wewnątrz definicji
 $rotationMatrixZYX()$, gdzie za pomocą funkcji $matmul()$ dokonujemy ich mnożenia. Funkcja ta przyjmuje trzy argumenty
 typu $float$ oznaczmy je jako $\psi,\phi,\theta$, zwraca natomiast macierz obrotu względem kąta eulera $(\psi,\phi,\theta)$.
-Ostatnia funkcja $MatrixRotation()$, przyjmuje dwa argumenty, pierwszym z nich jest macierz, natomiast drugim argumentem 
+Ostatnia funkcja $RotationbyMatrix()$, przyjmuje dwa argumenty, pierwszym z nich jest macierz, natomiast drugim argumentem 
 punkt. Macierz wykorzystuje $matmul()$ do przemnożenia argumentów miedzy sobą, a wynik tego mnożenia jest zwracany.
 
 Założenia algorytmu obrotu są proste, $rotationMatrixZYX()$ wykorzystuje funkcje\\
 $xaxisMatrixrotation()$, $yaxisMatrixrotation()$, $zaxisMatrixrotation()$ do obliczenia 
-macierzy obrotu dla podanego przez nas kąta eulera. Wygenerowana w ten sposób macierz służy jako argument
-dla funkcji $MatrixRotation()$, która dokonuje na drugim argumencie dokonuje obrotu co jest zwracane przez nią.
-
+macierzy obrotu dla podanego przez nas kąta eulera. Wygenerowana w ten sposób macierz służy jako
+pierwszy argument
+funkcji $RotationbyMatrix()$. Drugim argumentem jest punkt, który chcemy obrócić przy użyciu
+pierwszej zmiennej.  
 Mamy zatem zdefiniowane mnożenie, pozostaje jeszcze zdefiniować funkcje 
-\subsection{Kwaternionowy model obrotu}
 \section{Wydajność}
 W celu porównania ze sobą metody obu metod obrotu wykonamy test, dzięki któremu porównamy ich wydajność ze sobą. Zacznijmy od nadania testowi pewnego kontekstu.
 
@@ -1589,10 +1624,11 @@ Zbiory z jakich będziemy wyciągać wartości przedstawiają się w następują
 \begin{itemize}
 \item[$\bullet$] $axisAngle = [0,32\pi]$,
 \item[$\bullet$] $radius = \left[0,\frac{1}{4}\right]$,
-\item[$\bullet$] $speedValue = $ .
+\item[$\bullet$] $speedValue = [\frac{\pi}{8},2\pi]  $ .
 \end{itemize}
 Z każdego zbioru wyciągamy po $500$ równo odległych elementów i wykorzystamy do tego wcześniej używaną funkcje 
-$linspace()$. Wartość ze zbioru $speedValue$ użyjemy jako zmiennej $speed$, do zmiennej 
+$linspace()$. Wartości ze zbioru $speedValue$ jako jedyne wyciągniemy w kolejności malejącej.
+Użyjemy je jako zmienną $speed$, do zmiennej 
 $axis\_rotation$ wprowadzamy listę postaci 
 $[r\cos(angle),r\sin(angle),\sqrt{1-r}]$, gdzie $r$ jest elementem ze zbioru $radius$, a $angle$ należy do
 zbioru $axisAngle$. Do generowania obrazów wykorzystamy pętle $while$, z warunkiem $time < 500$.
@@ -1608,6 +1644,29 @@ Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
 \end{figure}
 
 \subsection{Animacja w przy użyciu obrotu macierzowego}
-
+Spróbujemy teraz przygotować identyczną animacje, jednak przy użyciu macierzy obrotu.
+Tak jak wcześniej, utworzymy dwie macierze obrotu odpowiadające za dwie osobne rotacje.
+Pierwsza z nich nie stanowi problemu, jest to po prostu macierz obrotu względem osi $z$, 
+o pewien kąt. Problemem jest za symulowania opadania bączka. W przypadku obrotu
+przy użyciu kwaternionów problem taki nie występował. Musimy zatem znaleźć odpowiedni kąt eulera dla każdej klatki i za jego pomocą wygenerować macierz obrotu.  
+W naszym przypadku kąt Eulera będzie postaci 
+$(0,r\sin(x),r\cos(x))$, gdzie x będzie należał do przedziału $[0,32\pi]$ oraz 
+$r \in \left[0,\frac{1}{2}\right]$. 
+Funkcja jaka posłuży nam do utworzenia animacji to $spin3dMatrixRotation()$, która przyjmuje 
+trzy następujące zmienne zmienne
+\begin{itemize}
+\item[$\bullet$] $speed$ zmienna typu ,,float",
+\item[$\bullet$] $euler\_angle = \left[0,\frac{1}{4}\right]$ trze elementowa zmienna typu ,,list",
+\item[$\bullet$] $time$ zmienna typu ,,int".
+\end{itemize}
+Tak jak wcześniej zmienna $speed$, odpowiada za kąt obrotu względem osi $z$, 
+$euler\_angle$ to trójka z której tworzymy macierz obrotu. Pierwszy element z listy odpowiada
+kąt obrotu względem osi $z$, drugi względem osi $y$, a ostatni element odpowiada za kąt obrotu
+względem osi $z$.  Zmienna $time$ tak jak wcześniej odpowiada tylko za odpowiednie nazwanie wygenerowanego obrazka. Sposób działania $spin3dMatrixRotation()$ jest analogiczny do $spin3d()$,
+tylko zamiast kwaternionów wykorzystujemy macierze obrotu.
+Przy użyciu $spin3dMatrixRotation()$ wygenerujemy $500$ klatek obrazu, które
+przedstawimy w formie animacji o częstotliwości $50$ klatek na sekundę.
+Tak jak wcześniej wykorzystamy do tego pakiet $imageio$.
+Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
 \chapter{Literatura}
 \end{document}
