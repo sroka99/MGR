@@ -181,25 +181,7 @@ Skończymy rozdział na za modelowaniu ruchu, bączka zarówno przy użyciu kwat
 i macierzy.
              
 
-\chapter*{Podstawowe informacje}
-\begin{defi}{Algebra nad ciałem}\label{defAlgebry}
-Niech $X$ będzie przestrzenią liniową nad ciałem $\mathbb{F}$. Jeśli dane jest działanie dwuargumentowe 
-$X\times X \rightarrow X$ mnożenia wektorów, które dla dowolnych $x,y,z\in X$ oraz $a\in\mathbb{F}$ spełnia poniższe warunki:
-\begin{enumerate}
-\item Lewostronna rozdzielności względem dodawania wektorów, tzn.
-$$(x+y)z=xz+yz,$$
-\item Prawostronna rozdzielności względem dodawania wektorów, tzn.
-$$x(y+z)=xy+xz.$$
-\item Zgodności z działaniem mnożenia przez skalary, tzn.
-$$a(xy)=(ax)y=x(ay),$$
-\end{enumerate}
-to $X$ z tak wprowadzonym działaniem algebraicznym nazywamy algebrą nad ciałem $\mathbb{F}$.
-\end{defi} 
 
-\begin{defi}
-Odwzorowanie
-$\|\cdot \|$ nazywamy normą na przestrzeni $X$
-\end{defi}
 
 \chapter{Algebra czterowymiarowa kwaternionów}
 Weźmy przestrzeń wektorową czterowymiarową nad dowolnym ciałem $\mathbb{F}$.
@@ -772,7 +754,7 @@ obrotu o pewien kąt w przestrzeni $\mathbb{R}^n$. Skupimy się teraz na dowodzi
 w następnym rozdziale po przedstawieniu macierzy obrotu dla przestrzeni $R^3$, 
 popełnimy dowód dla $n=3$.
 \begin{twr}\label{rotationMatrixSO(2)}
-Niech $A\in\textup{SO}(2)$. Wówczas $A$ jest macierzą obrotu na płaszczyźnie liczb rzeczywistych.
+Niech $A\in\textup{SO}(2)$. Wówczas $A$ jest macierzą obrotu na płaszczyźnie $\mathbb{R}^2$.
 \end{twr}
 \begin{dowod}
 Niech $A=[a_{ij}]$ będzie dowolną macierzą ze zbioru SO($2$).
@@ -1773,21 +1755,88 @@ trzy następujące zmienne zmienne
 Tak jak wcześniej zmienna $speed$, odpowiada za kąt obrotu względem osi $z$, 
 $euler\_angle$ to trójka z której tworzymy macierz obrotu. Pierwszy element z listy odpowiada
 kąt obrotu względem osi $z$, drugi względem osi $y$, a ostatni element odpowiada za kąt obrotu
-względem osi $z$.  Zmienna $time$ tak jak wcześniej odpowiada tylko za odpowiednie nazwanie wygenerowanego obrazka. Sposób działania $spin3dMatrixRotation()$ jest analogiczny do $spin3d()$,
+względem osi $z$.  Zmienna $time$ tak jak wcześniej odpowiada tylko za odpowiednie nazwanie 
+wygenerowanego obrazka. Sposób działania $spin3dMatrixRotation()$ jest analogiczny do $spin3d()$,
 tylko zamiast kwaternionów wykorzystujemy macierze obrotu.
 Przy użyciu $spin3dMatrixRotation()$ wygenerujemy $500$ klatek obrazu, które
 przedstawimy w formie animacji o częstotliwości $50$ klatek na sekundę.
 Tak jak wcześniej wykorzystamy do tego pakiet $imageio$.
 Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
 \newpage
+$\left. \right. $
+\begin{figure}
 
-\begin{figure}[h]
 \begin{center}
 \includegraphics[width=13 cm]{MergedMatrix.png}
 \caption{Klatki oznaczone numerami (od lewej): $0,49,99,149,199,249,299,349,399$ oraz $449$}
 \end{center}
-\end{figure}
-\subsection{Kompromis między dwoma metodami}
 
+\end{figure}
+$\left. \right. $
+\newpage
+\subsection{Kompromis między metodami}
+We wcześniejszych rozdziałach udało nam się za modelować ruch bączka z użyciem 
+kwaternionowego i macierzowego modelu obrotu. Łatwo mogliśmy wtedy zauważyć, że znacznie wygodniejsze
+jest użycie kwaternionów do wygenerowania obrotu. Powodem tego jest przede wszystkim czytelność,
+oś i kąt obrotu podajemy sami odpowiednio w części wektorowej i skalarnej kwaternionu, który ma posłużyć 
+do obrotu. W przypadku modelu macierzowego oś tworzona jest za sprawą obrotów głównych osi. Utrudnia to 
+określenia ostatecznej osi obrotu i jej kąta. Ustaliśmy w podrozdziale ,,Wydajność", że obrót
+z użyciem kwaternionów jest szybszy, oprócz sytuacji gdzie generujemy odpowiednią mała liczbę
+macierzy obrotu. W tym podrozdziale skupimy się na utworzeniu macierzy przejścia z podanego 
+przez nas kwaternionu.
+
+Macierz ortogonalna odpowiadająca obrotowi, jaki uzyskalibyśmy z użyciem kwaternionu jednostkowego $a+bi+cj+dk$ jest postaci
+$$\begin{bmatrix}
+a^2+b^2 -c^2-d^2 & 2(bc-ad) & 2(bd+ac)\\
+2(bc+ad) & a^2-b^2 +c^2-d^2 & 2(cd+ab)\\
+2(bd-ac) & 2(cd+ab) & a^2-b^2 -c^2+d^2
+\end{bmatrix}$$
+
+Z tą wiedzą przejdźmy do zbudowania funkcji, która przyjmie kwaterniony jako argumenty, ale
+do obrotu wykorzysta powyższą macierz obrotu. Funkcja $rotationMatrixFromQuaternion()$
+będzie przyjmować dwa argumenty. Pierwszym z nich będzie $angle$ typu ,,float", 
+drugim $rotation_axis$ typu ,,list". Funkcja zaczyna od znormalizowania 
+$rotation_axis$, następnie oblicza współczynniki kwaternionu. Ostatnim krokiem jest wygenerowanie macierzy obrotu, która jest zwracana.
+  
+
+Możemy teraz przejść do napisania funkcji, która posłuży nam do za modelowania ruchu bączka   
+z użyciem funkcji $rotationMatrixFromQuaternion()$. Funkcja  
+$spin3dMatrixRotationFromQuaternion()$ przyjmuje te same wartości oraz działa w ten sam sposób do 
+momentu obliczenia produktu kwaternionów służących do obrotu co $spin3dOptimized()$.
+Pierwsze różnice pojawiają się właśnie po wspomnianym wcześniej produkcie, służy on do wygenerowania
+macierzy obrotu przy użyciu funkcji $rotationMatrixFromQuaternion()$. Wygenerowana w ten sposób macierz
+jest wstawiana jako pierwszy argument funkcji $RotationbyMatrix()$, która obraca punkt podany w jej 
+drugim argumencie. Proces generowania obrazka jest identyczny jak w pozostałych funkach.
+
+\subsection*{Podsumowanie}
+Teoretycznie, w przypadku obrotu wszystkich punktów względem jednej osi o dokładnie ten sam kąt, to 
+model macierzowy powinien okazać się najbardziej wydajniejszy od modelu kwaternionowego, jednakże 
+podczas kilkukrotnego generowania obrazków, nie zauważyłem różnicy między stworzonymi modelami.
+Wynika to z faktu, że sam obrót $2001$ punktów przy obecnej mocy obliczeniowej komputerów
+jest około $1.3$ sekundy z użyciem macierzy oraz $1.5$ sekundy w przypadku użycia kwaternionów.
+Wygenerowanie pojedynczej klatki obrazu trwa około $0.5$ sekundy, jednak czas ten nie jest stały i 
+zawiera spore odchylenia. Zaobserwowałem przypadki, gdzie pojedyncza klatka potrafiła generować się
+nawet $10$ sekund niezależnie od wybranej metody.
+
+Model macierzowy w przypadku modelowania obrotu bączka jest teoretycznie szybszy, jednak model
+kwaternionowy jest czytelniejszy. W konkretnym przypadku najlepszym sposobem na 
+za modelowanie ruchu bączka, jest zdecydowanie się wykorzystanie macierzowego modelu obrotu,
+tylko zamiast skorzystać kąta Eulera w celu wygenerowania macierzy obrotu wykorzystać 
+zapis kwaternionowy obrotu. Wykorzystujemy wtedy największe plusy obu modeli.
+
+Pamiętajmy jednak, że wygenerowanie macierzy obrotu jest bardzo czasochłonnym procesem.
+W przypadku sytuacji, kiedy chcemy obrócić dużą liczbę punktów o różne kąty, zdecydowanie lepszym modelem okaże się model kwaternionowy.
+  
+\chapter{Podsumowanie}
+W tej pracy skupiliśmy się na matematycznych modelach obrotu zarówno na płaszczyźnie jak i przestrzeni trójwymiarowej. Przedstawiliśmy macierzowy model obrotu na płaszczyźnie $\mathbb{R}^2$,a następnie
+rozszerzyliśmy model na przestrzeń $\mathbb{R}^3$. Kolejnym krokiem był przedstawienie, alternatywnego
+modelu obrotu, z użyciem kwaternionów, konstrukcji wprowadzonej w XIX wieku przez irlandzkiego matematyka Williama Hamiltona.
+W pracy udało nam się porównać szybkość obu modeli w syntetycznym teście, w którym
+obracaliśmy $550$ tyś punktów. Z testu wyszło, że model kwaternionowy jest modelem uniwersalniejszym.
+Następnym krokiem było przygotowanie modelu bączka oraz za modelowanie jego ruchu, ostateczny model
+składał się z $6$ tyś. wielokątów. Ruch bączka za symulowaliśmy z użyciem 
+kwaternionowego jak i macierzowego modelu obrotu. Udało nam się z nich wywnioskować, że model
+macierzowy mimo tego, że jest modelem szybszym w tym konkretny przypadku to jest jednocześnie bardzo nieczytelny. Z tego względu napisałem funkcje, która dokonywała transformacji kwaternionu, na macierz obrotu. W ten sposób, udało się przygotować funkcje, która łączyła największe plusy obu modeli. 
+ 
 \chapter{Literatura}
 \end{document}
