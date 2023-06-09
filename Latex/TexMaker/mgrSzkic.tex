@@ -449,6 +449,17 @@ $$|q_1q_2|e =\sqrt{\mathcal{N}(q_1q_2)e}= \sqrt{q_1q_2\overline{q_1q_2}}=
 \sqrt{q_1q_2\overline{q_2}\hspace{1mm}\overline{q_1}} = 
 \sqrt{\mathcal{N}(q_1)e\hspace{1mm}\mathcal{N}(q_2)e}=|q_1||q_2|.$$
 \end{dowod}
+Powyższy wniosek możemy przenieść na normę kwaternionu.
+\begin{wni}
+Niech $q_1q_2\in\mathcal{H}(\mathbb{F})$. Wówczas
+$\mathcal{N}(q_1q_2)=\mathcal{N}(q_1)\mathcal{N}(q_2).$
+\end{wni}
+\begin{dowod}
+Z powyższego wniosku wiemy, że zachodzi równość $|q_1q_2| =|q_1||q_2|$,
+dodatkowo pamiętajmy o tym, że dla dowolnego kwaternionu $q$ zachodzi równość 
+$\mathcal{N}(q) =|q|^2$. W takim razie 
+$$\mathcal{N}(q_1q_2) =|q_1q_2|^2 = |q_1|^2|q_2|^2 = \mathcal{N}(q_1)\mathcal{N}(q_2). $$   
+\end{dowod}
 Mając zdefiniowaną normę oraz sprzężenie kwaternionu, możemy w końcu zdefiniować kwaternion odwrotny.
 
 \begin{defi}
@@ -1680,7 +1691,69 @@ Na następnej stronie zamieszczam $10$ klatek obrazu, które wchodzą w skład a
 
 \end{figure}
 \newpage
-$\left.\right.$
+\subsection{Optymalizacja}
+Łatwo zauważyć, że obrót wykonywany w powyższy powinno dać się zoptymalizować.
+W końcu w najpierw obracamy punkt względem osi $z$, a następnie już obrócony punkt  
+obracamy ponownie tym raz względem podanej przez nas osi. W tym podrozdziale 
+podamy twierdzenie, które umożliwi nam znalezienie nowej osi obrotu oraz  
+zoptymalizujemy funkcje $spin3d()$.
+
+Każdy z końcowych punktów, który służą do narysowania bączka możemy przedstawić w postaci
+$$x_\Delta = q_1q_2 x q_2^{-1}q_1^{-1},$$
+gdzie $x$ oryginalnym punktem bączkom, $q_1$ jest kwaternionem odpowiadającym za obrót
+względem osi $z$, natomiast $q_2$ jest kwaternionem odpowiadającym za obrót
+względem podanej przez nas osi.
+Zauważmy, że jeśli  zachodziła by równość $(q_1q_2)^{-1} =g_2^{-1}q_1^{-1}$,
+to
+$$x_\Delta = q x q^{-1},$$
+gdzie $q = q_1q_2$. W takim wypadku $q$ będzie kwaternionem, który odpowiada za połączone 
+obroty. Przejdźmy w takim razie do udowodnienia powyższej równości.
+\begin{twr}
+Niech $q_1,q_2 \in\mathcal{H}_n(\mathbb{F})$, które posiadają kwaternion odwrotny.
+Wtedy
+$$(q_1q_2)^{-1} = q_2^{-1}q_1^{-1}.$$
+\end{twr}
+\begin{dowod}
+By udowodnić twierdzenie skorzystamy z wniosków do twierdzenia \ref{SprzężenieWłasności}.
+Wtedy otrzymujemy
+$$(q_1q_2)^{-1} = \frac{\overline{q_1q_2}}{\mathcal{N}(q_1q_2)}=
+\frac{\overline{q_2}\hspace{1mm}\overline{q_1}}{\mathcal{N}(q_2)\mathcal{N}(q_1)} = 
+q_2^{-1}q_1^{-1}.$$
+\end{dowod}
+Możemy teraz przejść do optymalizacji $spin3d()$.
+
+Utwórzmy funkcje $spin3dOptimized()$, która będzie przyjmowała te same argumenty co
+oryginalna funkcja $spin3d()$. W tej funkcji w odróżnieniu od $spin3d()$, 
+przy użyciu zmiennych  $speed$, $angle$ oraz $axis\_rotation$ konstruujemy dwa 
+nowe kwaterniony, które odpowiadają za obroty względem osi $z$ oraz osi podanej w zmiennej
+$axis\_rotation$. Następnie przy pomocy $multiQuaternion()$ dokonujemy ich mnożenia. Uzyskany w
+ten sposób produkt, wykorzystamy w ramach rotacji punktów, które tworzą bączek.
+
+
+Musimy teraz zdefiniować funkcje, która dokona obrotu punktu. Funkcja 
+$rotationquaterionChaged()$ przyjmuje cztery zmienne, kolejno:
+\begin{itemize}
+\item[$\bullet$] $scalar$ zmienną typu ,,float",
+\item[$\bullet$] $rotation\_axis$ zmienna typu ,,list" rozmiaru $3$,
+\item[$\bullet$] $element$ zmienna typu ,,list" rozmiaru $3$.
+\end{itemize}
+Do zmiennej $scalar$ wprowadzamy część skalarną uzyskanego produktu, natomiast część
+wektorową przypisujemy do $rotation\_axis$. Do zmiennej $element$ będziemy podawać 
+punkt, który chcemy obrócić. Funkcja oblicza kwaternion odwrotny do podanego.
+Następnie dokonujemy mnożenia podanego kwaternionu przez $element$, a 
+produkt tego działania jest również mnożony tym razem przez sprzężenie.
+Wynik tych działań jest zwracany przez funkcje.
+
+
+Wróćmy teraz do konstrukcji funkcji $spin3dOptimized()$, 
+zdefiniowany przez nas wcześniej produkt kwaternionów wykorzystamy jako dwa pierwsze argumenty
+funkcji $rotationquaterionChaged()$. Trzecim argumentem będzie obracany punkt, analogicznie jak
+w przypadku funkcji $spin3d()$.
+
+Zdefiniowana skonstruowana w ten sposób funkcja wykonuje $2$ razy mniej obrotów,
+powinna być zatem znacząco szybsza od oryginalnej funkcji.   
+    
+ 	
 \subsection{Animacja w przy użyciu obrotu macierzowego}
 Spróbujemy teraz przygotować identyczną animacje, jednak przy użyciu macierzy obrotu.
 Tak jak wcześniej, utworzymy dwie macierze obrotu odpowiadające za dwie osobne rotacje.
@@ -1714,6 +1787,7 @@ Poniżej zamieszczam $10$ klatek obrazu, które wchodzą w skład animacji.
 \caption{Klatki oznaczone numerami (od lewej): $0,49,99,149,199,249,299,349,399$ oraz $449$}
 \end{center}
 \end{figure}
+\subsection{Kompromis między dwoma metodami}
 
 \chapter{Literatura}
 \end{document}
