@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  9 JUN 2023 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.7)  10 JUN 2023 19:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -805,20 +805,17 @@ OML/plm/m/it/10.95 rotation[]xis$
  []
 
 
-Overfull \hbox (64.09341pt too wide) in paragraph at lines 1802--1810
-\OT4/cmr/m/n/10.95 ka z u»y-ciem funk-cji $\OML/plm/m/it/10.95 rotationMatrixFr
-omQuaternion\OT4/cmr/m/n/10.95 ()$. Funk-cja $\OML/plm/m/it/10.95 spin\OT4/cmr/
-m/n/10.95 3\OML/plm/m/it/10.95 dMatrixRotationFromQuaternion\OT4/cmr/m/n/10.95 
-()$
+Overfull \hbox (9.38522pt too wide) in paragraph at lines 1802--1810
+\OT4/cmr/m/n/10.95 spo-sób do mo-men-tu ob-li-cze-nia pro-duk-tu kwa-ter-nio-nó
+w sªu-»¡-cych do ob-ro-tu co $\OML/plm/m/it/10.95 spin\OT4/cmr/m/n/10.95 3\OML/
+plm/m/it/10.95 dOptimized\OT4/cmr/m/n/10.95 ()$.
  []
 
 [33]
 Rozdzia\PlPrIeC {\l } 4.
 [34
 
-]
-Rozdzia\PlPrIeC {\l } 5.
-[35
+] [35
 
 ] (mgrSzkic.aux)
 
@@ -828,13 +825,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `mgrSzkic.out' has not changed.
-(rerunfilecheck)             Checksum: 75BC37827C16C7B71190E97E7E50283F;8435.
+(rerunfilecheck)             Checksum: 7312F582F5D5781CD8286DB2698FE613;8446.
  ) 
 Here is how much of TeX's memory you used:
- 11362 strings out of 478582
- 175370 string characters out of 2844345
- 488347 words of memory out of 3000000
- 29229 multiletter control sequences out of 15000+600000
+ 11365 strings out of 478582
+ 175406 string characters out of 2844345
+ 489404 words of memory out of 3000000
+ 29231 multiletter control sequences out of 15000+600000
  503213 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,20n,63p,402b,405s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -866,9 +863,9 @@ b><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/pl/plr7.pfb>
 /Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb
 ><C:/Users/Skuer/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr
 .pfb>
-Output written on mgrSzkic.pdf (39 pages, 7520176 bytes).
+Output written on mgrSzkic.pdf (39 pages, 7521605 bytes).
 PDF statistics:
- 617 PDF objects out of 1000 (max. 8388607)
- 125 named destinations out of 1000 (max. 500000)
+ 619 PDF objects out of 1000 (max. 8388607)
+ 126 named destinations out of 1000 (max. 500000)
  430 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1785,7 +1785,7 @@ z użyciem kwaternionów jest szybszy, oprócz sytuacji gdzie generujemy odpowie
 macierzy obrotu. W tym podrozdziale skupimy się na utworzeniu macierzy przejścia z podanego 
 przez nas kwaternionu.
 
-Macierz ortogonalna odpowiadająca obrotowi, jaki uzyskalibyśmy z użyciem kwaternionu jednostkowego $a+bi+cj+dk$ jest postaci
+Macierz ortogonalna odpowiadająca obrotowi, jaki uzyskalibyśmy z użyciem kwaternionu jednostkowego $a+bi+cj+dk$ jest postaci $[\ref{1biblio}]$
 $$\begin{bmatrix}
 a^2+b^2 -c^2-d^2 & 2(bc-ad) & 2(bd+ac)\\
 2(bc+ad) & a^2-b^2 +c^2-d^2 & 2(cd+ab)\\
@@ -1800,7 +1800,7 @@ $rotation_axis$, następnie oblicza współczynniki kwaternionu. Ostatnim krokie
   
 
 Możemy teraz przejść do napisania funkcji, która posłuży nam do za modelowania ruchu bączka   
-z użyciem funkcji $rotationMatrixFromQuaternion()$. Funkcja  
+z użyciem funkcji $rotationMatrixFromQuaternion()$. Funkcja\\  
 $spin3dMatrixRotationFromQuaternion()$ przyjmuje te same wartości oraz działa w ten sam sposób do 
 momentu obliczenia produktu kwaternionów służących do obrotu co $spin3dOptimized()$.
 Pierwsze różnice pojawiają się właśnie po wspomnianym wcześniej produkcie, służy on do wygenerowania
@@ -1838,5 +1838,12 @@ składał się z $6$ tyś. wielokątów. Ruch bączka za symulowaliśmy z użyci
 kwaternionowego jak i macierzowego modelu obrotu. Udało nam się z nich wywnioskować, że model
 macierzowy mimo tego, że jest modelem szybszym w tym konkretny przypadku to jest jednocześnie bardzo nieczytelny. Z tego względu napisałem funkcje, która dokonywała transformacji kwaternionu, na macierz obrotu. W ten sposób, udało się przygotować funkcje, która łączyła największe plusy obu modeli. 
  
-\chapter{Literatura}
+\begin{thebibliography}{9}
+
+\bibitem{lamport94}\label{1biblio}
+    Alan Watt, Mark Watt 
+  \emph{Advanced Animation and Rendering Techniques: Theory and Practice},
+  1992.
+
+\end{thebibliography}
 \end{document}

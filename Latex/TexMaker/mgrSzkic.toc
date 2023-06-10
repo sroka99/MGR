@@ -40,4 +40,4 @@
 \contentsline {subsection}{\numberline {3.4.4\relax .\enspace }Kompromis między metodami}{33}{subsection.3.4.4}%
 \contentsline {subsection}{Podsumowanie}{33}{subsection*.6}%
 \contentsline {chapter}{\numberline {4\relax .\enspace }Podsumowanie}{34}{chapter.4}%
-\contentsline {chapter}{\numberline {5\relax .\enspace }Literatura}{35}{chapter.5}%
+\contentsline {chapter}{Bibliografia}{35}{chapter*.7}%
